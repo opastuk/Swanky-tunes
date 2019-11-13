@@ -6,6 +6,9 @@ module.exports = {
     // eslint-disable-next-line no-use-before-define
     types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)));
   },
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/swanky-tunes-front/'
+    : '/',
 };
 
 function addStyleResource(rule) {
