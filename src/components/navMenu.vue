@@ -30,7 +30,7 @@
           <a class="main-navigation__link" href="#">Demo drop</a>
         </li>
         <li class="main-navigation__item">
-          <a class="main-navigation__link" href="#">Contacts</a>
+          <a class="main-navigation__link" href="../pages/Contacts.vue">Contacts</a>
         </li>
       </ul>
     </nav>

@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div class="container">
+      <h1 class="visually-hidden">Swanky Tunes</h1>
       <navMenu></navMenu>
       <mainLogo class="main-logo"></mainLogo>
       <footerMenu></footerMenu>
@@ -24,8 +25,7 @@ export default class Home extends Vue {
 <style scoped lang="less">
   .home {
     background-color: #000000;
-    width: 100%;
-    height: 100vh;
+    .fullscreen();
   }
   .container {
     @media (min-width: 768px) {

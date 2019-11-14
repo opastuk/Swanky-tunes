@@ -31,19 +31,20 @@ export default class mainLogo extends Vue {
       height: 420px;
       margin: 0 auto;
       position: relative;
+      overflow: hidden;
     }
     .main-logo__texture {
       width: 100%;
       height: auto;
       top: 0;
     }
-    /*.main-logo__flare {
+    .main-logo__flare {
       width: 90px;
       height: 520px;
       background-color: #ffffff;
       position: absolute;
       transform: rotate(20deg) translateY(-50%);
-      animation: timing 3s infinite;
+      animation: timing 2s infinite;
       top: 50%;
       left: -190px;
       z-index: 2;
@@ -53,7 +54,7 @@ export default class mainLogo extends Vue {
         left: 100%;
         margin-left: 1%;
       }
-    }*/
+    }
     .main-logo__img {
       position: absolute;
       top: 200px;
