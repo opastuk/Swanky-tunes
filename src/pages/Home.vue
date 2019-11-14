@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    Это главная
     <navMenu></navMenu>
   </div>
 </template>

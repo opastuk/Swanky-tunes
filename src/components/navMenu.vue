@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="main-navigation">будышь</nav>
+    <nav class="main-navigation"></nav>
   </div>
 </template>
 
