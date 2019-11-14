@@ -1,5 +1,25 @@
 <template>
-    <div></div>
+    <div>
+      <div class="demo">
+        <form class="form" action="#" method="get">
+          <label class="form__label visually-hidden" for="name">Name</label>
+          <input class="demo__input" type="text"
+                   id="name" name="name" placeholder="Name:" required>
+          <label class="form__label visually-hidden" for="email">Email</label>
+          <input class="demo__input" name="email" placeholder="Email:"
+                   type="email" id="email" required>
+          <label class="form__label visually-hidden" for="url">Music URL</label>
+          <input class="demo__input" name="url" placeholder="Music URL:"
+                   type="text" id="url" autocomplete="off" required>
+          <label class="form__label visually-hidden" for="comment">Comment</label>
+          <input class="demo__input" name="comment" placeholder="Comment:"
+                   type="text" id="comment">
+          <button class="form__button" type="submit">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
 </template>
 
 <script>
@@ -11,5 +31,54 @@ export default class demoForm extends Vue {
 </script>
 
 <style scoped lang="less">
-
+.demo {
+  width: 285px;
+}
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+.demo__input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 25px;
+  background-color: transparent;
+  border: 1px solid #000000;
+  font: inherit;
+}
+.demo__input::placeholder {
+  color: #000000;
+}
+.form__button {
+  width: 60px;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  text-align: center;
+}
+.form__button:focus {
+  outline: none;
+  border: none;
+}
+.form__button::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: #000000;
+  position: absolute;
+  bottom: 0;
+  left: 6px;
+}
+.form__button:focus::after,
+.form__button:hover::after {
+  content: "";
+  display: none;
+}
+@media (min-width: 768px) {
+  .demo {
+    width: 500px;
+  }
+}
 </style>

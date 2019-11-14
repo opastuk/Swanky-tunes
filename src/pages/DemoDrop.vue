@@ -1,5 +1,6 @@
 <template>
   <div class="demo-drop">
+    <demoForm></demoForm>
   </div>
 </template>
 
@@ -24,6 +25,7 @@ export default class Contacts extends Vue {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
     } /*ВРЕМЕННО*/
   }
 </style>
