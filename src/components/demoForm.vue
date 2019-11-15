@@ -7,7 +7,7 @@
                    id="name" name="name" placeholder="Name:" required>
           <label class="form__label visually-hidden" for="email">Email</label>
           <input class="demo__input" name="email" placeholder="Email:"
-                   type="email" id="email" required>
+                   type="email" id="email" autocomplete="off" required>
           <label class="form__label visually-hidden" for="url">Music URL</label>
           <input class="demo__input" name="url" placeholder="Music URL:"
                    type="text" id="url" autocomplete="off" required>
@@ -32,21 +32,29 @@ export default class demoForm extends Vue {
 
 <style scoped lang="less">
 .demo {
-  width: 285px;
+  width: 85%;
+  margin: 0 auto;
 }
 .form {
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
 }
 .demo__input {
+  box-sizing: border-box;
   width: 100%;
-  padding: 10px;
-  margin-bottom: 25px;
+  padding: 15px;
+  margin-bottom: 35px;
   background-color: transparent;
   border: 1px solid #000000;
-  font: inherit;
+  font-size: 20px;
+}
+.demo__input:focus,
+.demo__input:active {
+  outline: none;
+  border: 1px solid #9b9b9b;
 }
 .demo__input::placeholder {
   color: #000000;
@@ -56,7 +64,7 @@ export default class demoForm extends Vue {
   background-color: transparent;
   border: none;
   position: relative;
-  text-align: center;
+  font-size: 20px;
 }
 .form__button:focus {
   outline: none;
@@ -69,7 +77,7 @@ export default class demoForm extends Vue {
   background-color: #000000;
   position: absolute;
   bottom: 0;
-  left: 6px;
+  left: 9px;
 }
 .form__button:focus::after,
 .form__button:hover::after {
@@ -78,7 +86,7 @@ export default class demoForm extends Vue {
 }
 @media (min-width: 768px) {
   .demo {
-    width: 500px;
+    width: 580px;
   }
 }
 </style>

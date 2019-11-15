@@ -11,7 +11,6 @@
   color: #000000;
   font-size: 18px;
   line-height: 26px;
-
   min-width: 320px;
 }
 

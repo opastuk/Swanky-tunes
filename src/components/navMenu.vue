@@ -56,15 +56,12 @@ export default class NavMenu extends Vue {
     color: #ffffff;
   }
 @media (min-width: 768px) {
-  .main-navigation {
-    margin-bottom: 155px; /*временно*/
-  }
   .main-navigation__list {
     display: flex;
     justify-content: space-around;
   }
   .main-navigation__item {
-    padding: 40px 0;
+    padding-top: 40px;
   }
   .main-navigation__link {
     position: relative;

@@ -22,10 +22,7 @@ export default class Contacts extends Vue {
   }
   @media (min-width: 768px) {
     .demo-drop {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    } /*ВРЕМЕННО*/
+      .flex-layout();
+    }
   }
 </style>
