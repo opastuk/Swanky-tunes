@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div class="container home__wrapper">
+      <h1 class="visually-hidden">Swanky Tunes</h1>
       <navMenu></navMenu>
       <mainLogo class="main-logo"></mainLogo>
       <footerMenu></footerMenu>

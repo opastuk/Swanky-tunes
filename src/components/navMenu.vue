@@ -11,16 +11,16 @@
         <li class="main-navigation__item">
           <a class="main-navigation__link" href="#">Tour dates</a>
         </li>
-        <li class="main-navigation__item">
+        <li class="main-navigation__item main-navigation__item--dropdown">
           <a class="main-navigation__link" href="#">Radio show</a>
-            <ul class="sub-navigation__list" hidden>
+            <ul class="sub-navigation__list">
               <li class="sub-navigation__item">
-                <a class="sub-navigation__link" href="#">
+                <a class="sub-navigation__link" href="https://podcasts.apple.com/ru/podcast/swanky-tunes-showland-podcast/id923114101" target="_blank" rel="noopener">
                   <span class="visually-hidden">Mixcloud</span>
                 </a>
               </li>
               <li class="sub-navigation__item">
-                <a class="sub-navigation__link" href="#">
+                <a class="sub-navigation__link" href="https://www.mixcloud.com/swankytunes/" target="_blank" rel="noopener">
                   <span class="visually-hidden">Apple podcasts</span>
                 </a>
               </li>
@@ -79,7 +79,31 @@ export default class NavMenu extends Vue {
   }
   .main-navigation__link:hover::after,
   .main-navigation__link:focus::after {
-    width: 100%;
+     width: 100%;
+   }
+  .main-navigation__item--dropdown {
+    position: relative;
+  }
+  .sub-navigation__list {
+    .reset-list();
+    box-sizing: border-box;
+    border: 1px solid #ffffff;
+    padding: 15px;
+    width: 90px;
+    min-height: 125px;
+    position: absolute;
+    display: none;
+  }
+  .main-navigation__item--dropdown:hover .sub-navigation__list {
+    .flex-layout();
+    align-items: center;
+  }
+  .sub-navigation__link {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
   }
 }
 </style>
