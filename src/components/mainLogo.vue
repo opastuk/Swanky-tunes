@@ -4,9 +4,9 @@
      <div class="main-logo__background">
        <img class="main-logo__texture" src="../assets/img/logo-bg.png">
        <div class="main-logo__flare"></div>
-     </div>
-     <div class="main-logo__img-container">
-       <img class="main-logo__img" src="../assets/img/logo.png" alt="Swanky Tunes" width="760">
+       <div class="main-logo__img-container">
+         <img class="main-logo__img" src="../assets/img/logo.png" alt="Swanky Tunes" width="760">
+       </div>
      </div>
    </div>
  </div>
@@ -24,20 +24,18 @@ export default class mainLogo extends Vue {
   @media (min-width: 768px) {
     .main-logo {
       width: 100%;
-      margin-bottom: 250px; /*временно*/
     }
     .main-logo__background {
-      width: 748px;
-      height: 420px;
+      width: 750px;
+      height: 400px;
       margin: 0 auto;
       position: relative;
+      overflow: hidden;
     }
     .main-logo__texture {
       width: 100%;
-      height: auto;
-      top: 0;
     }
-    /*.main-logo__flare {
+    .main-logo__flare {
       width: 90px;
       height: 520px;
       background-color: #ffffff;
@@ -53,10 +51,10 @@ export default class mainLogo extends Vue {
         left: 100%;
         margin-left: 1%;
       }
-    }*/
+    }
     .main-logo__img {
       position: absolute;
-      top: 200px;
+      top: -100px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 3;

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="container">
+    <div class="container home__wrapper">
       <navMenu></navMenu>
       <mainLogo class="main-logo"></mainLogo>
       <footerMenu></footerMenu>
@@ -26,6 +26,10 @@ export default class Home extends Vue {
     background-color: #000000;
     width: 100%;
     height: 100vh;
+  }
+  .home__wrapper {
+    .flex-layout();
+    min-height: 550px;
   }
   .container {
     @media (min-width: 768px) {
