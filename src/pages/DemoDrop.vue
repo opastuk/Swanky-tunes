@@ -1,5 +1,6 @@
 <template>
   <div class="demo-drop">
+    <h1 class="visually-hidden">Demo drop</h1>
     <navMenu></navMenu>
     <demoForm></demoForm>
     <div class="footer-menu__wrapper">
@@ -33,9 +34,6 @@ export default class Contacts extends Vue {
     .footer-menu__wrapper {
       width: 90%;
       margin: 0 auto;
-    }
-    .footer-menu {
-      align-self: flex-start;
     }
   }
 </style>
