@@ -7,7 +7,7 @@ const init = async () => {
   });
   server.route({
     method: 'GET',
-    paths: '/music',
+    path: '/music',
     handler: (request, h) => ([
       {
         id: 1,

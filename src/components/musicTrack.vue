@@ -2,7 +2,7 @@
     <div>
       <div class="track">
         <div class="track-cover__wrapper">
-          <img class="track__cover" src="../assets/img/game-time.png" alt="Track cover">
+          <img class="track__cover" src=trackCard.poster alt="Track cover">
         </div>
         <div class="track__info">
           <p class="track__name">Game Time</p>
@@ -14,10 +14,11 @@
 </template>
 
 <script>
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class musicTrack extends Vue {
+  @Prop(Array) trackCard
 }
 </script>
 
