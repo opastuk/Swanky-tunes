@@ -18,7 +18,7 @@ import footerMenu from '@/components/footerMenu.vue';
 @Component({
   components: { demoForm, navMenu, footerMenu },
 })
-export default class Contacts extends Vue {
+export default class DemoDrop extends Vue {
 }
 </script>
 
@@ -30,10 +30,10 @@ export default class Contacts extends Vue {
   @media (min-width: 768px) {
     .demo-drop {
       .flex-layout();
+      min-height: 620px;
     }
     .footer-menu__wrapper {
-      width: 90%;
-      margin: 0 auto;
+      .flex-container();
     }
   }
 </style>

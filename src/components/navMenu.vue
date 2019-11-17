@@ -56,9 +56,8 @@ export default class NavMenu extends Vue {
   }
   @media (min-width: 768px) {
     .main-navigation {
-      width: 87%;
+      .flex-container();
       padding: 40px 0;
-      margin: 0 auto;
       display: flex;
       justify-content: space-between;
     }

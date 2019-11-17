@@ -32,8 +32,7 @@ export default class demoForm extends Vue {
 
 <style scoped lang="less">
 .demo {
-  width: 85%;
-  margin: 0 auto;
+  .flex-container();
 }
 .form {
   box-sizing: border-box;

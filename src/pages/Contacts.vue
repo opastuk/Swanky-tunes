@@ -32,8 +32,7 @@ export default class Contacts extends Vue {
       .flex-layout();
     }
     .footer-menu__wrapper {
-      width: 90%;
-      margin: 0 auto;
+      .flex-container();
     }
   }
 
