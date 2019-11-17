@@ -5,6 +5,7 @@
 </template>
 
 <style lang="less">
+@import "./assets/mixins.less";
 @import "~normalize.css";
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

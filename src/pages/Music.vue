@@ -2,7 +2,7 @@
   <div class="music">
     <navMenu></navMenu>
     <div class="music__wrapper">
-      <musicTrack></musicTrack>
+      <musicTrack :link=""></musicTrack>
     </div>
     <div class="footer-menu__wrapper">
       <footerMenu></footerMenu>
