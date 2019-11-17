@@ -1,15 +1,21 @@
 <template>
   <div class="demo-drop">
+    <navMenu></navMenu>
     <demoForm></demoForm>
+    <div class="footer-menu__wrapper">
+      <footerMenu></footerMenu>
+    </div>
   </div>
 </template>
 
 <script>
 import { Component, Vue } from 'vue-property-decorator';
 import demoForm from '@/components/demoForm.vue';
+import navMenu from '@/components/navMenu.vue';
+import footerMenu from '@/components/footerMenu.vue';
 
 @Component({
-  components: { demoForm },
+  components: { demoForm, navMenu, footerMenu },
 })
 export default class Contacts extends Vue {
 }
@@ -23,6 +29,13 @@ export default class Contacts extends Vue {
   @media (min-width: 768px) {
     .demo-drop {
       .flex-layout();
+    }
+    .footer-menu__wrapper {
+      width: 90%;
+      margin: 0 auto;
+    }
+    .footer-menu {
+      align-self: flex-start;
     }
   }
 </style>

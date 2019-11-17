@@ -54,7 +54,7 @@ export default class demoForm extends Vue {
 .demo__input:focus,
 .demo__input:active {
   outline: none;
-  border: 1px solid #9b9b9b;
+  border: 1px solid #c8c8c8;
 }
 .demo__input::placeholder {
   color: #000000;

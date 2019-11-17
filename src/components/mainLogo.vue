@@ -2,7 +2,7 @@
  <div>
    <div class="main-logo">
      <div class="main-logo__background">
-       <img class="main-logo__texture" src="../assets/img/logo-bg.png">
+       <img class="main-logo__texture" src="../assets/img/logo-bg.png" alt="texture">
        <div class="main-logo__flare"></div>
        <div class="main-logo__img-container">
          <img class="main-logo__img" src="../assets/img/logo.png" alt="Swanky Tunes" width="760">
