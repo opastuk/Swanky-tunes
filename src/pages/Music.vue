@@ -2,14 +2,19 @@
   <div class="music">
     <navMenu></navMenu>
     <div class="music__wrapper">
-      <div class="track" v-for="song in songCard" :key="song.id">
+      <div
+        class="track"
+        v-for="song in songCard"
+        :key="song.id"
+
+      >
         <div class="track-cover__wrapper">
           <img class="track__cover" :src=song.poster alt="Track cover">
         </div>
         <div class="track__info">
-          <p class="track__name">Game Time</p>
-          <span class="track__producer">Swanky Tunes, NSSND, Lexblaze</span>
-          <span class="track__year">2019</span>
+          <p class="track__name">{{song.name}}</p>
+          <span class="track__producer">{{song.author}}</span>
+          <span class="track__year">{{song.year}}</span>
         </div>
       </div>
     </div>
@@ -23,17 +28,19 @@ import { Component, Vue } from 'vue-property-decorator';
 import axios from 'axios';
 import navMenu from '@/components/navMenu.vue';
 import footerMenu from '@/components/footerMenu.vue';
-import musicTrack from '@/components/musicTrack.vue';
 
 @Component({
-  components: { navMenu, footerMenu, musicTrack },
+  components: { navMenu, footerMenu },
 })
 export default class Music extends Vue {
-  songCard = null;
+  songCard = [];
 
   mounted() {
     axios.get('http://localhost:3000/music')
-      .then(response => (this.songCard = response));
+      .then((response) => {
+        this.songCard = response.data;
+        console.log(response);
+      });
   }
 }
 </script>
@@ -46,6 +53,7 @@ export default class Music extends Vue {
   @media (min-width: 768px) {
     .music__wrapper {
       .flex-container();
+      display: flex;
     }
     .footer-menu__wrapper {
       .flex-container();
@@ -54,18 +62,29 @@ export default class Music extends Vue {
 
   @media (min-width: 768px) {
     .track {
-      width: 340px;
+      display: flex;
+      flex-direction: column;
+      width: 320px;
       height: 485px;
       box-sizing: border-box;
       padding: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
     }
     .track:hover,
     .track:focus {
+      width: 320px;
       background-color: #9c8994;
     }
     .track-cover__wrapper {
-      width: 320px;
-      margin: 0 auto;
+      width: 100%;
+      .track__cover{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .track__year{
+      display: block;
     }
   }
 </style>

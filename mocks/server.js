@@ -4,6 +4,9 @@ const init = async () => {
   const server = Hapi.server({
     port: 3000,
     host: 'localhost',
+    routes: {
+      cors: true,
+    },
   });
   server.route({
     method: 'GET',
@@ -16,6 +19,7 @@ const init = async () => {
         name: 'I`ll Live on',
         author: 'Swanky Tunes, Jantine',
         year: '2019',
+        hover: '#9c8994',
       },
       {
         id: 2,
@@ -24,6 +28,7 @@ const init = async () => {
         name: 'Люди с автоматами',
         author: 'Swanky Tunes, Монеточка, Noize MC',
         year: '2018',
+        hover: '#20B2AA',
       },
       {
         id: 3,
@@ -32,6 +37,7 @@ const init = async () => {
         name: 'Superhero',
         author: 'Swanky Tunes, Neenah',
         year: '2018',
+        hover: '#FF00FF',
       },
     ]),
   });

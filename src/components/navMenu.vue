@@ -4,13 +4,13 @@
         <span class="main-navigation__logo">Swanky Tunes</span>
         <ul class="main-navigation__list">
           <li class="main-navigation__item">
-            <a class="main-navigation__link" href="#">Music</a>
+            <router-link class="main-navigation__link" to="/music">Music</router-link>
           </li>
           <li class="main-navigation__item">
             <a class="main-navigation__link" href="https://www.youtube.com/playlist?list=PL9W0uKtpnSDAb9NvRcxbosp5DzKWT2wGo" target="_blank" rel="noopener">Videos</a>
           </li>
           <li class="main-navigation__item">
-            <a class="main-navigation__link" href="#">Tour dates</a>
+            <router-link class="main-navigation__link" to="/dates">Tour dates</router-link>
           </li>
           <li class="main-navigation__item main-navigation__item--dropdown">
             <a class="main-navigation__link" href="#">Radio show</a>
@@ -28,10 +28,10 @@
             </ul>
           </li>
           <li class="main-navigation__item">
-            <a class="main-navigation__link" href="#">Demo drop</a>
+            <router-link class="main-navigation__link" to="/demo-drop">Demo drop</router-link>
           </li>
           <li class="main-navigation__item">
-            <a class="main-navigation__link" href="#">Contacts</a>
+            <router-link class="main-navigation__link" to="/contacts">Contacts</router-link>
           </li>
         </ul>
       </nav>
