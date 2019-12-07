@@ -54,6 +54,7 @@ export default class NavMenuHome extends Vue {
   .main-navigation__link {
     .reset-link();
     color: #ffffff;
+    font-weight: 200;
   }
 @media (min-width: 768px) {
   .main-navigation__list {

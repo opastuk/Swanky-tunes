@@ -10,7 +10,7 @@
       <li class="footer-navigation__item">
         <a class="footer-navigation__link" href="https://www.instagram.com/swankytunes" target="_blank" rel="noopener">
           <span class="visually-hidden">Instagram</span>
-          <img class="footer-navigation__icon" src="../assets/img/twitter-b.png" alt="Instagram">
+          <img class="footer-navigation__icon" src="../assets/img/icon_vk.svg" alt="Instagram">
         </a>
       </li>
       <li class="footer-navigation__item">

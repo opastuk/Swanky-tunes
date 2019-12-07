@@ -14,7 +14,7 @@ const init = async () => {
     handler: (request, h) => ([
       {
         id: 1,
-        poster: '../assets/img/gametime.jpg',
+        poster: '/Users/nikita/workProjects/swanky-tunes-front/src/assets/img/gametime.jpg',
         name: 'Game Time',
         author: 'Swanky Tunes, NSSND, Lexblaze',
         year: '2019',
@@ -28,14 +28,14 @@ const init = async () => {
       },
       {
         id: 3,
-        poster: '../assets/img/illiveon.jpg',
+        poster: '../assets/img/liveon.png',
         name: 'I’ll live on',
         author: 'Swanky Tunes, Jantine',
         year: '2019',
       },
       {
         id: 4,
-        poster: '../assets/img/supersonic.jpg',
+        poster: '../src/assets/img/supersonic.png',
         name: 'Supersonic',
         author: 'Swanky Tunes, Christian Burns',
         year: '2019',
