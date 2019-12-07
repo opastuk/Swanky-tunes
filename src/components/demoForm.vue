@@ -44,6 +44,7 @@ export default class demoForm extends Vue {
 .demo__input {
   box-sizing: border-box;
   width: 100%;
+  height: 40px;
   padding: 15px;
   margin-bottom: 35px;
   background-color: transparent;
@@ -59,7 +60,8 @@ export default class demoForm extends Vue {
   color: #000000;
 }
 .form__button {
-  width: 60px;
+  width: 65px;
+  padding: 0;
   background-color: transparent;
   border: none;
   position: relative;
@@ -76,7 +78,7 @@ export default class demoForm extends Vue {
   background-color: #000000;
   position: absolute;
   bottom: 0;
-  left: 9px;
+  left: 0;
 }
 .form__button:focus::after,
 .form__button:hover::after {
@@ -86,6 +88,9 @@ export default class demoForm extends Vue {
 @media (min-width: 768px) {
   .demo {
     width: 580px;
+  }
+  .demo__input {
+    height: 55px;
   }
 }
 </style>

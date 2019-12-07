@@ -2,6 +2,9 @@
     <div>
       <nav class="main-navigation">
         <span class="main-navigation__logo">Swanky Tunes</span>
+        <button class="main-navigation__toggle">
+          <span class="visually-hidden">Open/close menu</span>
+        </button>
         <ul class="main-navigation__list">
           <li class="main-navigation__item">
             <router-link class="main-navigation__link" to="/music">Music</router-link>
@@ -47,23 +50,41 @@ export default class NavMenu extends Vue {
 </script>
 
 <style scoped lang="less">
+  .main-navigation {
+    .flex-container();
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+  }
   .main-navigation__list {
     .reset-list();
+    display: none;
   }
   .main-navigation__link {
     .reset-link();
     color: #000000;
   }
+  .main-navigation__toggle {
+    width: 10%;
+    height: 25px;
+    padding: 0;
+    border: none;
+    /*temporary*/
+    background-color: red;
+  }
+  .sub-navigation__list {
+    .reset-list();
+  }
   @media (min-width: 768px) {
     .main-navigation {
-      .flex-container();
       padding: 40px 0;
-      display: flex;
-      justify-content: space-between;
     }
     .main-navigation__logo {
       white-space: nowrap;
       padding-right: 10px;
+    }
+    .main-navigation__toggle {
+      display: none;
     }
     .main-navigation__list {
       width: 610px;
@@ -96,7 +117,6 @@ export default class NavMenu extends Vue {
       position: relative;
     }
     .sub-navigation__list {
-      .reset-list();
       box-sizing: border-box;
       border: 1px solid #000000;
       padding: 15px;

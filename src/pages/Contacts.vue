@@ -26,14 +26,9 @@ export default class Contacts extends Vue {
   .contacts {
     .main-background();
     .fullscreen();
+    .flex-layout();
   }
-  @media (min-width: 768px) {
-    .contacts {
-      .flex-layout();
-    }
-    .footer-menu__wrapper {
-      .flex-container();
-    }
+  .footer-menu__wrapper {
+    .flex-container();
   }
-
 </style>

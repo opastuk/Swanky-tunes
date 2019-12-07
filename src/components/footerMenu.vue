@@ -68,18 +68,30 @@ export default class footerMenu extends Vue {
 </script>
 
 <style scoped lang="less">
+  .footer-navigation__list {
+    .reset-list();
+    width: 95px; /*do percents*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .footer-navigation__item {
+    width: 40px;
+    height: 40px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+  }
+  .footer-navigation__item:nth-child(odd) {
+    padding-left: 0;
+  }
   @media (min-width: 768px) {
     .footer-navigation__list {
-      .reset-list();
       width: 600px;
       padding-bottom: 35px;
-      display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
     }
     .footer-navigation__item{
-      width: 40px;
-      height: 40px;
+      padding: 0;
     }
     .footer-navigation__icon:hover {
       transform: scale(1.2);
