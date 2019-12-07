@@ -14,7 +14,7 @@ const init = async () => {
     handler: (request, h) => ([
       {
         id: 1,
-        poster: '//avatars.yandex.net/get-music-content/113160/0b082e28.a.5643859-1/200x200',
+        poster: '//avatars.yandex.net/get-music-content/2373979/724ba82f.a.9162782-1/260x260, //avatars.yandex.net/get-music-content/2373979/724ba82f.a.9162782-1/520x520',
         name: 'Game Time',
         author: 'Swanky Tunes, NSSND, Lexblaze',
         year: '2019',
