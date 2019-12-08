@@ -1,10 +1,10 @@
 <template>
   <div class="contacts">
     <h1 class="visually-hidden">Contacts</h1>
-    <navMenu></navMenu>
-    <contactsMain></contactsMain>
+    <navMenu/>
+    <contactsMain/>
     <div class="footer-menu__wrapper">
-      <footerMenu></footerMenu>
+      <footerMenu/>
     </div>
   </div>
 </template>

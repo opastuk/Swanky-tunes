@@ -2,9 +2,8 @@
     <div class="nav-menu">
       <nav class="main-navigation">
         <span class="main-navigation__logo">Swanky Tunes</span>
-        <button class="main-navigation__toggle">
-          <span class="visually-hidden">Open/close menu</span>
-        </button>
+        <button class="main-navigation__toggle" @click="showSideBar" />
+        <sidebarMenu v-if="sideBar"/>
         <ul class="main-navigation__list">
           <li class="main-navigation__item">
             <router-link class="main-navigation__link" to="/music">Music</router-link>
@@ -20,12 +19,12 @@
             <ul class="sub-navigation__list">
               <li class="sub-navigation__item">
                 <a class="sub-navigation__link" href="https://podcasts.apple.com/ru/podcast/swanky-tunes-showland-podcast/id923114101" target="_blank" rel="noopener">
-                  <span class="visually-hidden">Mixcloud</span>
+                  <span class="visually-hidden">Apple podcasts</span>
                 </a>
               </li>
               <li class="sub-navigation__item">
                 <a class="sub-navigation__link" href="https://www.mixcloud.com/swankytunes/" target="_blank" rel="noopener">
-                  <span class="visually-hidden">Apple podcasts</span>
+                  <span class="visually-hidden">Mixcloud</span>
                 </a>
               </li>
             </ul>
@@ -43,9 +42,19 @@
 
 <script>
 import { Component, Vue } from 'vue-property-decorator';
+import sidebarMenu from '@/components/sidebarMenu.vue';
 
-@Component
+@Component({
+  components: {
+    sidebarMenu,
+  },
+})
 export default class NavMenu extends Vue {
+  sideBar = false;
+
+  showSideBar() {
+    this.sideBar = !this.sideBar;
+  }
 }
 </script>
 
@@ -61,16 +70,7 @@ export default class NavMenu extends Vue {
     font-size: 20px;
   }
   .main-navigation__list {
-    .reset-list();
     display: none;
-  }
-  .main-navigation__link {
-    .reset-link();
-    color: #000000;
-  }
-  .main-navigation__link--dropdown {
-    .reset-link();
-    color: #000000;
   }
   .main-navigation__toggle {
     width: 10%;
@@ -78,10 +78,7 @@ export default class NavMenu extends Vue {
     padding: 0;
     border: none;
     /*temporary*/
-    background-color: red;
-  }
-  .sub-navigation__list {
-    .reset-list();
+    background-color: black;
   }
   @media (min-width: 768px) {
     .main-navigation {
@@ -95,12 +92,16 @@ export default class NavMenu extends Vue {
       display: none;
     }
     .main-navigation__list {
-      width: 610px;
+      .reset-list();
+      width: 650px;
       display: flex;
       justify-content: space-around;
     }
     .main-navigation__link {
       position: relative;
+      .reset-link();
+      color: #000000;
+      font-weight: 200;
     }
     .main-navigation__link:hover,
     .main-navigation__link:focus {
@@ -124,7 +125,13 @@ export default class NavMenu extends Vue {
     .main-navigation__item--dropdown {
       position: relative;
     }
+    .main-navigation__link--dropdown {
+      .reset-link();
+      color: #000000;
+      font-weight: 200;
+    }
     .sub-navigation__list {
+      .reset-list();
       box-sizing: border-box;
       border: 1px solid #000000;
       padding: 15px;
@@ -143,8 +150,6 @@ export default class NavMenu extends Vue {
       display: block;
       width: 40px;
       height: 40px;
-      /*temporary*/
-      background-image: url("../assets/img/twitter-b.png");
     }
     .sub-navigation__link:hover,
     .sub-navigation__link:focus {
