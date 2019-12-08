@@ -77,12 +77,18 @@ export default class NavMenu extends Vue {
     height: 25px;
     padding: 0;
     border: none;
+    position: relative;
+    z-index: 2;
+    outline: none;
     /*temporary*/
-    background-color: black;
+    background-color: white;
   }
   @media (min-width: 768px) {
+    .nav-menu {
+      height: auto;
+    }
     .main-navigation {
-      padding: 40px 0;
+      padding: 40px 0 30px;
     }
     .main-navigation__logo {
       white-space: nowrap;
@@ -136,7 +142,7 @@ export default class NavMenu extends Vue {
       border: 1px solid #000000;
       padding: 15px;
       width: 90px;
-      min-height: 125px;
+      height: 125px;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);

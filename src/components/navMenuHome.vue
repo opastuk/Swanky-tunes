@@ -103,7 +103,7 @@ export default class NavMenuHome extends Vue {
     border: 1px solid #ffffff;
     padding: 15px;
     width: 90px;
-    min-height: 125px;
+    height: 125px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -121,8 +121,6 @@ export default class NavMenuHome extends Vue {
     display: block;
     width: 40px;
     height: 40px;
-    /*temporary*/
-    background-image: url("../assets/img/twitter.png");
   }
   .sub-navigation__link:hover,
   .sub-navigation__link:focus {

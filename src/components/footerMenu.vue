@@ -75,7 +75,7 @@ export default class footerMenu extends Vue {
     .footer-navigation__list {
       .reset-list();
       width: 600px;
-      padding-bottom: 35px;
+      padding: 35px 0;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;

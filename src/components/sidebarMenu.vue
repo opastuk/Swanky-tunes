@@ -18,9 +18,20 @@ export default class SidebarMenu extends Vue {
 </script>
 
 <style scoped lang="less">
-.sidebar {
-  width: 40%;
-  background-color: #000000;
-  padding: 0 20px 15px;
-}
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 40%;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      background-color: #000000;
+      padding: 0 20px 15px;
+    }
+  }
+  @media (min-width: 768px) {
+    .sidebar {
+      display: none;
+    }
+  }
 </style>
