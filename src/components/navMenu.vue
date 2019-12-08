@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="nav-menu">
       <nav class="main-navigation">
         <span class="main-navigation__logo">Swanky Tunes</span>
         <button class="main-navigation__toggle">
@@ -16,7 +16,7 @@
             <router-link class="main-navigation__link" to="/dates">Tour dates</router-link>
           </li>
           <li class="main-navigation__item main-navigation__item--dropdown">
-            <a class="main-navigation__link" href="#">Radio show</a>
+            <a class="main-navigation__link--dropdown" href="#">Radio show</a>
             <ul class="sub-navigation__list">
               <li class="sub-navigation__item">
                 <a class="sub-navigation__link" href="https://podcasts.apple.com/ru/podcast/swanky-tunes-showland-podcast/id923114101" target="_blank" rel="noopener">
@@ -50,17 +50,25 @@ export default class NavMenu extends Vue {
 </script>
 
 <style scoped lang="less">
+  .nav-menu {
+    height: 0;
+  }
   .main-navigation {
     .flex-container();
     padding: 25px 0;
     display: flex;
     justify-content: space-between;
+    font-size: 20px;
   }
   .main-navigation__list {
     .reset-list();
     display: none;
   }
   .main-navigation__link {
+    .reset-link();
+    color: #000000;
+  }
+  .main-navigation__link--dropdown {
     .reset-link();
     color: #000000;
   }
@@ -123,6 +131,8 @@ export default class NavMenu extends Vue {
       width: 90px;
       min-height: 125px;
       position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       display: none;
     }
     .main-navigation__item--dropdown:hover .sub-navigation__list {

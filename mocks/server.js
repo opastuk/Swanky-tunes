@@ -14,14 +14,14 @@ const init = async () => {
     handler: (request, h) => ([
       {
         id: 1,
-        poster: '//avatars.yandex.net/get-music-content/2373979/724ba82f.a.9162782-1/260x260, //avatars.yandex.net/get-music-content/2373979/724ba82f.a.9162782-1/520x520',
+        poster: '//avatars.yandex.net/get-music-content/113160/0b082e28.a.5643859-1/200x200',
         name: 'Game Time',
         author: 'Swanky Tunes, NSSND, Lexblaze',
         year: '2019',
       },
       {
         id: 2,
-        poster: '../assets/img/sugar.jpg',
+        poster: '//avatars.yandex.net/get-music-content/95061/1583b2fe.a.8477565-1/200x200',
         name: 'Sugar',
         author: 'Swanky Tunes, George Fetcher',
         year: '2019',

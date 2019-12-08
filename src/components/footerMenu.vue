@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ul class="footer-navigation__list">
+    <ul class="footer-navigation__list footer-navigation__list--closed">
       <li class="footer-navigation__item">
         <a class="footer-navigation__link" href="https://vk.com/swankytunes" target="_blank" rel="noopener">
           <span class="visually-hidden">Vk</span>
@@ -70,10 +70,13 @@ export default class footerMenu extends Vue {
 <style scoped lang="less">
   .footer-navigation__list {
     .reset-list();
-    width: 95px; /*do percents*/
+    width: 95px; /*do percents 38% 80%*/
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
+  }
+  .footer-navigation__list--closed {
+    display: none;
   }
   .footer-navigation__item {
     width: 40px;
@@ -85,6 +88,10 @@ export default class footerMenu extends Vue {
     padding-left: 0;
   }
   @media (min-width: 768px) {
+    .footer-navigation__list--closed {
+      display: flex;
+      flex-wrap: wrap;
+    }
     .footer-navigation__list {
       width: 600px;
       padding-bottom: 35px;

@@ -2,12 +2,12 @@
     <div>
       <div class="track">
         <div class="track-cover__wrapper">
-          <img class="track__cover" src=trackCard.poster alt="Track cover">
+          <img class="track__cover" :src="song.poster" alt="Track cover">
         </div>
         <div class="track__info">
-          <p class="track__name">Game Time</p>
-          <span class="track__producer">Swanky Tunes, NSSND, Lexblaze</span>
-          <span class="track__year">2019</span>
+          <p class="track__name">{{song.name}}</p>
+          <span class="track__producer">{{song.author}}</span>
+          <span class="track__year">{{song.year}}</span>
         </div>
       </div>
     </div>
@@ -18,15 +18,16 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class musicTrack extends Vue {
-  @Prop(Array) trackCard
+  @Prop(Object) song
 }
 </script>
 
 <style scoped lang="less">
 @media (min-width: 768px) {
   .track {
-    width: 340px;
-    height: 485px;
+    position: relative;
+    width: 335px;
+    min-height: 480px;
     box-sizing: border-box;
     padding: 10px;
   }
