@@ -93,8 +93,7 @@ export default class footerMenu extends Vue {
       flex-wrap: wrap;
       justify-content: space-between;
     }
-    .footer-navigation__icon:hover,
-    .footer-navigation__icon:focus {
+    .footer-navigation__icon:hover {
       transform: scale(1.2);
       transition: 1s;
     }

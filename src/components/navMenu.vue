@@ -20,11 +20,13 @@
               <li class="sub-navigation__item">
                 <a class="sub-navigation__link" href="https://podcasts.apple.com/ru/podcast/swanky-tunes-showland-podcast/id923114101" target="_blank" rel="noopener">
                   <span class="visually-hidden">Apple podcasts</span>
+                  <applpdcst class="main-navigation__icon" width="40" height="40"/>
                 </a>
               </li>
               <li class="sub-navigation__item">
                 <a class="sub-navigation__link" href="https://www.mixcloud.com/swankytunes/" target="_blank" rel="noopener">
                   <span class="visually-hidden">Mixcloud</span>
+                  <mixcloud class="main-navigation__icon" width="40" height="40"/>
                 </a>
               </li>
             </ul>
@@ -43,10 +45,13 @@
 <script>
 import { Component, Vue } from 'vue-property-decorator';
 import sidebarMenu from '@/components/sidebarMenu.vue';
+import menu from '@/assets/img/svg/menu.svg';
+import mixcloud from '@/assets/img/svg/mixcloud.svg';
+import applpdcst from '@/assets/img/svg/apple_podcast.svg';
 
 @Component({
   components: {
-    sidebarMenu,
+    sidebarMenu, menu, mixcloud, applpdcst,
   },
 })
 export default class NavMenu extends Vue {

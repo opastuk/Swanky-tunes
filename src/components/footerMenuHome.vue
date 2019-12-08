@@ -95,8 +95,7 @@ export default class footerMenuHome extends Vue {
       width: 40px;
       height: 40px;
     }
-    .footer-navigation__icon:hover,
-    .footer-navigation__icon:focus {
+    .footer-navigation__icon:hover {
       transform: scale(1.2);
       transition: 1s;
     }

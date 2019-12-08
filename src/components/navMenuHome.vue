@@ -6,22 +6,28 @@
           <router-link class="main-navigation__link" to="/music">Music</router-link>
         </li>
         <li class="main-navigation__item">
-          <a class="main-navigation__link" href="https://www.youtube.com/playlist?list=PL9W0uKtpnSDAb9NvRcxbosp5DzKWT2wGo" target="_blank" rel="noopener">Videos</a>
+          <a class="main-navigation__link"
+             href="https://www.youtube.com/playlist?list=PL9W0uKtpnSDAb9NvRcxbosp5DzKWT2wGo"
+             target="_blank"
+             rel="noopener">Videos</a>
         </li>
         <li class="main-navigation__item">
           <router-link class="main-navigation__link" to="/dates">Tour dates</router-link>
         </li>
         <li class="main-navigation__item main-navigation__item--dropdown">
-          <a class="main-navigation__link--dropdown" href="#">Radio show</a>
+          <a class="main-navigation__link--dropdown"
+             href="#">Radio show</a>
             <ul class="sub-navigation__list">
+              <li class="sub-navigation__item">
+              <a class="sub-navigation__link" href="https://www.mixcloud.com/swankytunes/" target="_blank" rel="noopener">
+                <span class="visually-hidden">Apple podcasts</span>
+                <applpdcst class="main-navigation__icon" width="40" height="40" fill="#fff"/>
+              </a>
+            </li>
               <li class="sub-navigation__item">
                 <a class="sub-navigation__link" href="https://podcasts.apple.com/ru/podcast/swanky-tunes-showland-podcast/id923114101" target="_blank" rel="noopener">
                   <span class="visually-hidden">Mixcloud</span>
-                </a>
-              </li>
-              <li class="sub-navigation__item">
-                <a class="sub-navigation__link" href="https://www.mixcloud.com/swankytunes/" target="_blank" rel="noopener">
-                  <span class="visually-hidden">Apple podcasts</span>
+                  <mixcloud class="main-navigation__icon" width="40" height="40" fill="#fff"/>
                 </a>
               </li>
             </ul>
@@ -39,9 +45,16 @@
 
 <script>
 import { Component, Vue } from 'vue-property-decorator';
+import mixcloud from '@/assets/img/svg/mixcloud.svg';
+import applpdcst from '@/assets/img/svg/apple_podcast.svg';
 
-@Component
+@Component({
+  components: {
+    mixcloud, applpdcst,
+  },
+})
 export default class NavMenuHome extends Vue {
+  focused = false;
 }
 </script>
 
@@ -110,10 +123,6 @@ export default class NavMenuHome extends Vue {
     display: none;
   }
   .main-navigation__item--dropdown:hover .sub-navigation__list {
-    .flex-layout();
-    align-items: center;
-  }
-  .main-navigation__item--dropdown:focus .sub-navigation__list {
     .flex-layout();
     align-items: center;
   }
