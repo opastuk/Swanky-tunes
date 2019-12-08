@@ -2,7 +2,9 @@
     <div class="nav-menu">
       <nav class="main-navigation">
         <span class="main-navigation__logo">Swanky Tunes</span>
-        <button class="main-navigation__toggle" @click="showSideBar" />
+        <button class="main-navigation__toggle" @click="showSideBar">
+          <sidemenu width="25" height="25" :fill="fillColor"/>
+        </button>
         <sidebarMenu v-if="sideBar"/>
         <ul class="main-navigation__list">
           <li class="main-navigation__item">
@@ -45,20 +47,27 @@
 <script>
 import { Component, Vue } from 'vue-property-decorator';
 import sidebarMenu from '@/components/sidebarMenu.vue';
-import menu from '@/assets/img/svg/menu.svg';
+import sidemenu from '@/assets/img/svg/menu.svg';
 import mixcloud from '@/assets/img/svg/mixcloud.svg';
 import applpdcst from '@/assets/img/svg/apple_podcast.svg';
 
 @Component({
   components: {
-    sidebarMenu, menu, mixcloud, applpdcst,
+    sidebarMenu, sidemenu, mixcloud, applpdcst,
   },
 })
 export default class NavMenu extends Vue {
   sideBar = false;
 
+  fillColor = '#000';
+
   showSideBar() {
     this.sideBar = !this.sideBar;
+    if (this.fillColor === '#000') {
+      this.fillColor = '#fff';
+    } else {
+      this.fillColor = '#000';
+    }
   }
 }
 </script>
@@ -85,8 +94,7 @@ export default class NavMenu extends Vue {
     position: relative;
     z-index: 2;
     outline: none;
-    /*temporary*/
-    background-color: white;
+    background-color: transparent;
   }
   @media (min-width: 768px) {
     .nav-menu {

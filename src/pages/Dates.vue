@@ -5,7 +5,7 @@
       <a class="dates__link bit-widget-initializer"
          data-artist-name="swanky tunes"
          data-display-local-dates="true"
-         data-display-past-dates="true"
+         data-display-past-dates="false"
          data-auto-style="false"
          data-text-color="#000000"
          data-link-color="#000000"
