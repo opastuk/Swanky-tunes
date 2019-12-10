@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="footer-navigation__wrapper">
     <ul class="footer-navigation__list">
       <li class="footer-navigation__item">
         <a class="footer-navigation__link" href="https://vk.com/swankytunes" target="_blank" rel="noopener">
@@ -96,6 +96,9 @@ export default class footerMenu extends Vue {
     .footer-navigation__icon:hover {
       transform: scale(1.2);
       transition: 1s;
+    }
+    .footer-navigation__wrapper {
+      .flex-container();
     }
   }
 </style>
