@@ -5,8 +5,8 @@
       <a class="dates__link bit-widget-initializer"
          data-artist-name="swanky tunes"
          data-display-local-dates="true"
-         data-display-past-dates="false"
-         data-auto-style="false"
+         data-display-past-dates="true"
+         data-auto-style="true"
          data-text-color="#000000"
          data-link-color="#000000"
          data-background-color="rgba(0,0,0,0)"
@@ -19,9 +19,7 @@
          data-language="en"
          data-display-start-time="true"/>
     </div>
-    <div class="footer-menu__wrapper">
       <footerMenu/>
-    </div>
   </div>
 </template>
 <script>
@@ -39,17 +37,19 @@ export default class TourDates extends Vue {
     .main-background();
     .fullscreen();
     .flex-layout();
-    height: auto;
-    min-height: 100vh;
-  }
-  .footer-menu__wrapper {
-    .flex-container();
+    flex-wrap: nowrap;
   }
   .dates__main {
     .flex-container();
-    max-width: 90%;
+    height: calc(100vh - 208px);
+    overflow: scroll;
   }
   .dates__link {
     border: #000000;
+  }
+  @media (min-width: 768px) {
+    .dates__main {
+      margin-top: 20px;
+    }
   }
 </style>
