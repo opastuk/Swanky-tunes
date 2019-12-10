@@ -8,9 +8,7 @@
         <music-track :song="song"/>
       </div>
     </div>
-    <div class="footer-menu__wrapper">
       <footerMenu/>
-    </div>
   </div>
 </template>
 <script>
@@ -41,17 +39,19 @@ export default class Music extends Vue {
     .flex-layout();
     .main-background();
     flex-direction: column;
-    height: 100%;
+    min-height: 100vh;
   }
   @media (min-width: 768px) {
     .music__wrapper {
       .flex-container();
+      height: 76%; /*TEMPORARY*/
+      box-sizing: border-box;
+      padding: 0 10px;
+      overflow: scroll;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-    }
-    .footer-menu__wrapper {
-      .flex-container();
+      justify-content: space-between;
     }
   }
 </style>
