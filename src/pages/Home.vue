@@ -2,9 +2,9 @@
   <div class="home">
     <div class="container home__wrapper">
       <h1 class="visually-hidden">Swanky Tunes</h1>
-      <navMenuHome></navMenuHome>
-      <mainLogo class="main-logo"></mainLogo>
-      <footerMenuHome></footerMenuHome>
+      <navMenuHome/>
+      <mainLogo class="main-logo"/>
+      <footerMenuHome/>
     </div>
   </div>
 </template>
@@ -26,9 +26,11 @@ export default class Home extends Vue {
   .home {
     background-color: #000000;
     .fullscreen();
+    max-height: 100%;
   }
   .home__wrapper {
     .flex-layout();
+    .fix-height();
   }
   .container {
     @media (min-width: 768px) {

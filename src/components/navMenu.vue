@@ -1,7 +1,9 @@
 <template>
     <div class="nav-menu">
       <nav class="main-navigation">
-        <span class="main-navigation__logo">Swanky Tunes</span>
+        <router-link class="main-navigation__link" to="/">
+          <span class="main-navigation__logo">Swanky Tunes</span>
+        </router-link>
         <button class="main-navigation__toggle" @click="showSideBar">
           <sidemenu width="25" height="25" :fill="fillColor"/>
         </button>
@@ -86,6 +88,11 @@ export default class NavMenu extends Vue {
   .main-navigation__list {
     display: none;
   }
+  .main-navigation__link {
+    .reset-link();
+    color: #000000;
+    font-weight: 200;
+  }
   .main-navigation__toggle {
     width: 10%;
     height: 25px;
@@ -105,7 +112,6 @@ export default class NavMenu extends Vue {
     }
     .main-navigation__logo {
       white-space: nowrap;
-      padding-right: 10px;
     }
     .main-navigation__toggle {
       display: none;
@@ -118,15 +124,12 @@ export default class NavMenu extends Vue {
     }
     .main-navigation__link {
       position: relative;
-      .reset-link();
-      color: #000000;
-      font-weight: 200;
     }
     .main-navigation__link:hover,
     .main-navigation__link:focus {
       outline: none;
     }
-    .main-navigation__link::after {
+   .main-navigation__link::after {
       content: "";
       width: 0;
       height: 2px;
@@ -153,10 +156,12 @@ export default class NavMenu extends Vue {
       .reset-list();
       box-sizing: border-box;
       border: 1px solid #000000;
+      background-color: #f9f9f9;
       padding: 15px;
       width: 90px;
       height: 125px;
       position: absolute;
+      z-index: 1;
       left: 50%;
       transform: translateX(-50%);
       display: none;
