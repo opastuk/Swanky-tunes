@@ -64,8 +64,11 @@ export default class NavMenuHome extends Vue {
   }
   .main-navigation__list {
     .reset-list();
-    display: flex;
-    justify-content: space-around;
+    width: 105px;
+    text-align: right;
+  }
+  .main-navigation__item {
+    margin-bottom: 15px;
   }
   .main-navigation__link {
     .reset-link();
@@ -79,11 +82,14 @@ export default class NavMenuHome extends Vue {
   }
 @media (min-width: 768px) {
   .main-navigation__list {
+    width: auto;
+    text-align: center;
     display: flex;
     justify-content: space-around;
   }
   .main-navigation__item {
     padding-top: 40px;
+    margin-bottom: 0;
   }
   .main-navigation__link {
     position: relative;

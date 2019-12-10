@@ -2,6 +2,7 @@
   <div class="track">
     <div class="track-cover__wrapper">
       <img class="track__cover" :src="song.poster" alt="Track cover">
+      <audio class="track__audio" src="#" controls/>
     </div>
     <div class="track__info">
       <p class="track__name">{{song.name}}</p>
@@ -24,6 +25,7 @@ export default class musicTrack extends Vue {
 
 <style scoped lang="less">
   .track {
+    width: 300px;
     box-sizing: border-box;
     padding: 10px 10px 15px;
     margin-bottom: 30px;
@@ -32,6 +34,15 @@ export default class musicTrack extends Vue {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+  }
+  .track__audio {
+    position: absolute;/*TEMPORARY*/
+    z-index: 1;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    display:none;
   }
   .track__name,
   .track__producer,
@@ -88,5 +99,12 @@ export default class musicTrack extends Vue {
     .track__info {
       width: 320px;
     }
+    .track__audio {
+      display: none;
+    }
+    .track:hover .track__audio,
+    .track:focus .track__audio{
+      display: block;
+    }/*temporary*/
   }
 </style>
