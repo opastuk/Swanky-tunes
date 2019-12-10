@@ -35,6 +35,9 @@ export default class musicTrack extends Vue {
     justify-content: space-between;
     align-items: center;
   }
+  .track__cover {
+    width: 280px;
+  }
   .track__audio {
     position: absolute;/*TEMPORARY*/
     z-index: 1;
@@ -93,7 +96,7 @@ export default class musicTrack extends Vue {
       width: 340px;
       min-height: 480px;
     }
-    .track-cover__wrapper {
+    .track__cover {
       width: 320px;
     }
     .track__info {
