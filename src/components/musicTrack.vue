@@ -37,6 +37,8 @@ export default class musicTrack extends Vue {
   }
   .track__cover {
     width: 280px;
+    transition: filter  ease-in-out;
+    filter: grayscale(99%);
   }
   .track__audio {
     position: absolute;/*TEMPORARY*/
@@ -72,6 +74,9 @@ export default class musicTrack extends Vue {
   }
   .track:hover .track__info::after {
     background-color: #ffffff;
+  }
+  .track:hover .track__cover {
+    filter: grayscale(0%);
   }
   .track__year {
     position: absolute;
