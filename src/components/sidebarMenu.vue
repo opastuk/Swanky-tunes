@@ -31,6 +31,7 @@ export default class SidebarMenu extends Vue {
       flex-direction: column;
       justify-content: space-around;
       align-items: flex-end;
+      z-index: 1;
     }/*
     /*.sidebar__nav-menu {*/
     /*  margin: 0 auto;*/
@@ -42,6 +43,7 @@ export default class SidebarMenu extends Vue {
   @media (min-width: 768px) {
     .sidebar {
       display: none;
+      z-index: 1;
     }
   }
 </style>
