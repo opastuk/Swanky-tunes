@@ -49,6 +49,14 @@ export default class Music extends Vue {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    &::-webkit-scrollbar{
+      opacity: 0;
+    }
+    &::-webkit-scrollbar-corner {
+      opacity: 0;
+    }
+
   }
   @media (min-width: 667px) {
     .music__wrapper {
