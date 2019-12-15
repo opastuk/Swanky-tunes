@@ -37,6 +37,13 @@ export default class TourDates extends Vue {
     .flex-container();
     height: calc(100vh - 208px);
     overflow: scroll;
+
+    &::-webkit-scrollbar{
+      opacity: 0;
+    }
+    &::-webkit-scrollbar-corner {
+      opacity: 0;
+    }
   }
   .dates__link {
     border: #000000;
