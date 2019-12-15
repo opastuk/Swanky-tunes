@@ -3,7 +3,7 @@
     <navMenu/>
     <div class="music__wrapper">
 
-      <div v-for="song in songCard"
+      <div class="music__track" v-for="song in songCard"
            :key="song.id">
         <music-track :song="song"/>
       </div>
@@ -50,12 +50,22 @@ export default class Music extends Vue {
     flex-direction: column;
     align-items: center;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 667px) {
     .music__wrapper {
       box-sizing: border-box;
-      padding: 0 10px;
       flex-direction: row;
       flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+  @media (min-width:870px) {
+    .music__wrapper {
+      justify-content: space-between;
+    }
+  }
+  @media (min-width: 1160px) {
+    .music__wrapper {
+      padding: 0 10px;
       justify-content: space-between;
     }
   }

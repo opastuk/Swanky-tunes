@@ -27,7 +27,7 @@ export default class musicTrack extends Vue {
   .track {
     width: 300px;
     box-sizing: border-box;
-    padding: 10px 10px 15px;
+    padding: 10px 7px 15px;
     margin-bottom: 30px;
     font-weight: 200;
     display: flex;
@@ -36,7 +36,7 @@ export default class musicTrack extends Vue {
     align-items: center;
   }
   .track__cover {
-    width: 280px;
+    width: 285px;
     transition: filter  ease-in-out;
     filter: grayscale(99%);
   }
