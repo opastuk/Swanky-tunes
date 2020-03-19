@@ -1,7 +1,7 @@
 <template>
-  <div class="track">
+  <div class="track" :class="{'play': isPlayNow}">
     <div class="track-cover__wrapper">
-      <img class="track__cover" :src="song.poster" alt="Track cover">
+      <img class="track__cover" :class="{'play': isPlayNow}" :src="song.poster" alt="Track cover">
       <audio ref="audioPlayer" class="track__audio" preload="metadata">
         <source src="../../public/02633.mp3" type="audio/ogg">
       </audio>
@@ -153,5 +153,11 @@ export default class musicTrack extends Vue {
       left: 43%;
       background-color: #ffffff;
     }
+  }
+
+  .play {
+    background-color: #476776;
+    color: #ffffff;
+    filter: grayscale(0%);
   }
 </style>
