@@ -2,21 +2,21 @@
   <div class="home">
     <div class="container home__wrapper">
       <h1 class="visually-hidden">Swanky Tunes</h1>
-      <navMenuHome></navMenuHome>
+      <navMenu/>
       <mainLogo class="main-logo"></mainLogo>
-      <footerMenuHome></footerMenuHome>
+      <footerMenu/>
     </div>
   </div>
 </template>
 
 <script>
 import { Component, Vue } from 'vue-property-decorator';
-import navMenuHome from '@/components/navMenuHome.vue';
+import navMenu from '@/components/navMenu.vue';
 import mainLogo from '@/components/mainLogo.vue';
-import footerMenuHome from '@/components/footerMenuHome.vue';
+import footerMenu from '@/components/footerMenu.vue';
 
 @Component({
-  components: { navMenuHome, mainLogo, footerMenuHome },
+  components: { navMenu, mainLogo, footerMenu },
 })
 export default class Home extends Vue {
 }
@@ -24,7 +24,7 @@ export default class Home extends Vue {
 
 <style scoped lang="less">
   .home {
-    background-color: #000000;
+    .main-background();
     .fullscreen();
   }
   .home__wrapper {
