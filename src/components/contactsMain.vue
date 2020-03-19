@@ -1,0 +1,62 @@
+<template>
+  <div>
+    <div class="contacts">
+      <h2 class="contacts__headline contacts__headline--bold">General Manager</h2>
+      <p class="contacts__value">mgmt@swankytunes.com</p>
+      <h2 class="contacts__headline contacts__headline--bold">Press Inquiries</h2>
+      <p class="contacts__value">mgmt@swankytunes.com</p>
+      <h2 class="contacts__headline contacts__headline--bold">Booking Agents</h2>
+      <p class="contacts__value">ASIA (excl. INDIA): <br>
+        robb@supermodifiedagency.com</p>
+      <h2 class="contacts__headline">N&S AMERICA/EU/UK/ME/INDIA/AUS/NZ:</h2>
+      <p class="contacts__value">jochen@ourmusicgroup.nl</p>
+      <h2 class="contacts__headline">RUS/CIS:</h2>
+      <p class="contacts__value">booking@effective-records.ru</p>
+    </div>
+  </div>
+</template>
+
+<script>
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component
+export default class contactsMain extends Vue {
+}
+</script>
+
+<style scoped lang="less">
+.contacts {
+  width: 285px;
+  margin: 0 auto;
+}
+.contacts__headline {
+  .reset-text();
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: normal;
+}
+.contacts__headline--bold {
+  font-weight: bold;
+}
+.contacts__value {
+  .reset-text();
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: underline;
+}
+@media (min-width: 768px) {
+  .contacts {
+    width: 350px;
+    text-align: center;
+  }
+  .contacts__headline {
+    font-size: 18px;
+    line-height: 26px;
+  }
+  .contacts__value {
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 20px;
+  }
+}
+</style>

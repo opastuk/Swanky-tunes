@@ -1,0 +1,39 @@
+<template>
+  <div class="contacts">
+    <h1 class="visually-hidden">Contacts</h1>
+    <navMenu></navMenu>
+    <contactsMain></contactsMain>
+    <div class="footer-menu__wrapper">
+      <footerMenu></footerMenu>
+    </div>
+  </div>
+</template>
+
+<script>
+import { Component, Vue } from 'vue-property-decorator';
+import contactsMain from '@/components/contactsMain.vue';
+import footerMenu from '@/components/footerMenu.vue';
+import navMenu from '@/components/navMenu.vue';
+
+@Component({
+  components: { contactsMain, footerMenu, navMenu },
+})
+export default class Contacts extends Vue {
+}
+</script>
+
+<style scoped lang="less">
+  .contacts {
+    .main-background();
+    .fullscreen();
+  }
+  @media (min-width: 768px) {
+    .contacts {
+      .flex-layout();
+    }
+    .footer-menu__wrapper {
+      .flex-container();
+    }
+  }
+
+</style>

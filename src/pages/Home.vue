@@ -1,23 +1,41 @@
 <template>
   <div class="home">
-    <navMenu/>
-    <mainLogo/>
-    <footerMenu/>
+    <div class="container home__wrapper">
+      <h1 class="visually-hidden">Swanky Tunes</h1>
+      <navMenuHome></navMenuHome>
+      <mainLogo class="main-logo"></mainLogo>
+      <footerMenuHome></footerMenuHome>
+    </div>
   </div>
 </template>
 
 <script>
 import { Component, Vue } from 'vue-property-decorator';
-import navMenu from '@/components/navMenu.vue';
+import navMenuHome from '@/components/navMenuHome.vue';
 import mainLogo from '@/components/mainLogo.vue';
-import footerMenu from '@/components/footerMenu.vue';
+import footerMenuHome from '@/components/footerMenuHome.vue';
 
 @Component({
-  components: { navMenu, mainLogo, footerMenu },
+  components: { navMenuHome, mainLogo, footerMenuHome },
 })
 export default class Home extends Vue {
 }
 </script>
 
 <style scoped lang="less">
+  .home {
+    background-color: #000000;
+    .fullscreen();
+  }
+  .home__wrapper {
+    .flex-layout();
+    min-height: 550px;
+  }
+  .container {
+    @media (min-width: 768px) {
+      width: 760px;
+      height: 100vh;
+      margin: 0 auto;
+    }
+  }
 </style>

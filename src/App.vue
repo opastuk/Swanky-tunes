@@ -5,9 +5,16 @@
 </template>
 
 <style lang="less">
+@import "./assets/mixins.less";
 @import "~normalize.css";
+
+@font-face{
+  font-family: "Gotham Pro";
+  src: url(./assets/fonts/Gotham_Pro.ttf) format("ttf");
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Gotham Pro', sans-serif;
   color: #000000;
   font-size: 18px;
   line-height: 26px;
