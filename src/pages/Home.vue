@@ -26,10 +26,11 @@ export default class Home extends Vue {
   .home {
     .main-background();
     .fullscreen();
+    max-height: 100%;
   }
   .home__wrapper {
     .flex-layout();
-    min-height: 550px;
+    .fix-height();
   }
   .container {
     @media (min-width: 768px) {

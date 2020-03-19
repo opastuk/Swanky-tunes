@@ -4,55 +4,55 @@
     <li class="footer-navigation__item">
       <a class="footer-navigation__link" href="https://vk.com/swankytunes" target="_blank" rel="noopener">
         <span class="visually-hidden">Vk</span>
-        <img class="footer-navigation__icon" src="../assets/img/twitter.png" alt="Vk">
+        <vk class="footer-navigation__icon" width="45" height="45" fill="#fff"/>
       </a>
     </li>
     <li class="footer-navigation__item">
       <a class="footer-navigation__link" href="https://www.instagram.com/swankytunes" target="_blank" rel="noopener">
         <span class="visually-hidden">Instagram</span>
-        <img class="footer-navigation__icon" src="../assets/img/twitter.png" alt="Instagram">
+        <inst class="footer-navigation__icon" width="45" height="45" fill="#fff"/>
       </a>
     </li>
     <li class="footer-navigation__item">
       <a class="footer-navigation__link" href="https://www.facebook.com/swankytunes" target="_blank" rel="noopener">
         <span class="visually-hidden">Facebook</span>
-        <img class="footer-navigation__icon" src="../assets/img/twitter.png" alt="Facebook">
+        <fb class="footer-navigation__icon" width="45" height="45" fill="#fff"/>
       </a>
     </li>
     <li class="footer-navigation__item">
       <a class="footer-navigation__link" href="https://www.youtube.com/swankytuneslive" target="_blank" rel="noopener">
         <span class="visually-hidden">Youtube</span>
-        <img class="footer-navigation__icon" src="../assets/img/twitter.png" alt="Youtube">
+        <youtube class="footer-navigation__icon" width="45" height="45" fill="#fff"/>
       </a>
     </li>
     <li class="footer-navigation__item">
       <a class="footer-navigation__link" href="https://twitter.com/swankytunes" target="_blank" rel="noopener">
         <span class="visually-hidden">Twitter</span>
-        <img class="footer-navigation__icon" src="../assets/img/twitter.png" alt="Twitter">
+        <twitter class="footer-navigation__icon" width="45" height="45" fill="#fff"/>
       </a>
     </li>
     <li class="footer-navigation__item">
       <a class="footer-navigation__link" href="https://soundcloud.com/swankytunes" target="_blank" rel="noopener">
         <span class="visually-hidden">Soundcloud</span>
-        <img class="footer-navigation__icon" src="../assets/img/twitter.png" alt="Soundcloud">
+        <sndcld class="footer-navigation__icon" width="45" height="45" fill="#fff"/>
       </a>
     </li>
     <li class="footer-navigation__item">
       <a class="footer-navigation__link" href="https://itunes.apple.com/us/artist/swanky-tunes/19588.." target="_blank" rel="noopener">
         <span class="visually-hidden">Apple music</span>
-        <img class="footer-navigation__icon" src="../assets/img/twitter.png" alt="Apple music">
+        <apple class="footer-navigation__icon" width="45" height="45" fill="#fff"/>
       </a>
     </li>
     <li class="footer-navigation__item">
       <a class="footer-navigation__link" href="https://open.spotify.com/artist/06cLuOP0p7VAnBnqil1eW.." target="_blank" rel="noopener">
         <span class="visually-hidden">Spotify</span>
-        <img class="footer-navigation__icon" src="../assets/img/twitter.png" alt="Spotify">
+        <spotify class="footer-navigation__icon" width="45" height="45" fill="#fff"/>
       </a>
     </li>
     <li class="footer-navigation__item">
       <a class="footer-navigation__link" href="https://www.beatport.com/artist/swanky-tunes/24923" target="_blank" rel="noopener">
         <span class="visually-hidden">Beatport</span>
-        <img class="footer-navigation__icon" src="../assets/img/twitter.png" alt="Beatport">
+        <beatport class="footer-navigation__icon" width="45" height="45" fill="#fff"/>
       </a>
     </li>
   </ul>
@@ -61,28 +61,53 @@
 
 <script>
 import { Component, Vue } from 'vue-property-decorator';
+import vk from '@/assets/img/svg/vk.svg';
+import inst from '@/assets/img/svg/inst.svg';
+import fb from '@/assets/img/svg/fb.svg';
+import youtube from '@/assets/img/svg/youtube.svg';
+import twitter from '@/assets/img/svg/twitter.svg';
+import sndcld from '@/assets/img/svg/sndcld.svg';
+import apple from '@/assets/img/svg/apple.svg';
+import spotify from '@/assets/img/svg/spotify.svg';
+import beatport from '@/assets/img/svg/beatport.svg';
 
-@Component
+@Component({
+  components: {
+    vk, inst, fb, youtube, twitter, sndcld, apple, spotify, beatport,
+  },
+})
 export default class footerMenuHome extends Vue {
 }
 </script>
 
 <style scoped lang="less">
+  .footer-navigation__list {
+    .reset-list();
+    width: 105px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .footer-navigation__item {
+    margin-left: 15px;
+  }
+  .footer-navigation__item:nth-child(odd) {
+    margin-left: 0;
+  }
   @media (min-width: 768px) {
     .footer-navigation__list {
-      .reset-list();
       width: 600px;
       margin: 0 auto;
       padding-bottom: 35px;
-      display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
+      align-items: center;
     }
     .footer-navigation__item {
       width: 40px;
       height: 40px;
+      margin-left: 0;
     }
-    .footer-navigation__item:hover, {
+    .footer-navigation__icon:hover {
       transform: scale(1.2);
       transition: 1s;
     }

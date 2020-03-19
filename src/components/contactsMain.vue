@@ -8,7 +8,8 @@
       <h2 class="contacts__headline contacts__headline--bold">Booking Agents</h2>
       <p class="contacts__value">ASIA (excl. INDIA): <br>
         robb@supermodifiedagency.com</p>
-      <h2 class="contacts__headline">N&S AMERICA/EU/UK/ME/INDIA/AUS/NZ:</h2>
+      <h2 class="contacts__headline">
+        N&S AMERICA/EU/UK/<br class="contacts__br">ME/INDIA/AUS/NZ:</h2>
       <p class="contacts__value">jochen@ourmusicgroup.nl</p>
       <h2 class="contacts__headline">RUS/CIS:</h2>
       <p class="contacts__value">booking@effective-records.ru</p>
@@ -26,13 +27,12 @@ export default class contactsMain extends Vue {
 
 <style scoped lang="less">
 .contacts {
-  width: 285px;
-  margin: 0 auto;
+  .flex-container();
 }
 .contacts__headline {
   .reset-text();
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 18px;
+  line-height: 26px;
   font-weight: normal;
 }
 .contacts__headline--bold {
@@ -40,8 +40,9 @@ export default class contactsMain extends Vue {
 }
 .contacts__value {
   .reset-text();
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 18px;
+  line-height: 26px;
+  margin-bottom: 25px;
   text-decoration: underline;
 }
 @media (min-width: 768px) {
@@ -49,14 +50,8 @@ export default class contactsMain extends Vue {
     width: 350px;
     text-align: center;
   }
-  .contacts__headline {
-    font-size: 18px;
-    line-height: 26px;
-  }
-  .contacts__value {
-    font-size: 18px;
-    line-height: 26px;
-    margin-bottom: 20px;
+  .contacts__br {
+    display: none;
   }
 }
 </style>
