@@ -1,5 +1,5 @@
 <template>
-  <div class="footer-navigation__wrapper">
+  <div class="footer-navigation">
     <ul class="footer-navigation__list">
       <li class="footer-navigation__item">
         <a class="footer-navigation__link" href="https://vk.com/swankytunes" target="_blank" rel="noopener">
@@ -81,24 +81,26 @@ export default class footerMenu extends Vue {
 </script>
 
 <style scoped lang="less">
-  .footer-navigation__list {
-    display: none;
+  .footer-navigation {
+    &__list {
+      display: none;
+    }
   }
   @media (min-width: 768px) {
-    .footer-navigation__list {
-      .reset-list();
-      width: 600px;
-      padding: 35px 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
-    .footer-navigation__icon:hover {
-      transform: scale(1.2);
-      transition: 1s;
-    }
-    .footer-navigation__wrapper {
+    .footer-navigation {
       .flex-container();
+      &__list {
+        .reset-list();
+        width: 600px;
+        padding: 35px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      &__icon:hover {
+        transform: scale(1.2);
+        transition: 1s;
+      }
     }
   }
 </style>

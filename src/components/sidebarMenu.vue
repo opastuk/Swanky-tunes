@@ -1,17 +1,17 @@
 <template>
 <div class="sidebar">
-  <navMenuHome class="sidebar__nav-menu"/>
-  <footerMenuHome class="sidebar__footer-menu"/>
+  <navMenu class="sidebar__nav-menu"/>
+  <footerMenu class="sidebar__footer-menu"/>
 </div>
 </template>
 
 <script>
 import { Component, Vue } from 'vue-property-decorator';
-import footerMenuHome from '@/components/footerMenuHome.vue';
-import navMenuHome from '@/components/navMenuHome.vue';
+import footerMenu from '@/components/footerMenu.vue';
+import navMenu from '@/components/navMenu.vue';
 
 @Component({
-  components: { navMenuHome, footerMenuHome },
+  components: { navMenu, footerMenu },
 })
 export default class SidebarMenu extends Vue {
 }

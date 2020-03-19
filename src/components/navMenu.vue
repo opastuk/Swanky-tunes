@@ -84,24 +84,24 @@ export default class NavMenu extends Vue {
     display: flex;
     justify-content: space-between;
     font-size: 20px;
-  }
-  .main-navigation__list {
-    display: none;
-  }
-  .main-navigation__link {
-    .reset-link();
-    color: #000000;
-    font-weight: 200;
-  }
-  .main-navigation__toggle {
-    width: 10%;
-    height: 25px;
-    padding: 0;
-    border: none;
-    position: relative;
-    z-index: 2;
-    outline: none;
-    background-color: transparent;
+    &__list {
+      display: none;
+    }
+    &__link {
+      .reset-link();
+      color: #000000;
+      font-weight: 200;
+    }
+    &__toggle {
+      width: 10%;
+      height: 25px;
+      padding: 0;
+      border: none;
+      position: relative;
+      z-index: 2;
+      outline: none;
+      background-color: transparent;
+    }
   }
   @media (min-width: 768px) {
     .nav-menu {
@@ -109,48 +109,52 @@ export default class NavMenu extends Vue {
     }
     .main-navigation {
       padding: 40px 0 30px;
-    }
-    .main-navigation__logo {
-      white-space: nowrap;
-    }
-    .main-navigation__toggle {
-      display: none;
-    }
-    .main-navigation__list {
-      .reset-list();
-      width: 650px;
-      display: flex;
-      justify-content: space-around;
-    }
-    .main-navigation__link {
-      position: relative;
-    }
-    .main-navigation__link:hover,
-    .main-navigation__link:focus {
-      outline: none;
-    }
-   .main-navigation__link::after {
-      content: "";
-      width: 0;
-      height: 2px;
-      background-color: #000000;
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      transition: width .3s ease-in-out;
-    }
-    .main-navigation__link:hover::after,
-    .main-navigation__link:focus::after {
-      width: 100%;
-    }
-    .main-navigation__item--dropdown {
-      position: relative;
-    }
-    .main-navigation__link--dropdown {
-      .reset-link();
-      color: #000000;
-      font-weight: 200;
+      &__logo {
+        white-space: nowrap;
+      }
+      &__toggle {
+        display: none;
+      }
+      &__list {
+        .reset-list();
+        width: 650px;
+        display: flex;
+        justify-content: space-around;
+      }
+      &__link {
+        position: relative;
+        &:hover,
+        &:focus {
+          outline: none;
+        }
+        &::after {
+          content: "";
+          width: 0;
+          height: 2px;
+          background-color: #000000;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          transition: width .3s ease-in-out;
+        }
+        &:hover::after,
+        &:focus::after {
+          width: 100%;
+        }
+      }
+      &__item--dropdown {
+        position: relative;
+        &:hover .sub-navigation__list {
+          .flex-layout();
+          align-items: center;
+        }
+      }
+      &__link--dropdown {
+        .reset-link();
+        color: #000000;
+        font-weight: 200;
+      }
     }
     .sub-navigation__list {
       .reset-list();
@@ -166,20 +170,16 @@ export default class NavMenu extends Vue {
       transform: translateX(-50%);
       display: none;
     }
-    .main-navigation__item--dropdown:hover .sub-navigation__list {
-      .flex-layout();
-      align-items: center;
-    }
     .sub-navigation__link {
       display: block;
       width: 40px;
       height: 40px;
-    }
-    .sub-navigation__link:hover,
-    .sub-navigation__link:focus {
-      outline: none;
-      transform: scale(1.2);
-      transition: 1s;
+      &__link:hover,
+      &__link:focus {
+        outline: none;
+        transform: scale(1.2);
+        transition: 1s;
+      }
     }
   }
 </style>

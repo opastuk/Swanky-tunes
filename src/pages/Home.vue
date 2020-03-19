@@ -4,7 +4,7 @@
       <h1 class="visually-hidden">Swanky Tunes</h1>
       <navMenu/>
       <mainLogo class="main-logo"></mainLogo>
-      <footerMenu/>
+      <footerMenuHome class="footer-menu"/>
     </div>
   </div>
 </template>
@@ -13,10 +13,10 @@
 import { Component, Vue } from 'vue-property-decorator';
 import navMenu from '@/components/navMenu.vue';
 import mainLogo from '@/components/mainLogo.vue';
-import footerMenu from '@/components/footerMenu.vue';
+import footerMenuHome from '@/components/footerMenuHome.vue';
 
 @Component({
-  components: { navMenu, mainLogo, footerMenu },
+  components: { navMenu, mainLogo, footerMenuHome },
 })
 export default class Home extends Vue {
 }
@@ -27,16 +27,23 @@ export default class Home extends Vue {
     .main-background();
     .fullscreen();
     max-height: 100%;
-  }
-  .home__wrapper {
-    .flex-layout();
-    .fix-height();
+    &__wrapper {
+      .flex-layout();
+      .fix-height();
+    }
   }
   .container {
     @media (min-width: 768px) {
-      width: 760px;
+      width: 765px;
       height: 100vh;
       margin: 0 auto;
     }
+    @media (min-width: 1100px) {
+      width: 910px;
+    }
+  }
+  .footer-menu {
+    position: relative;
+    z-index: 2;
   }
 </style>
