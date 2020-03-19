@@ -2,11 +2,7 @@
   <div class="music">
     <navMenu/>
     <div class="music__wrapper">
-
-      <div class="music__track" v-for="song in songCard"
-           :key="song.id">
-        <music-track :song="song"/>
-      </div>
+        <music-track v-for="song in songCard" :song="song" :key="song.id"/>
     </div>
       <footerMenu/>
   </div>
@@ -43,10 +39,9 @@ export default class Music extends Vue {
     min-height: 100vh;
   }
   .music__wrapper {
-    .flex-container();
-    overflow: scroll;
-    height: calc(100vh - 208px);
     display: flex;
+    overflow: scroll;
+    height: calc(100vh - 100px);
     flex-direction: column;
     align-items: center;
 
@@ -73,6 +68,7 @@ export default class Music extends Vue {
   }
   @media (min-width: 1160px) {
     .music__wrapper {
+      height: calc(100vh - 208px);
       padding: 0 10px;
       justify-content: space-between;
     }

@@ -13,8 +13,7 @@
     <div class="track__info">
       <p class="track__name">{{song.name}}</p>
       <div class="track__additional">
-        <span class="track__producer">{{song.author}}</span>
-        <span class="track__year">{{song.year}}</span>
+        <span class="track__producer">{{song.author}} {{song.year}}</span>
       </div>
     </div>
   </div>
@@ -152,6 +151,12 @@ export default class musicTrack extends Vue {
       top: 30%;
       left: 43%;
       background-color: #ffffff;
+    }
+  }
+
+  .track-cover {
+    &__wrapper {
+      min-height: 286px;
     }
   }
 </style>
