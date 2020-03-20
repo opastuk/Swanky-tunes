@@ -1,7 +1,7 @@
 <template>
     <div class="nav-menu">
       <nav class="main-navigation">
-        <router-link class="main-navigation__link" to="/">
+        <router-link class="main-navigation__link--logo" to="/">
           <span class="main-navigation__logo">Swanky Tunes</span>
         </router-link>
         <button class="main-navigation__toggle" @click="showSideBar">
@@ -91,6 +91,11 @@ export default class NavMenu extends Vue {
       .reset-link();
       color: #000000;
       font-weight: 200;
+      &--logo {
+        .reset-link();
+        color: #000000;
+        font-weight: 200;
+      }
     }
     &__toggle {
       width: 10%;
@@ -110,7 +115,28 @@ export default class NavMenu extends Vue {
     .main-navigation {
       padding: 40px 0 30px;
       &__logo {
+        margin-right: 15px;
         white-space: nowrap;
+        position: relative;
+        &:hover,
+        &:focus {
+          outline: none;
+        }
+        &::after {
+          content: "";
+          width: 0;
+          height: 2px;
+          background-color: #000000;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          transition: width .3s ease-in-out;
+        }
+        &:hover::after,
+        &:focus::after {
+          width: 100%;
+        }
       }
       &__toggle {
         display: none;

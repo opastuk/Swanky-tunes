@@ -26,13 +26,14 @@ export default class SidebarMenu extends Vue {
       right: 0;
       top: 0;
       background-color: #000000;
+      opacity: 0.8;
       padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       align-items: flex-end;
       z-index: 1;
-    }/*
+    }
     /*.sidebar__nav-menu {*/
     /*  margin: 0 auto;*/
     /*}*/

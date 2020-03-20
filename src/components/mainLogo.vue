@@ -1,7 +1,7 @@
 <template>
  <div class="main-logo">
-    <img class="main-logo__img" src="../assets/img/pic.png"
-         alt="Swanky Tunes" width="876" height="756">
+   <img class="main-logo__img" src="../assets/img/pic.png"
+          alt="Swanky Tunes" width="876" height="756">
  </div>
 </template>
 
@@ -14,11 +14,32 @@ export default class mainLogo extends Vue {
 </script>
 
 <style scoped lang="less">
+  .main-logo {
+    &__img {
+      display: none;
+    }
+  }
   @media (min-width: 768px) {
     .main-logo {
       width: 100%;
       position: relative;
       &__img {
+        display: block;
+        width: 780px;
+        position: absolute;
+        z-index: 0;
+        top: -283px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+  @media (min-width: 850px) {
+    .main-logo {
+      width: 100%;
+      position: relative;
+      &__img {
+        width: 100%;
         position: absolute;
         z-index: 0;
         top: -283px;

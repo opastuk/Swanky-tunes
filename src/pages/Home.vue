@@ -24,8 +24,14 @@ export default class Home extends Vue {
 
 <style scoped lang="less">
   .home {
-    .main-background();
     .fullscreen();
+    background-image: url("../assets/img/mobile-pic.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    @media (min-width: 768px) {
+      .main-background();
+    }
     max-height: 100%;
     &__wrapper {
       .flex-layout();
@@ -34,7 +40,7 @@ export default class Home extends Vue {
   }
   .container {
     @media (min-width: 768px) {
-      width: 765px;
+      width: 780px;
       height: 100vh;
       margin: 0 auto;
     }
