@@ -5,7 +5,7 @@
 
       <div class="music__track" v-for="song in songCard"
            :key="song.id">
-        <music-track :song="song"/>
+        <music-track :song="song" @playing="preventOthers"/>
       </div>
     </div>
       <footerMenu/>
@@ -24,12 +24,32 @@ import musicTrack from '@/components/musicTrack.vue';
 export default class Music extends Vue {
   songCard = [];
 
+  nowPlaying = {};
+
+  songs = [];
+
+  indexOfPlaying = null;
+
   mounted() {
     axios.get('http://localhost:3000/music')
       .then((response) => {
         this.songCard = response.data;
-        console.log(response);
       });
+  }
+
+
+  preventOthers(songId) {
+    this.songs = document.getElementsByTagName('audio');
+    this.nowPlaying = this.songCard.find(el => el.id === songId);
+    this.indexOfPlaying = this.songCard.indexOf(this.nowPlaying);
+
+    this.songs.forEach((el, index) => {
+      if (index !== this.indexOfPlaying) {
+        el.pause();
+        // eslint-disable-next-line no-param-reassign
+        el.currentTime = 0;
+      }
+    });
   }
 }
 </script>
