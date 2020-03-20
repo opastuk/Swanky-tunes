@@ -5,7 +5,7 @@
 
       <div class="music__track" v-for="song in songCard"
            :key="song.id">
-        <music-track :song="song"/>
+        <music-track :song="song" @playing="preventOthers"/>
       </div>
     </div>
       <footerMenu/>
@@ -29,6 +29,18 @@ export default class Music extends Vue {
       .then((response) => {
         this.songCard = response.data;
       });
+  }
+
+  preventOthers(songId) {
+    const songs = document.getElementsByTagName('audio');
+    const nowPlaying = this.songCard.find(el => el.id === songId);
+    const indexOfPlaying = this.songCard.indexOf(nowPlaying);
+
+    songs.forEach((el, index) => {
+      if (index !== indexOfPlaying) {
+        el.pause();
+      }
+    });
   }
 }
 </script>

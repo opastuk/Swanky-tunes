@@ -49,10 +49,19 @@ export default class musicTrack extends Vue {
     play() {
       if (!this.player.paused) {
         this.player.pause();
-      } else if (this.player.paused && this.player.networkState) {
+      } else if (this.player.paused && this.player.readyState) {
         this.player.play();
       }
-      this.isPausedNow = !!(this.player.paused || this.player.ended);
+      this.player.onplaying = () => {
+        this.isPausedNow = false;
+        this.$emit('playing', this.song.id);
+      };
+      this.player.onended = () => {
+        this.isPausedNow = true;
+      };
+      this.player.onpause = () => {
+        this.isPausedNow = true;
+      };
     }
   }
 </script>
@@ -168,6 +177,9 @@ export default class musicTrack extends Vue {
         content: '';
         position: absolute;
         top: 2px;
+        background-color: #ffffff;
+        width: 100%;
+        height: 100%
       }
     }
   }
