@@ -1,13 +1,16 @@
 <template>
-  <div class="track" :class="{'play': isPlayNow}">
+  <div class="track" :class="{'play': !isPausedNow}">
     <div class="track-cover__wrapper">
-      <img class="track__cover" :class="{'play': isPlayNow}" :src="song.poster" alt="Track cover">
+      <img class="track__cover"
+           :class="{'play': !isPausedNow}"
+           :src="song.poster"
+           alt="Track cover">
       <audio ref="audioPlayer" class="track__audio" preload="metadata">
         <source src="../../public/02633.mp3" type="audio/ogg">
       </audio>
       <div class="track-control__button" @click="play" type="button">
-        <play v-if="!isPlayNow" width="45" height="45"/>
-        <pause v-if="isPlayNow" width="45" height="45"/>
+        <play class="track-control__icon" v-if="isPausedNow" width="90" height="90"/>
+        <pause class="track-control__icon" v-if="!isPausedNow" width="90" height="90"/>
       </div>
     </div>
     <div class="track__info">
@@ -34,16 +37,22 @@ import pause from '@/assets/img/svg/pause.svg';
 export default class musicTrack extends Vue {
     @Prop(Object) song;
 
-    isPlayNow = false;
+    isPausedNow = true;
+
+    player = {};
+
+    mounted() {
+      this.player = this.$refs.audioPlayer;
+      this.player.preload = 'auto';
+    }
 
     play() {
-      const player = this.$refs.audioPlayer;
-      if (this.isPlayNow) {
-        player.pause();
-        this.isPlayNow = !this.isPlayNow;
-      } else {
-        player.play().then(() => this.isPlayNow = !this.isPlayNow);
+      if (!this.player.paused) {
+        this.player.pause();
+      } else if (this.player.paused && this.player.networkState) {
+        this.player.play();
       }
+      this.isPausedNow = !!(this.player.paused || this.player.ended);
     }
   }
 </script>
@@ -146,11 +155,20 @@ export default class musicTrack extends Vue {
       position: absolute;
       border: none;
       border-radius: 50%;
-      height: 45px;
-      width: 45px;
-      top: 30%;
-      left: 43%;
-      background-color: #ffffff;
+      height: 89px;
+      width: 89px;
+      top: 26%;
+      left: 38%;
+    }
+
+    &__icon {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 2px;
+      }
     }
   }
   .play {
