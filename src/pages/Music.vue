@@ -24,6 +24,12 @@ import musicTrack from '@/components/musicTrack.vue';
 export default class Music extends Vue {
   songCard = [];
 
+  nowPlaying = {};
+
+  songs = [];
+
+  indexOfPlaying = null;
+
   mounted() {
     axios.get('http://localhost:3000/music')
       .then((response) => {
@@ -31,14 +37,17 @@ export default class Music extends Vue {
       });
   }
 
-  preventOthers(songId) {
-    const songs = document.getElementsByTagName('audio');
-    const nowPlaying = this.songCard.find(el => el.id === songId);
-    const indexOfPlaying = this.songCard.indexOf(nowPlaying);
 
-    songs.forEach((el, index) => {
-      if (index !== indexOfPlaying) {
+  preventOthers(songId) {
+    this.songs = document.getElementsByTagName('audio');
+    this.nowPlaying = this.songCard.find(el => el.id === songId);
+    this.indexOfPlaying = this.songCard.indexOf(this.nowPlaying);
+
+    this.songs.forEach((el, index) => {
+      if (index !== this.indexOfPlaying) {
         el.pause();
+        // eslint-disable-next-line no-param-reassign
+        el.currentTime = 0;
       }
     });
   }
