@@ -20,8 +20,8 @@ export default class NotFound extends Vue {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.not-found__text {
-  font-size: 50px;
+  &__text {
+    font-size: 50px;
+  }
 }
 </style>

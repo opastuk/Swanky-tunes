@@ -41,22 +41,22 @@ export default class Music extends Vue {
     .main-background();
     flex-direction: column;
     min-height: 100vh;
-  }
-  .music__wrapper {
-    .flex-container();
-    overflow: scroll;
-    height: calc(100vh - 208px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    &__wrapper {
+      .flex-container();
+      overflow: scroll;
+      height: calc(100vh - 208px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-    &::-webkit-scrollbar{
-      opacity: 0;
-    }
-    &::-webkit-scrollbar-corner {
-      opacity: 0;
-    }
+      &::-webkit-scrollbar{
+        opacity: 0;
+      }
+      &::-webkit-scrollbar-corner {
+        opacity: 0;
+      }
 
+    }
   }
   @media (min-width: 667px) {
     .music__wrapper {

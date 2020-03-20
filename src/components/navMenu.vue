@@ -98,7 +98,7 @@ export default class NavMenu extends Vue {
       }
     }
     &__toggle {
-      width: 10%;
+      width: 25px;
       height: 25px;
       padding: 0;
       border: none;

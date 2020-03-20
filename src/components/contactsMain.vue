@@ -28,30 +28,31 @@ export default class contactsMain extends Vue {
 <style scoped lang="less">
 .contacts {
   .flex-container();
+  &__headline {
+    .reset-text();
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: normal;
+  }
+  &__headline--bold {
+    font-weight: bold;
+  }
+  &__value {
+    .reset-text();
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 25px;
+    text-decoration: underline;
+  }
 }
-.contacts__headline {
-  .reset-text();
-  font-size: 18px;
-  line-height: 26px;
-  font-weight: normal;
-}
-.contacts__headline--bold {
-  font-weight: bold;
-}
-.contacts__value {
-  .reset-text();
-  font-size: 18px;
-  line-height: 26px;
-  margin-bottom: 25px;
-  text-decoration: underline;
-}
+
 @media (min-width: 768px) {
   .contacts {
     width: 350px;
     text-align: center;
-  }
-  .contacts__br {
-    display: none;
+    &__br {
+      display: none;
+    }
   }
 }
 </style>
