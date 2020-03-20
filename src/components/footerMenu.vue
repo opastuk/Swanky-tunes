@@ -1,5 +1,37 @@
 <template>
   <div class="footer-navigation">
+    <ul class="footer-navigation__list--mobile">
+      <li class="footer-navigation__item">
+        <a class="footer-navigation__link--mobile" href="https://vk.com/swankytunes" target="_blank" rel="noopener">
+          <span class="visually-hidden">Vk</span>
+          <vkm class="footer-navigation__icon" width="45" height="45"/>
+        </a>
+      </li>
+      <li class="footer-navigation__item">
+        <a class="footer-navigation__link--mobile" href="https://www.instagram.com/swankytunes" target="_blank" rel="noopener">
+          <span class="visually-hidden">Instagram</span>
+          <instm class="footer-navigation__icon" width="45" height="45"/>
+        </a>
+      </li>
+      <li class="footer-navigation__item">
+        <a class="footer-navigation__link--mobile" href="https://www.facebook.com/swankytunes" target="_blank" rel="noopener">
+          <span class="visually-hidden">Facebook</span>
+          <fbm class="footer-navigation__icon" width="45" height="45"/>
+        </a>
+      </li>
+      <li class="footer-navigation__item">
+        <a class="footer-navigation__link--mobile" href="https://www.youtube.com/swankytuneslive" target="_blank" rel="noopener">
+          <span class="visually-hidden">Youtube</span>
+          <youtubem class="footer-navigation__icon" width="45" height="45"/>
+        </a>
+      </li>
+      <li class="footer-navigation__item">
+        <a class="footer-navigation__link--mobile" href="https://twitter.com/swankytunes" target="_blank" rel="noopener">
+          <span class="visually-hidden">Twitter</span>
+          <twitterm class="footer-navigation__icon" width="45" height="45"/>
+        </a>
+      </li>
+    </ul>
     <ul class="footer-navigation__list">
       <li class="footer-navigation__item">
         <a class="footer-navigation__link" href="https://vk.com/swankytunes" target="_blank" rel="noopener">
@@ -70,10 +102,28 @@ import sndcld from '@/assets/img/svg/sndcld.svg';
 import apple from '@/assets/img/svg/apple.svg';
 import spotify from '@/assets/img/svg/spotify.svg';
 import beatport from '@/assets/img/svg/beatport.svg';
+import vkm from '@/assets/img/svg/vk-m.svg';
+import instm from '@/assets/img/svg/instagram-m.svg';
+import fbm from '@/assets/img/svg/fb-m.svg';
+import youtubem from '@/assets/img/svg/utube-m.svg';
+import twitterm from '@/assets/img/svg/twitter-m.svg';
 
 @Component({
   components: {
-    vk, inst, fb, youtube, twitter, sndcld, apple, spotify, beatport,
+    vk,
+    inst,
+    fb,
+    youtube,
+    twitter,
+    sndcld,
+    apple,
+    spotify,
+    beatport,
+    vkm,
+    instm,
+    fbm,
+    youtubem,
+    twitterm,
   },
 })
 export default class footerMenu extends Vue {
@@ -96,6 +146,9 @@ export default class footerMenu extends Vue {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        &--mobile {
+          display: none;
+        }
       }
       &__icon:hover {
         transform: scale(1.2);

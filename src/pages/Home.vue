@@ -40,11 +40,11 @@ export default class Home extends Vue {
   }
   .container {
     @media (min-width: 768px) {
-      width: 780px;
+      width: 790px;
       height: 100vh;
       margin: 0 auto;
     }
-    @media (min-width: 1100px) {
+    @media (min-width: 900px) {
       width: 910px;
     }
   }

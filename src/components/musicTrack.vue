@@ -138,7 +138,7 @@ export default class musicTrack extends Vue {
       &:hover .track__audio,
       &:focus .track__audio{
         display: block;
-      }/*temporary*/
+      }
     }
   }
   .track-control {
