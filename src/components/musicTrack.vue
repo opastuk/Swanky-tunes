@@ -1,8 +1,14 @@
 <template>
-  <div class="track">
+  <div class="track" :class="{'play': isPlayNow}">
     <div class="track-cover__wrapper">
-      <img class="track__cover" :src="song.poster" alt="Track cover">
-      <audio class="track__audio" src="#" controls/>
+      <img class="track__cover" :class="{'play': isPlayNow}" :src="song.poster" alt="Track cover">
+      <audio ref="audioPlayer" class="track__audio" preload="metadata">
+        <source src="../../public/02633.mp3" type="audio/ogg">
+      </audio>
+      <div class="track-control__button" @click="play" type="button">
+        <play v-if="!isPlayNow" width="45" height="45"/>
+        <pause v-if="isPlayNow" width="45" height="45"/>
+      </div>
     </div>
     <div class="track__info">
       <p class="track__name">{{song.name}}</p>
@@ -16,15 +22,35 @@
 
 <script>
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import play from '@/assets/img/svg/play.svg';
+import pause from '@/assets/img/svg/pause.svg';
 
-  @Component
+  @Component({
+    components: {
+      play,
+      pause,
+    },
+  })
 export default class musicTrack extends Vue {
-    @Prop(Object) song
+    @Prop(Object) song;
+
+    isPlayNow = false;
+
+    play() {
+      const player = this.$refs.audioPlayer;
+      if (this.isPlayNow) {
+        player.pause();
+        this.isPlayNow = !this.isPlayNow;
+      } else {
+        player.play().then(() => this.isPlayNow = !this.isPlayNow);
+      }
+    }
   }
 </script>
 
 <style scoped lang="less">
   .track {
+    position: relative;
     width: 300px;
     box-sizing: border-box;
     padding: 10px 7px 15px;
@@ -114,5 +140,22 @@ export default class musicTrack extends Vue {
         display: block;
       }/*temporary*/
     }
+  }
+  .track-control {
+    &__button {
+      position: absolute;
+      border: none;
+      border-radius: 50%;
+      height: 45px;
+      width: 45px;
+      top: 30%;
+      left: 43%;
+      background-color: #ffffff;
+    }
+  }
+  .play {
+    background-color: #476776;
+    color: #ffffff;
+    filter: grayscale(0%);
   }
 </style>
