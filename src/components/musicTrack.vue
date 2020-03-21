@@ -44,6 +44,10 @@ export default class musicTrack extends Vue {
     mounted() {
       this.player = this.$refs.audioPlayer;
       this.player.preload = 'auto';
+      this.player.onplaying = () => {
+        this.isPausedNow = false;
+        this.$emit('playing', this.song.id);
+      };
     }
 
     play() {
@@ -58,6 +62,7 @@ export default class musicTrack extends Vue {
       };
       this.player.onended = () => {
         this.isPausedNow = true;
+        this.$emit('ended', this.song.id);
       };
       this.player.onpause = () => {
         this.isPausedNow = true;
