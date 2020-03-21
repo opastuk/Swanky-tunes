@@ -153,10 +153,6 @@ export default class musicTrack extends Vue {
       &__audio {
         display: none;
       }
-      &:hover .track__audio,
-      &:focus .track__audio{
-        display: block;
-      }
     }
   }
   .track-control {
@@ -164,23 +160,25 @@ export default class musicTrack extends Vue {
       position: absolute;
       border: none;
       border-radius: 50%;
-      height: 89px;
-      width: 89px;
+      height: 90px;
+      width: 90px;
       top: 26%;
-      left: 38%;
-    }
-
-    &__icon {
-      position: relative;
+      left: 37%;
 
       &::before {
         content: '';
         position: absolute;
-        top: 2px;
+        border-radius: 50%;
+        top: 5px;
+        left: 5px;
         background-color: #ffffff;
-        width: 100%;
-        height: 100%
+        width: 80px;
+        height: 80px;
       }
+    }
+
+    &__icon {
+      position: relative;
     }
   }
   .play {
