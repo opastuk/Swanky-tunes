@@ -136,7 +136,9 @@ export default class footerMenuHome extends Vue {
       display: none;
       &--mobile {
         .reset-list();
-        width: 65%;
+        width: 90%;
+        padding: 10px 0 25px;
+        margin: 0 auto;
         display: flex;
         justify-content: space-between;
       }

@@ -134,6 +134,14 @@ export default class footerMenu extends Vue {
   .footer-navigation {
     &__list {
       display: none;
+      &--mobile {
+        .reset-list();
+        width: 90%;
+        padding: 10px 0 25px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+      }
     }
   }
   @media (min-width: 768px) {
