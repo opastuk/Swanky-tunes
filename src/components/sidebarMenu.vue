@@ -11,15 +11,16 @@
       <router-link class="sidebar__link" to="/dates">Tour dates</router-link>
     </li>
     <li class="sidebar__item main-navigation__item--dropdown">
-      <a class="sidebar__link sidebar__link--dropdown" href="#">Radio show</a>
-      <ul class="sidebar__list">
-        <li class="sidebar__item">
+      <a class="sidebar__link sidebar__link--dropdown"
+         href="#" @click="social = !social">Radio show</a>
+      <ul class="sidebar__list social" v-if="social">
+        <li class="sidebar__item social">
           <a class="sidebar__link" href="https://podcasts.apple.com/ru/podcast/swanky-tunes-showland-podcast/id923114101" target="_blank" rel="noopener">
             <span class="visually-hidden">Apple podcasts</span>
             <applpdcst class="sidebar__icon" width="40" height="40"/>
           </a>
         </li>
-        <li class="sidebar__item">
+        <li class="sidebar__item social">
           <a class="sidebar__link" href="https://www.mixcloud.com/swankytunes/" target="_blank" rel="noopener">
             <span class="visually-hidden">Mixcloud</span>
             <mixcloud class="sidebar__icon" width="40" height="40"/>
@@ -40,9 +41,16 @@
 <script>
 import { Component, Vue } from 'vue-property-decorator';
 
+import mixcloud from '@/assets/img/svg/mixcloud-white.svg';
+import applpdcst from '@/assets/img/svg/apple_podcast-white.svg';
+
 @Component({
+  components: {
+    mixcloud, applpdcst,
+  },
 })
 export default class SidebarMenu extends Vue {
+  social = false;
 }
 </script>
 
@@ -54,7 +62,7 @@ export default class SidebarMenu extends Vue {
       padding: 20px;
       display: flex;
       flex-direction: column;
-      position: absolute;
+      position: fixed;
       right: 0;
       top: 0;
       z-index: 1;
@@ -64,6 +72,11 @@ export default class SidebarMenu extends Vue {
         .reset-list();
         margin-top: 65px;
         text-align: right;
+
+        .social {
+          margin-top: 5px;
+          padding-bottom: 0;
+        }
       }
       &__item {
         padding-bottom: 15px;
