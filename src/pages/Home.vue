@@ -3,8 +3,8 @@
     <div class="container home__wrapper">
       <h1 class="visually-hidden">Swanky Tunes</h1>
       <navMenu class="navigation-menu"/>
-      <mainLogo class="main-logo"></mainLogo>
       <img class="home__main-photo" src="../assets/img/mobile-pic.png" alt="Swanky">
+      <mainLogo class="main-logo"></mainLogo>
       <footerMenuHome class="footer-menu"/>
     </div>
   </div>
@@ -39,10 +39,13 @@ export default class Home extends Vue {
 
     &__main-photo {
       position: absolute;
-      height: 100vh;
-      width: 100vw;
+      height: 100%;
+      width: 100%;
       object-fit: contain;
       z-index: 0;
+      @media (min-width: 768px) {
+        display: none;
+      }
     }
   }
   .container {
