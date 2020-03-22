@@ -1,7 +1,7 @@
 <template>
  <div class="main-logo">
    <img class="main-logo__img" src="../assets/img/pic.png"
-          alt="Swanky Tunes" width="876" height="756">
+          alt="Swanky Tunes">
  </div>
 </template>
 
@@ -22,10 +22,8 @@ export default class mainLogo extends Vue {
   @media (min-width: 768px) {
     .main-logo {
       width: 100%;
-      position: relative;
       &__img {
         display: block;
-        width: 780px;
         position: absolute;
         z-index: 0;
         top: -283px;

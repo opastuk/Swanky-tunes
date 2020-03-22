@@ -4,7 +4,8 @@
       <h1 class="visually-hidden">Swanky Tunes</h1>
       <navMenu class="navigation-menu"/>
       <img class="home__main-photo" src="../assets/img/mobile-pic.png" alt="Swanky">
-      <mainLogo class="main-logo"></mainLogo>
+      <img class="home__desktop-main-photo" src="../assets/img/pic.png"
+           alt="Swanky Tunes">
       <footerMenuHome class="footer-menu"/>
     </div>
   </div>
@@ -13,11 +14,10 @@
 <script>
 import { Component, Vue } from 'vue-property-decorator';
 import navMenu from '@/components/navMenu.vue';
-import mainLogo from '@/components/mainLogo.vue';
 import footerMenuHome from '@/components/footerMenuHome.vue';
 
 @Component({
-  components: { navMenu, mainLogo, footerMenuHome },
+  components: { navMenu, footerMenuHome },
 })
 export default class Home extends Vue {
 }
@@ -47,10 +47,27 @@ export default class Home extends Vue {
         display: none;
       }
     }
+
+    &__desktop-main-photo {
+      display: none;
+      position: absolute;
+      width: 100%;
+      object-fit: contain;
+      z-index: 0;
+      bottom: 0;
+
+      @media (min-width:768px) {
+        display: inline-block;
+      }
+      @media (min-width: 1200px) {
+        bottom: 0;
+      }
+    }
   }
   .container {
+    position: relative;
     @media (min-width: 768px) {
-      width: 790px;
+      width: 100%;
       height: 100vh;
       margin: 0 auto;
     }

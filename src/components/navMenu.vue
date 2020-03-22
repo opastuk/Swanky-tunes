@@ -111,6 +111,7 @@ export default class NavMenu extends Vue {
   @media (min-width: 768px) {
     .nav-menu {
       height: auto;
+      width: 100%;
     }
     .main-navigation {
       padding: 40px 0 30px;
