@@ -2,8 +2,9 @@
   <div class="home">
     <div class="container home__wrapper">
       <h1 class="visually-hidden">Swanky Tunes</h1>
-      <navMenu/>
+      <navMenu class="navigation-menu"/>
       <mainLogo class="main-logo"></mainLogo>
+      <img class="home__main-photo" src="../assets/img/mobile-pic.png" alt="Swanky">
       <footerMenuHome class="footer-menu"/>
     </div>
   </div>
@@ -25,17 +26,23 @@ export default class Home extends Vue {
 <style scoped lang="less">
   .home {
     .fullscreen();
-    background-image: url("../assets/img/mobile-pic.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-color: #e1e6ea;
     @media (min-width: 768px) {
       .main-background();
     }
-    max-height: 100%;
+    height: 100%;
     &__wrapper {
       .flex-layout();
       .fix-height();
+      width: 100%;
+    }
+
+    &__main-photo {
+      position: absolute;
+      height: 100vh;
+      width: 100vw;
+      object-fit: contain;
+      z-index: 0;
     }
   }
   .container {
@@ -49,7 +56,10 @@ export default class Home extends Vue {
     }
   }
   .footer-menu {
-    position: relative;
+    z-index: 2;
+  }
+
+  .navigation-menu {
     z-index: 2;
   }
 </style>
