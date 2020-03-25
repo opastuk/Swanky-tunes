@@ -2,11 +2,10 @@
   <div class="music">
     <navMenu/>
     <div class="music__wrapper">
+        <music-track v-for="(song, index) in songCard"
+                     :song="song" @playing="preventOthers"
+                     @ended="nextTrack" :key="index"/>
 
-      <div class="music__track" v-for="song in songCard"
-           :key="song.id">
-        <music-track :song="song" @playing="preventOthers" @ended="nextTrack"/>
-      </div>
     </div>
       <footerMenu/>
   </div>
