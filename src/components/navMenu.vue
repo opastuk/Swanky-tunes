@@ -7,7 +7,9 @@
         <button class="main-navigation__toggle" @click="showSideBar">
           <sidemenu width="25" height="25" :fill="fillColor"/>
         </button>
-        <sidebarMenu v-if="sideBar"/>
+        <transition name="slide">
+          <sidebarMenu v-if="sideBar"/>
+        </transition>
         <ul class="main-navigation__list">
           <li class="main-navigation__item">
             <router-link class="main-navigation__link" to="/music">Music</router-link>
@@ -207,6 +209,32 @@ export default class NavMenu extends Vue {
         transform: scale(1.2);
         transition: 1s;
       }
+    }
+  }
+
+  .slide-enter-active {
+    animation: slide-left .5s;
+  }
+
+  .slide-leave-active {
+    animation: slide-right .5s;
+  }
+
+  @keyframes  slide-left {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes  slide-right {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
     }
   }
 </style>
