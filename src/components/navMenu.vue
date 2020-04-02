@@ -78,7 +78,7 @@ export default class NavMenu extends Vue {
 
 <style scoped lang="less">
   .nav-menu {
-    height: 0;
+    height: 76px;
   }
   .main-navigation {
     .flex-container();

@@ -2,7 +2,7 @@
   <div class="music">
     <navMenu/>
     <div class="music__wrapper">
-        <music-track v-for="(song, index) in songCard"
+        <music-track class="music-track" v-for="(song, index) in songCard"
                      :song="song" @playing="preventOthers"
                      @ended="nextTrack" :key="index"/>
 
@@ -59,46 +59,44 @@ export default class Music extends Vue {
 </script>
 <style scoped lang="less">
   .music {
-    .fullscreen();
-    .flex-layout();
-    flex-wrap: nowrap;
-    .main-background();
+    display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    justify-content: space-between;
+    height: 100vh;
     &__wrapper {
-      .flex-container();
-      overflow: scroll;
-      height: calc(100vh - 208px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      &::-webkit-scrollbar{
-        opacity: 0;
-      }
-      &::-webkit-scrollbar-corner {
-        opacity: 0;
-      }
-
+      padding: 0 25px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      flex-basis: 405px;
+      flex-grow: 2;
     }
   }
   @media (min-width: 667px) {
     .music__wrapper {
-      box-sizing: border-box;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    .music-track {
+      &:nth-child(odd) {
+        margin-right: 25px;
+      }
     }
   }
-  @media (min-width:870px) {
-    .music__wrapper {
-      justify-content: space-between;
-    }
-  }
+
   @media (min-width: 1160px) {
-    .music__wrapper {
-      padding: 0 10px;
+    .music__wrapper{
       justify-content: space-between;
     }
+    .music-track {
+      &:nth-child(odd){
+        margin-right: 0;
+      }
+    }
+  }
+
+  .music-track {
+    margin-bottom: 30px;
   }
 </style>
