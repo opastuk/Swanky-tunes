@@ -15,7 +15,7 @@ module.exports = {
     types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)));
   },
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/swanky-tunes-front/'
+    ? '/'
     : '/',
 };
 
