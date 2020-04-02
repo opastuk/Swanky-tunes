@@ -32,11 +32,12 @@ export default class TourDates extends Vue {
   }
 </script>
 
-<style scoped lang="less">
+<style lang="less">
   .dates__main {
-    .flex-container();
-    height: calc(100vh - 208px);
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    flex-basis: 405px;
+    flex-grow: 2;
 
     &::-webkit-scrollbar{
       opacity: 0;
@@ -48,8 +49,13 @@ export default class TourDates extends Vue {
   .dates__link {
     border: #000000;
   }
+
+  .bit-widget-container {
+    width: 102%;
+  }
   @media (min-width: 768px) {
     .dates__main {
+      padding: 0 25px;
       margin-top: 20px;
     }
   }

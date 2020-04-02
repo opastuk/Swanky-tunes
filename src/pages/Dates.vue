@@ -21,9 +21,9 @@ export default class TourDates extends Vue {
 </script>
 <style scoped lang="less">
   .dates {
-    .main-background();
-    .fullscreen();
-    .flex-layout();
-    flex-wrap: nowrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
   }
 </style>
