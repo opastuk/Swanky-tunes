@@ -116,7 +116,7 @@ export default class NavMenu extends Vue {
       width: 100%;
     }
     .main-navigation {
-      padding: 40px 0 30px;
+      padding: 30px 0 26px;
       &__logo {
         margin-right: 15px;
         white-space: nowrap;

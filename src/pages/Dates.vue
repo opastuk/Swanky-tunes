@@ -24,6 +24,6 @@ export default class TourDates extends Vue {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
+    height: 100%;
   }
 </style>

@@ -35,6 +35,7 @@ export default class Home extends Vue {
       .flex-layout();
       .fix-height();
       width: 100%;
+      height: 100%;
     }
 
     &__main-photo {
@@ -68,8 +69,8 @@ export default class Home extends Vue {
     position: relative;
     @media (min-width: 768px) {
       width: 100%;
-      height: 100vh;
       margin: 0 auto;
+      height: 100%;
     }
     @media (min-width: 900px) {
       width: 910px;

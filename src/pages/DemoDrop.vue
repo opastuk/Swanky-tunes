@@ -24,9 +24,10 @@ export default class DemoDrop extends Vue {
 
 <style scoped lang="less">
   .demo-drop {
-    .fullscreen();
-    .main-background();
-    .flex-layout();
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
   }
   @media (min-width: 768px) {
     .demo-drop {

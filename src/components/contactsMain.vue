@@ -27,6 +27,7 @@ export default class contactsMain extends Vue {
 
 <style scoped lang="less">
 .contacts {
+  height: 100%;
   .flex-container();
   &__headline {
     .reset-text();
@@ -49,6 +50,7 @@ export default class contactsMain extends Vue {
 @media (min-width: 768px) {
   .contacts {
     width: 350px;
+    height: auto;
     text-align: center;
     &__br {
       display: none;

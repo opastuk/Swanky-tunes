@@ -76,14 +76,17 @@ export default class musicTrack extends Vue {
     margin: 0;
   }
   .track {
-    min-height: 401px;
-    position: relative;
-    padding: 6px;
-    display: flex;
-    flex: 0 1 270px;
-    flex-flow: column nowrap;
+    height: 100%;
+    width: auto;
+    box-sizing: initial;
+    margin: 0;
+    padding: 10px;
     font-weight: 200;
     font-size: 26px;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
     &:hover,
     &:focus {
       background-color: #476776;
@@ -92,36 +95,40 @@ export default class musicTrack extends Vue {
     &:hover .track__cover {
       filter: grayscale(0%);
     }
-    &:hover .track__info::after {
-      background-color: #ffffff;
+    &:hover .track__info {
+      border-bottom: 1px solid #ffffff;
+    }
+
+    &__producer {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+    &__year {
+      height: fit-content;
+      align-self: flex-end;
     }
     &__cover {
       width: 100%;
+      height: auto;
       transition: filter  ease-in-out;
       filter: grayscale(99%);
     }
 
     &__info {
-      height: 100%;
+      height: 50%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding-bottom: 10px;
-      &::after {
-        content: "";
-        width: 96%;
-        height: 1px;
-        background-color: #000000;
-        position: absolute;
-        bottom: 5px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
+      flex-basis: 140px;
+      border-bottom: 1px solid #000000;
     }
 
     &__name {
       margin-top: 2px;
-      margin-bottom: 82px;
     }
 
     &__additional {
@@ -137,8 +144,9 @@ export default class musicTrack extends Vue {
       border-radius: 50%;
       height: 90px;
       width: 90px;
-      top: 23%;
-      left: 35%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
 
       &::before {
         content: '';
@@ -161,20 +169,21 @@ export default class musicTrack extends Vue {
     color: #ffffff;
     filter: grayscale(0%);
   }
+  .track-cover__wrapper {
+    position: relative;
+    height: 50%;
+    width: 100%;
+  }
 
   @media (min-width: 768px) {
+
     .track {
       margin-bottom: 15px;
       position: relative;
-      width: 340px;
-      min-height: 508px;
-
-      &__cover {
-        width: 320px;
-      }
+      width: auto;
+      height: 100%;
 
       &__info {
-        width: 320px;
         flex-grow: 1;
       }
 
@@ -190,8 +199,9 @@ export default class musicTrack extends Vue {
         border-radius: 50%;
         height: 90px;
         width: 90px;
-        top: 23%;
-        left: 36%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
 
         &::before {
           content: '';
@@ -215,6 +225,13 @@ export default class musicTrack extends Vue {
       color: #ffffff;
       filter: grayscale(0%);
 
+    }
+  }
+
+  @media (min-width: 1160px) {
+
+    .track {
+      flex-basis: 25%;
     }
   }
 </style>

@@ -58,7 +58,7 @@ export default class SidebarMenu extends Vue {
   @media (max-width: 768px) {
     .sidebar {
       width: 40%;
-      height: 100vh;
+      height: 100%;
       padding: 20px;
       display: flex;
       flex-direction: column;
