@@ -50,7 +50,6 @@ export default class musicTrack extends Vue {
     }
 
     mounted() {
-      console.log(this.song.track_cover[0].url);
       this.player = this.$refs.audioPlayer;
       this.player.preload = 'auto';
       this.player.onplaying = () => {
