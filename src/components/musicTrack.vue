@@ -45,8 +45,8 @@ export default class musicTrack extends Vue {
       return `http://swanky-admin.tmweb.ru/music${this.song.track_cover.url}`;
     }
 
-    get audio {
-     return return `http://swanky-admin.tmweb.ru/music${this.song.audio.url}`;
+    get audio() {
+      return `http://swanky-admin.tmweb.ru/music${this.song.audio.url}`;
     }
 
     mounted() {
