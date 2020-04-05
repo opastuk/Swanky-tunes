@@ -28,7 +28,7 @@ export default class MusicCards extends Vue {
   indexOfPlaying = null;
 
   mounted() {
-    axios.get('http://localhost:3000/music')
+    axios.get('http://swanky-admin.tmweb.ru/music')
       .then((response) => {
         this.songCard = response.data;
       });

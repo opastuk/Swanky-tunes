@@ -3,10 +3,10 @@
     <div class="track-cover__wrapper">
       <img class="track__cover"
            :class="{'play': !isPausedNow}"
-           :src="song.poster"
+           :src="song.track_cover.url"
            alt="Track cover">
       <audio ref="audioPlayer" class="track__audio" preload="metadata">
-        <source src="../../public/02633.mp3" type="audio/ogg">
+        <source :src="song.audio.url" type="audio/ogg">
       </audio>
       <div class="track-control__button" @click="play" type="button">
         <play class="track-control__icon" v-if="isPausedNow" width="90" height="90"/>
@@ -14,9 +14,9 @@
       </div>
     </div>
     <div class="track__info">
-      <p class="track__name">{{song.name}}</p>
+      <p class="track__name">{{song.track_name}}</p>
       <div class="track__additional">
-        <span class="track__producer">{{song.author}}</span>
+        <span class="track__producer">{{song.track_producer}}</span>
         <span class="track__year">{{song.year}}</span>
       </div>
     </div>
