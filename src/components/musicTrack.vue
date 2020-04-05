@@ -3,10 +3,10 @@
     <div class="track-cover__wrapper">
       <img class="track__cover"
            :class="{'play': !isPausedNow}"
-           :src="song.track_cover.url"
+           :src="trackCover"
            alt="Track cover">
       <audio ref="audioPlayer" class="track__audio" preload="metadata">
-        <source :src="song.audio.url" type="audio/ogg">
+        <source :src="audio" type="audio/ogg">
       </audio>
       <div class="track-control__button" @click="play" type="button">
         <play class="track-control__icon" v-if="isPausedNow" width="90" height="90"/>
@@ -40,6 +40,14 @@ export default class musicTrack extends Vue {
     isPausedNow = true;
 
     player = {};
+
+    get trackCover() {
+      return `http://swanky-admin.tmweb.ru/music${this.song.track_cover.url}`;
+    }
+
+    get audio {
+     return return `http://swanky-admin.tmweb.ru/music${this.song.audio.url}`;
+    }
 
     mounted() {
       this.player = this.$refs.audioPlayer;
