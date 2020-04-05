@@ -3,7 +3,7 @@
     <div class="track-cover__wrapper">
       <img class="track__cover"
            :class="{'play': !isPausedNow}"
-           :src="`http://swanky-admin.tmweb.ru/music${song.track_cover.url}`"
+           :src="trackCover"
            alt="Track cover">
       <audio ref="audioPlayer" class="track__audio" preload="metadata">
         <source :src="audio" type="audio/ogg">
@@ -41,8 +41,12 @@ export default class musicTrack extends Vue {
 
     player = {};
 
+    get trackCover() {
+      return `http://swanky-admin.tmweb.ru/music${this.song.track_cover[0].url}`;
+    }
+
     get audio() {
-      return `http://swanky-admin.tmweb.ru/music${this.song.audio.url}`;
+      return `http://swanky-admin.tmweb.ru/music${this.song.audio[0].url}`;
     }
 
     mounted() {
