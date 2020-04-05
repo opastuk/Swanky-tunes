@@ -42,14 +42,15 @@ export default class musicTrack extends Vue {
     player = {};
 
     get trackCover() {
-      return `http://swanky-admin.tmweb.ru/music${this.song.track_cover[0].url}`;
+      return `http://swanky-admin.tmweb.ru${this.song.track_cover[0].url}`;
     }
 
     get audio() {
-      return `http://swanky-admin.tmweb.ru/music${this.song.audio[0].url}`;
+      return `http://swanky-admin.tmweb.ru${this.song.audio[0].url}`;
     }
 
     mounted() {
+      console.log(this.song.track_cover[0].url);
       this.player = this.$refs.audioPlayer;
       this.player.preload = 'auto';
       this.player.onplaying = () => {
