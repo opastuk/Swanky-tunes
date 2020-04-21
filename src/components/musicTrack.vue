@@ -14,9 +14,9 @@
       </div>
     </div>
     <div class="track__info">
-      <p class="track__name">{{song.track_name}}</p>
+      <p class="track__name">{{song.name}}</p>
       <div class="track__additional">
-        <span class="track__producer">{{song.track_producer}}</span>
+        <span class="track__producer">{{song.producer}}</span>
         <span class="track__year">{{song.year}}</span>
       </div>
     </div>
