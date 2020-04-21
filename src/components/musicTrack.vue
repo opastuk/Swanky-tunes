@@ -42,12 +42,9 @@ export default class musicTrack extends Vue {
     player = {};
 
     get trackCoverStyle() {
-      return { '--hover': this.hoverColor };
+      return { '--hover': this.song.hover };
     }
 
-    get hoverColor() {
-      return `http://swanky-admin.tmweb.ru${this.song.hover}`;
-    }
 
     get trackCover() {
       return `http://swanky-admin.tmweb.ru${this.song.track_cover[0].url}`;
