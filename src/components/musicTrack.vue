@@ -1,5 +1,5 @@
 <template>
-  <div class="track" :class="{'play': !isPausedNow}">
+  <div class="track" :style="trackCoverStyle" :class="{'play': !isPausedNow}">
     <div class="track-cover__wrapper">
       <img class="track__cover"
            :class="{'play': !isPausedNow}"
@@ -40,6 +40,14 @@ export default class musicTrack extends Vue {
     isPausedNow = true;
 
     player = {};
+
+    get trackCoverStyle() {
+      return { '--hover': this.hoverColor };
+    }
+
+    get hoverColor() {
+      return `http://swanky-admin.tmweb.ru${this.song.hover}`;
+    }
 
     get trackCover() {
       return `http://swanky-admin.tmweb.ru${this.song.track_cover[0].url}`;
@@ -97,7 +105,7 @@ export default class musicTrack extends Vue {
     justify-content: space-between;
     &:hover,
     &:focus {
-      background-color: #476776;
+      background-color: var(--hover);
       color: #ffffff;
     }
     &:hover .track__cover {
