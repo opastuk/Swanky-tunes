@@ -18,8 +18,8 @@
 
 <script>
 import { Component, Vue } from 'vue-property-decorator';
-import axios from 'axios';
 import musicTrack from '@/components/musicTrack.vue';
+import music from '../api/music.js';
 
 @Component({
 	components: { musicTrack },
@@ -34,8 +34,7 @@ export default class MusicCards extends Vue {
   indexOfPlaying = null;
 
   mounted() {
-  	axios.get('http://swanky-admin.tmweb.ru/music')
-  		.then((response) => {
+  		music.getTracks().then((response) => {
   			this.songCard = response.data;
   		});
   }
