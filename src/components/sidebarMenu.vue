@@ -1,41 +1,90 @@
 <template>
-<div class="sidebar">
-  <ul class="sidebar__list">
-    <li class="sidebar__item">
-      <router-link class="sidebar__link" to="/music">Music</router-link>
-    </li>
-    <li class="sidebar__item">
-      <a class="sidebar__link" href="https://www.youtube.com/playlist?list=PL9W0uKtpnSDAb9NvRcxbosp5DzKWT2wGo" target="_blank" rel="noopener">Videos</a>
-    </li>
-    <li class="sidebar__item">
-      <router-link class="sidebar__link" to="/dates">Tour dates</router-link>
-    </li>
-    <li class="sidebar__item main-navigation__item--dropdown">
-      <a class="sidebar__link sidebar__link--dropdown"
-         href="#" @click="social = !social">Radio show</a>
-      <ul class="sidebar__list social" v-if="social">
-        <li class="sidebar__item social">
-          <a class="sidebar__link" href="https://podcasts.apple.com/ru/podcast/swanky-tunes-showland-podcast/id923114101" target="_blank" rel="noopener">
-            <span class="visually-hidden">Apple podcasts</span>
-            <applpdcst class="sidebar__icon" width="40" height="40"/>
-          </a>
-        </li>
-        <li class="sidebar__item social">
-          <a class="sidebar__link" href="https://www.mixcloud.com/swankytunes/" target="_blank" rel="noopener">
-            <span class="visually-hidden">Mixcloud</span>
-            <mixcloud class="sidebar__icon" width="40" height="40"/>
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li class="sidebar__item">
-      <router-link class="sidebar__link" to="/demo-drop">Demo drop</router-link>
-    </li>
-    <li class="sidebar__item">
-      <router-link class="sidebar__link" to="/contacts">Contacts</router-link>
-    </li>
-  </ul>
-</div>
+	<div class="sidebar">
+		<ul class="sidebar__list">
+			<li class="sidebar__item">
+				<router-link
+					class="sidebar__link"
+					to="/music"
+				>
+					Music
+				</router-link>
+			</li>
+			<li class="sidebar__item">
+				<a
+					class="sidebar__link"
+					href="https://www.youtube.com/playlist?list=PL9W0uKtpnSDAb9NvRcxbosp5DzKWT2wGo"
+					target="_blank"
+					rel="noopener"
+				>Videos</a>
+			</li>
+			<li class="sidebar__item">
+				<router-link
+					class="sidebar__link"
+					to="/dates"
+				>
+					Tour dates
+				</router-link>
+			</li>
+			<li class="sidebar__item main-navigation__item--dropdown">
+				<a
+					class="sidebar__link sidebar__link--dropdown"
+					href="#"
+					@click="social = !social"
+				>Radio show</a>
+				<ul
+					v-if="social"
+					class="sidebar__list social"
+				>
+					<li class="sidebar__item social">
+						<a
+							class="sidebar__link"
+							href="https://podcasts.apple.com/ru/podcast/swanky-tunes-showland-podcast/id923114101"
+							target="_blank"
+							rel="noopener"
+						>
+							<span class="visually-hidden">Apple podcasts</span>
+							<applpdcst
+								class="sidebar__icon"
+								width="40"
+								height="40"
+							/>
+						</a>
+					</li>
+					<li class="sidebar__item social">
+						<a
+							class="sidebar__link"
+							href="https://www.mixcloud.com/swankytunes/"
+							target="_blank"
+							rel="noopener"
+						>
+							<span class="visually-hidden">Mixcloud</span>
+							<mixcloud
+								class="sidebar__icon"
+								width="40"
+								height="40"
+							/>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="sidebar__item">
+				<router-link
+					class="sidebar__link"
+					to="/demo-drop"
+				>
+					Demo drop
+				</router-link>
+			</li>
+			<li class="sidebar__item">
+				<router-link
+					class="sidebar__link"
+					to="/contacts"
+				>
+					Contacts
+				</router-link>
+			</li>
+		</ul>
+	</div>
 </template>
 
 <script>
@@ -45,9 +94,9 @@ import mixcloud from '@/assets/img/svg/mixcloud-white.svg';
 import applpdcst from '@/assets/img/svg/apple_podcast-white.svg';
 
 @Component({
-  components: {
-    mixcloud, applpdcst,
-  },
+	components: {
+		mixcloud, applpdcst,
+	},
 })
 export default class SidebarMenu extends Vue {
   social = false;

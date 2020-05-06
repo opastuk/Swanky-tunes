@@ -1,25 +1,69 @@
 <template>
-    <div>
-      <div class="demo">
-        <form class="form" action="#" method="get">
-          <label class="form__label visually-hidden" for="name">Name</label>
-          <input class="demo__input" type="text"
-                   id="name" name="name" placeholder="Name:" required>
-          <label class="form__label visually-hidden" for="email">Email</label>
-          <input class="demo__input" name="email" placeholder="Email:"
-                   type="email" id="email" autocomplete="off" required>
-          <label class="form__label visually-hidden" for="url">Music URL</label>
-          <input class="demo__input" name="url" placeholder="Music URL:"
-                   type="text" id="url" autocomplete="off" required>
-          <label class="form__label visually-hidden" for="comment">Comment</label>
-          <input class="demo__input" name="comment" placeholder="Comment:"
-                   type="text" id="comment">
-          <button class="form__button" type="submit">
-            Submit
-          </button>
-        </form>
-      </div>
-    </div>
+	<div>
+		<div class="demo">
+			<form
+				class="form"
+				action="#"
+				method="get"
+			>
+				<label
+					class="form__label visually-hidden"
+					for="name"
+				>Name</label>
+				<input
+					id="name"
+					class="demo__input"
+					type="text"
+					name="name"
+					placeholder="Name:"
+					required
+				/>
+				<label
+					class="form__label visually-hidden"
+					for="email"
+				>Email</label>
+				<input
+					id="email"
+					class="demo__input"
+					name="email"
+					placeholder="Email:"
+					type="email"
+					autocomplete="off"
+					required
+				/>
+				<label
+					class="form__label visually-hidden"
+					for="url"
+				>Music URL</label>
+				<input
+					id="url"
+					class="demo__input"
+					name="url"
+					placeholder="Music URL:"
+					type="text"
+					autocomplete="off"
+					required
+				/>
+				<label
+					class="form__label visually-hidden"
+					for="comment"
+				>Comment</label>
+				<input
+					id="comment"
+					class="demo__input"
+					name="comment"
+					placeholder="Comment:"
+					type="text"
+				/>
+				<button
+					class="form__button"
+					type="submit"
+				>
+					Submit
+				</button>
+			</form>
+		</div>
+	</div>
 </template>
 
 <script>

@@ -1,13 +1,19 @@
 <template>
-  <div class="music-cards__wrapper">
-    <div class="music-cards__container">
-      <div class="music-cards__item" v-for="(song, index) in songCard" :key="index">
-    <music-track
-                 :song="song" @playing="preventOthers"
-                 @ended="nextTrack" />
-      </div>
-  </div>
-  </div>
+	<div class="music-cards__wrapper">
+		<div class="music-cards__container">
+			<div
+				v-for="(song, index) in songCard"
+				:key="index"
+				class="music-cards__item"
+			>
+				<music-track
+					:song="song"
+					@playing="preventOthers"
+					@ended="nextTrack"
+				/>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>
@@ -16,7 +22,7 @@ import axios from 'axios';
 import musicTrack from '@/components/musicTrack.vue';
 
 @Component({
-  components: { musicTrack },
+	components: { musicTrack },
 })
 export default class MusicCards extends Vue {
   songCard = [];
@@ -28,30 +34,31 @@ export default class MusicCards extends Vue {
   indexOfPlaying = null;
 
   mounted() {
-    axios.get('http://swanky-admin.tmweb.ru/music')
-      .then((response) => {
-        this.songCard = response.data;
-      });
+  	axios.get('http://swanky-admin.tmweb.ru/music')
+  		.then((response) => {
+  			this.songCard = response.data;
+  		});
   }
 
   nextTrack(songId) {
-    const justEnded = this.songCard.find(el => el.id === songId);
-    const indexOfEnded = this.songCard.indexOf(justEnded);
-    this.songs[indexOfEnded + 1].play();
+  	const justEnded = this.songCard.find(el => el.id === songId);
+  	const indexOfEnded = this.songCard.indexOf(justEnded);
+
+  	this.songs[indexOfEnded + 1].play();
   }
 
   preventOthers(songId) {
-    this.songs = document.getElementsByTagName('audio');
-    this.nowPlaying = this.songCard.find(el => el.id === songId);
-    this.indexOfPlaying = this.songCard.indexOf(this.nowPlaying);
+  	this.songs = document.getElementsByTagName('audio');
+  	this.nowPlaying = this.songCard.find(el => el.id === songId);
+  	this.indexOfPlaying = this.songCard.indexOf(this.nowPlaying);
 
-    this.songs.forEach((el, index) => {
-      if (index !== this.indexOfPlaying) {
-        el.pause();
-        // eslint-disable-next-line no-param-reassign
-        el.currentTime = 0;
-      }
-    });
+  	this.songs.forEach((el, index) => {
+  		if (index !== this.indexOfPlaying) {
+  			el.pause();
+  			// eslint-disable-next-line no-param-reassign
+  			el.currentTime = 0;
+  		}
+  	});
   }
 }
 </script>
@@ -83,7 +90,6 @@ export default class MusicCards extends Vue {
     box-sizing: border-box;
   }
 }
-
 
 @media (max-width: 1333px) {
   .music-cards__item {

@@ -10,43 +10,43 @@ import NotFound from '../pages/NotFound.vue';
 Vue.use(VueRouter);
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: Home,
-  },
-  {
-    path: '/music',
-    name: 'music',
-    component: Music,
-  },
-  {
-    path: '/dates',
-    name: 'dates',
-    component: Dates,
-  },
-  {
-    path: '/demo-drop',
-    name: 'demo-drop',
-    component: DemoDrop,
-  },
-  {
-    path: '/contacts',
-    name: 'contacts',
-    component: Contacts,
-  },
-  {
-    path: '*',
-    name: 'NotFound',
-    component: NotFound,
-  },
+	{
+		path: '/',
+		name: 'home',
+		component: Home,
+	},
+	{
+		path: '/music',
+		name: 'music',
+		component: Music,
+	},
+	{
+		path: '/dates',
+		name: 'dates',
+		component: Dates,
+	},
+	{
+		path: '/demo-drop',
+		name: 'demo-drop',
+		component: DemoDrop,
+	},
+	{
+		path: '/contacts',
+		name: 'contacts',
+		component: Contacts,
+	},
+	{
+		path: '*',
+		name: 'NotFound',
+		component: NotFound,
+	},
 ];
 
 const router = new VueRouter({
-  hashbang: true,
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes,
+	hashbang: true,
+	mode: 'history',
+	base: process.env.BASE_URL,
+	routes,
 });
 
 export default router;

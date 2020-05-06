@@ -1,12 +1,14 @@
 <template>
-  <div class="contacts">
-    <h1 class="visually-hidden">Contacts</h1>
-    <navMenu/>
-    <contactsMain class="contacts__list"/>
-    <div class="footer-menu__wrapper">
-      <footerMenu/>
-    </div>
-  </div>
+	<div class="contacts">
+		<h1 class="visually-hidden">
+			Contacts
+		</h1>
+		<navMenu />
+		<contactsMain class="contacts__list" />
+		<div class="footer-menu__wrapper">
+			<footerMenu />
+		</div>
+	</div>
 </template>
 
 <script>
@@ -16,7 +18,7 @@ import footerMenu from '@/components/footerMenu.vue';
 import navMenu from '@/components/navMenu.vue';
 
 @Component({
-  components: { contactsMain, footerMenu, navMenu },
+	components: { contactsMain, footerMenu, navMenu },
 })
 export default class Contacts extends Vue {
 }

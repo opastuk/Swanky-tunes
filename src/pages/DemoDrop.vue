@@ -1,12 +1,14 @@
 <template>
-  <div class="demo-drop">
-    <h1 class="visually-hidden">Demo drop</h1>
-    <navMenu></navMenu>
-    <demoForm></demoForm>
-    <div class="footer-menu__wrapper">
-      <footerMenu></footerMenu>
-    </div>
-  </div>
+	<div class="demo-drop">
+		<h1 class="visually-hidden">
+			Demo drop
+		</h1>
+		<navMenu />
+		<demoForm />
+		<div class="footer-menu__wrapper">
+			<footerMenu />
+		</div>
+	</div>
 </template>
 
 <script>
@@ -16,7 +18,7 @@ import navMenu from '@/components/navMenu.vue';
 import footerMenu from '@/components/footerMenu.vue';
 
 @Component({
-  components: { demoForm, navMenu, footerMenu },
+	components: { demoForm, navMenu, footerMenu },
 })
 export default class DemoDrop extends Vue {
 }

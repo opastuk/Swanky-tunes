@@ -1,14 +1,23 @@
 <template>
-  <div class="home">
-    <div class="container home__wrapper">
-      <h1 class="visually-hidden">Swanky Tunes</h1>
-      <navMenu class="navigation-menu"/>
-      <img class="home__main-photo" src="../assets/img/mobile-pic.png" alt="Swanky">
-      <img class="home__desktop-main-photo" src="../assets/img/pic.png"
-           alt="Swanky Tunes">
-      <footerMenuHome class="footer-menu"/>
-    </div>
-  </div>
+	<div class="home">
+		<div class="container home__wrapper">
+			<h1 class="visually-hidden">
+				Swanky Tunes
+			</h1>
+			<navMenu class="navigation-menu" />
+			<img
+				class="home__main-photo"
+				src="../assets/img/mobile-pic.png"
+				alt="Swanky"
+			/>
+			<img
+				class="home__desktop-main-photo"
+				src="../assets/img/pic.png"
+				alt="Swanky Tunes"
+			/>
+			<footerMenuHome class="footer-menu" />
+		</div>
+	</div>
 </template>
 
 <script>
@@ -17,7 +26,7 @@ import navMenu from '@/components/navMenu.vue';
 import footerMenuHome from '@/components/footerMenuHome.vue';
 
 @Component({
-  components: { navMenu, footerMenuHome },
+	components: { navMenu, footerMenuHome },
 })
 export default class Home extends Vue {
 }

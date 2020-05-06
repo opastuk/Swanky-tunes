@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+	<div id="app">
+		<router-view />
+	</div>
 </template>
 
 <style lang="less">
@@ -34,6 +34,5 @@ body, html{
   height: 1px;
   margin: -1px;
 }
-
 
 </style>

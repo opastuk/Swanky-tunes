@@ -1,7 +1,9 @@
 <template>
-  <div class="not-found">
-    <div class="not-found__text">404 Not Found</div>
-  </div>
+	<div class="not-found">
+		<div class="not-found__text">
+			404 Not Found
+		</div>
+	</div>
 </template>
 
 <script>

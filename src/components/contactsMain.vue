@@ -1,20 +1,39 @@
 <template>
-  <div>
-    <div class="contacts">
-      <h2 class="contacts__headline contacts__headline--bold">General Manager</h2>
-      <p class="contacts__value">mgmt@swankytunes.com</p>
-      <h2 class="contacts__headline contacts__headline--bold">Press Inquiries</h2>
-      <p class="contacts__value">mgmt@swankytunes.com</p>
-      <h2 class="contacts__headline contacts__headline--bold">Booking Agents</h2>
-      <p class="contacts__value">ASIA (excl. INDIA): <br>
-        robb@supermodifiedagency.com</p>
-      <h2 class="contacts__headline">
-        N&S AMERICA/EU/UK/<br class="contacts__br">ME/INDIA/AUS/NZ:</h2>
-      <p class="contacts__value">jochen@ourmusicgroup.nl</p>
-      <h2 class="contacts__headline">RUS/CIS:</h2>
-      <p class="contacts__value">booking@effective-records.ru</p>
-    </div>
-  </div>
+	<div>
+		<div class="contacts">
+			<h2 class="contacts__headline contacts__headline--bold">
+				General Manager
+			</h2>
+			<p class="contacts__value">
+				mgmt@swankytunes.com
+			</p>
+			<h2 class="contacts__headline contacts__headline--bold">
+				Press Inquiries
+			</h2>
+			<p class="contacts__value">
+				mgmt@swankytunes.com
+			</p>
+			<h2 class="contacts__headline contacts__headline--bold">
+				Booking Agents
+			</h2>
+			<p class="contacts__value">
+				ASIA (excl. INDIA): <br />
+				robb@supermodifiedagency.com
+			</p>
+			<h2 class="contacts__headline">
+				N&S AMERICA/EU/UK/<br class="contacts__br" />ME/INDIA/AUS/NZ:
+			</h2>
+			<p class="contacts__value">
+				jochen@ourmusicgroup.nl
+			</p>
+			<h2 class="contacts__headline">
+				RUS/CIS:
+			</h2>
+			<p class="contacts__value">
+				booking@effective-records.ru
+			</p>
+		</div>
+	</div>
 </template>
 
 <script>

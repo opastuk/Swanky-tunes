@@ -1,26 +1,55 @@
 <template>
-  <div class="track" :style="trackCoverStyle" :class="{'play': !isPausedNow}">
-    <div class="track-cover__wrapper">
-      <img class="track__cover"
-           :class="{'play': !isPausedNow}"
-           :src="trackCover"
-           alt="Track cover">
-      <audio ref="audioPlayer" class="track__audio" preload="metadata">
-        <source :src="audio" type="audio/ogg">
-      </audio>
-      <div class="track-control__button" @click="play" type="button">
-        <play class="track-control__icon" v-if="isPausedNow" width="90" height="90"/>
-        <pause class="track-control__icon" v-if="!isPausedNow" width="90" height="90"/>
-      </div>
-    </div>
-    <div class="track__info">
-      <p class="track__name">{{song.name}}</p>
-      <div class="track__additional">
-        <span class="track__producer">{{song.producer}}</span>
-        <span class="track__year">{{song.year}}</span>
-      </div>
-    </div>
-  </div>
+	<div
+		class="track"
+		:style="trackCoverStyle"
+		:class="{'play': !isPausedNow}"
+	>
+		<div class="track-cover__wrapper">
+			<img
+				class="track__cover"
+				:class="{'play': !isPausedNow}"
+				:src="trackCover"
+				alt="Track cover"
+			/>
+			<audio
+				ref="audioPlayer"
+				class="track__audio"
+				preload="metadata"
+			>
+				<source
+					:src="audio"
+					type="audio/ogg"
+				/>
+			</audio>
+			<div
+				class="track-control__button"
+				type="button"
+				@click="play"
+			>
+				<play
+					v-if="isPausedNow"
+					class="track-control__icon"
+					width="90"
+					height="90"
+				/>
+				<pause
+					v-if="!isPausedNow"
+					class="track-control__icon"
+					width="90"
+					height="90"
+				/>
+			</div>
+		</div>
+		<div class="track__info">
+			<p class="track__name">
+				{{ song.name }}
+			</p>
+			<div class="track__additional">
+				<span class="track__producer">{{ song.producer }}</span>
+				<span class="track__year">{{ song.year }}</span>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script>
@@ -29,10 +58,10 @@ import play from '@/assets/img/svg/play.svg';
 import pause from '@/assets/img/svg/pause.svg';
 
   @Component({
-    components: {
-      play,
-      pause,
-    },
+  	components: {
+  		play,
+  		pause,
+  	},
   })
 export default class musicTrack extends Vue {
     @Prop(Object) song;
@@ -42,44 +71,43 @@ export default class musicTrack extends Vue {
     player = {};
 
     get trackCoverStyle() {
-      return { '--hover': this.song.hover };
+    	return { '--hover': this.song.hover };
     }
 
-
     get trackCover() {
-      return `http://swanky-admin.tmweb.ru${this.song.track_cover[0].url}`;
+    	return `http://swanky-admin.tmweb.ru${this.song.track_cover[0].url}`;
     }
 
     get audio() {
-      return `http://swanky-admin.tmweb.ru${this.song.audio[0].url}`;
+    	return `http://swanky-admin.tmweb.ru${this.song.audio[0].url}`;
     }
 
     mounted() {
-      this.player = this.$refs.audioPlayer;
-      this.player.preload = 'auto';
-      this.player.onplaying = () => {
-        this.isPausedNow = false;
-        this.$emit('playing', this.song.id);
-      };
+    	this.player = this.$refs.audioPlayer;
+    	this.player.preload = 'auto';
+    	this.player.onplaying = () => {
+    		this.isPausedNow = false;
+    		this.$emit('playing', this.song.id);
+    	};
     }
 
     play() {
-      if (!this.player.paused) {
-        this.player.pause();
-      } else if (this.player.paused && this.player.readyState) {
-        this.player.play();
-      }
-      this.player.onplaying = () => {
-        this.isPausedNow = false;
-        this.$emit('playing', this.song.id);
-      };
-      this.player.onended = () => {
-        this.isPausedNow = true;
-        this.$emit('ended', this.song.id);
-      };
-      this.player.onpause = () => {
-        this.isPausedNow = true;
-      };
+    	if (!this.player.paused) {
+    		this.player.pause();
+    	} else if (this.player.paused && this.player.readyState) {
+    		this.player.play();
+    	}
+    	this.player.onplaying = () => {
+    		this.isPausedNow = false;
+    		this.$emit('playing', this.song.id);
+    	};
+    	this.player.onended = () => {
+    		this.isPausedNow = true;
+    		this.$emit('ended', this.song.id);
+    	};
+    	this.player.onpause = () => {
+    		this.isPausedNow = true;
+    	};
     }
   }
 </script>
