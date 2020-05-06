@@ -10,6 +10,7 @@
 				:class="{'play': !isPausedNow}"
 				:src="trackCover"
 				alt="Track cover"
+				@load="loadEnds"
 			/>
 			<audio
 				ref="audioPlayer"
@@ -80,6 +81,12 @@ export default class musicTrack extends Vue {
 
     get audio() {
     	return `http://swanky-admin.tmweb.ru${this.song.audio[0].url}`;
+    }
+
+    loadEnds() {
+    	this.$nextTick(() => {
+    		this.$emit('loaded');
+    	});
     }
 
     mounted() {

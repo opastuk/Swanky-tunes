@@ -1,6 +1,21 @@
 <template>
 	<div class="music-cards__wrapper">
-		<div class="music-cards__container">
+		<div
+			v-if="!loaded"
+			class="music-cards__loader-container"
+		>
+			<img
+				height="34"
+				width="100"
+				class="music-cards__loader"
+				src="../assets/img/loader.gif"
+				alt="loading..."
+			/>
+		</div>
+		<div
+			v-show="loaded"
+			class="music-cards__container"
+		>
 			<div
 				v-for="(song, index) in songCard"
 				:key="index"
@@ -10,6 +25,7 @@
 					:song="song"
 					@playing="preventOthers"
 					@ended="nextTrack"
+					@loaded="loadEnds"
 				/>
 			</div>
 		</div>
@@ -26,6 +42,7 @@ import music from '../api/music.js';
 })
 export default class MusicCards extends Vue {
   songCard = [];
+  loaded = false;
 
   nowPlaying = {};
 
@@ -34,9 +51,14 @@ export default class MusicCards extends Vue {
   indexOfPlaying = null;
 
   mounted() {
-  		music.getTracks().then((response) => {
+  	music.getTracks()
+  		.then((response) => {
   			this.songCard = response.data;
   		});
+  }
+
+  loadEnds() {
+  	this.loaded = true;
   }
 
   nextTrack(songId) {
@@ -64,6 +86,14 @@ export default class MusicCards extends Vue {
 
 <style scoped lang="less">
 .music-cards {
+	&__loader-container{
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+	&__loader {
+		margin: 0 auto;
+	}
   &__wrapper {
     height: 100%;
     overflow-y: scroll;

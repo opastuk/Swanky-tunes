@@ -4,4 +4,5 @@ if (api.port.length === 0) {
 	axios.defaults.baseURL = `http://${api.host}/`;
 }
 
-export default axios.create({});
+export default axios.create({
+});
