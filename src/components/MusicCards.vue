@@ -66,7 +66,6 @@ export default class MusicCards extends Vue {
   	this.songs.forEach((el, index) => {
   		if (index !== this.indexOfPlaying) {
   			el.pause();
-  			// eslint-disable-next-line no-param-reassign
   			el.currentTime = 0;
   		}
   	});

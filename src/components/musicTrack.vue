@@ -30,21 +30,27 @@
 				<play
 					v-if="isPausedNow"
 					class="track-control__icon"
-					width="90"
-					height="90"
+					width="72"
+					height="72"
 				/>
 				<pause
 					v-if="!isPausedNow"
 					class="track-control__icon"
-					width="90"
-					height="90"
+					width="72"
+					height="72"
 				/>
 			</div>
 		</div>
 		<div class="track__info">
-			<p class="track__name">
-				{{ song.name }}
-			</p>
+			<div class="track__main-descr">
+				<p class="track__name">
+					{{ song.name }}
+				</p>
+				<buy
+					width="35"
+					height="35"
+				/>
+			</div>
 			<div class="track__additional">
 				<span class="track__producer">{{ song.producer }}</span>
 				<span class="track__year">{{ song.year }}</span>
@@ -57,11 +63,13 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import play from '@/assets/img/svg/play.svg';
 import pause from '@/assets/img/svg/pause.svg';
+import buy from '@/assets/img/svg/buy.svg';
 
   @Component({
   	components: {
   		play,
   		pause,
+  		buy,
   	},
   })
 export default class musicTrack extends Vue {
@@ -130,7 +138,7 @@ export default class musicTrack extends Vue {
     margin: 0;
     padding: 10px;
     font-weight: 200;
-    font-size: 26px;
+    font-size: 20px;
     overflow: hidden;
     display: flex;
     flex-flow: column;
@@ -146,6 +154,12 @@ export default class musicTrack extends Vue {
     &:hover .track__info {
       border-bottom: 1px solid #ffffff;
     }
+
+		&__main-descr {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
 
     &__producer {
       overflow: hidden;
@@ -190,8 +204,8 @@ export default class musicTrack extends Vue {
       position: absolute;
       border: none;
       border-radius: 50%;
-      height: 90px;
-      width: 90px;
+      height: 72px;
+      width: 72px;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -203,8 +217,8 @@ export default class musicTrack extends Vue {
         top: 5px;
         left: 5px;
         background-color: #ffffff;
-        width: 80px;
-        height: 80px;
+        width: 62px;
+        height: 62px;
       }
     }
 
@@ -245,8 +259,8 @@ export default class musicTrack extends Vue {
         position: absolute;
         border: none;
         border-radius: 50%;
-        height: 90px;
-        width: 90px;
+        height: 72px;
+        width: 72px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -258,8 +272,8 @@ export default class musicTrack extends Vue {
           top: 5px;
           left: 5px;
           background-color: #ffffff;
-          width: 80px;
-          height: 80px;
+          width: 62px;
+          height: 62px;
         }
       }
 
