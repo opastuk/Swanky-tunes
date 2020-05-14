@@ -1,6 +1,13 @@
 <template>
 	<div class="home">
-		<div class="container home__wrapper">
+		<loader
+			v-show="!loaded"
+			class="loader"
+		/>
+		<div
+			v-show="loaded"
+			class="container home__wrapper"
+		>
 			<h1 class="visually-hidden">
 				Swanky Tunes
 			</h1>
@@ -9,6 +16,7 @@
 				class="home__main-photo"
 				src="../assets/img/mobile-pic.png"
 				alt="Swanky"
+				@load="ready"
 			/>
 			<img
 				class="home__desktop-main-photo"
@@ -24,11 +32,16 @@
 import { Component, Vue } from 'vue-property-decorator';
 import navMenu from '@/components/navMenu.vue';
 import footerMenuHome from '@/components/footerMenuHome.vue';
+import Loader from '@/components/Loader.vue';
 
 @Component({
-	components: { navMenu, footerMenuHome },
+	components: { navMenu, footerMenuHome, Loader },
 })
 export default class Home extends Vue {
+	loaded = false;
+	ready(){
+		this.loaded = true;
+	}
 }
 </script>
 

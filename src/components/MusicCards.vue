@@ -1,17 +1,6 @@
 <template>
 	<div class="music-cards__wrapper">
-		<div
-			v-if="!loaded"
-			class="music-cards__loader-container"
-		>
-			<img
-				height="34"
-				width="100"
-				class="music-cards__loader"
-				src="../assets/img/loader.gif"
-				alt="loading..."
-			/>
-		</div>
+		<loader v-show="!loaded" />
 		<div
 			v-show="loaded"
 			class="music-cards__container"
@@ -25,7 +14,7 @@
 					:song="song"
 					@playing="preventOthers"
 					@ended="nextTrack"
-					@loaded="loadEnds"
+					@loaded="ready"
 				/>
 			</div>
 		</div>
@@ -36,13 +25,14 @@
 import { Component, Vue } from 'vue-property-decorator';
 import musicTrack from '@/components/musicTrack.vue';
 import music from '../api/music.js';
+import Loader from '@/components/Loader.vue';
 
 @Component({
-	components: { musicTrack },
+	components: { musicTrack, Loader },
 })
 export default class MusicCards extends Vue {
   songCard = [];
-  loaded = false;
+	loaded = false;
 
   nowPlaying = {};
 
@@ -57,7 +47,7 @@ export default class MusicCards extends Vue {
   		});
   }
 
-  loadEnds() {
+  ready(){
   	this.loaded = true;
   }
 
