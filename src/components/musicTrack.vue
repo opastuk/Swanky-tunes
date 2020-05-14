@@ -46,10 +46,16 @@
 				<p class="track__name">
 					{{ song.name }}
 				</p>
-				<buy
-					width="35"
-					height="35"
-				/>
+				<a
+					:href="buySong"
+					target="_blank"
+					rel="noopener"
+				>
+					<buy
+						width="35"
+						height="35"
+					/>
+				</a>
 			</div>
 			<div class="track__additional">
 				<span class="track__producer">{{ song.producer }}</span>
@@ -89,6 +95,10 @@ export default class musicTrack extends Vue {
 
     get audio() {
     	return `http://swanky-admin.tmweb.ru${this.song.audio[0].url}`;
+    }
+
+    get buySong() {
+    	return this.song.buy_link;
     }
 
     loadEnds() {
