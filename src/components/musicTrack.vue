@@ -14,6 +14,7 @@
 			/>
 			<audio
 				ref="audioPlayer"
+				muted
 				class="track__audio"
 				preload="metadata"
 			>
