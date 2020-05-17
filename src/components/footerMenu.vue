@@ -275,7 +275,7 @@ export default class footerMenu extends Vue {
       .flex-container();
       &__list {
         .reset-list();
-        width: 600px;
+        width: 100%;
         padding: 15px 0;
         display: flex;
         flex-wrap: wrap;

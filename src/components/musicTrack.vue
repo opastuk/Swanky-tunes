@@ -16,7 +16,6 @@
 				ref="audioPlayer"
 				class="track__audio"
 				preload="metadata"
-				controls
 			>
 				<source
 					:src="audio"
@@ -219,6 +218,7 @@ export default class musicTrack extends Vue {
       width: 72px;
       top: 50%;
       left: 50%;
+			-webkit-mask-image: -webkit-radial-gradient(white, black);
       transform: translate(-50%, -50%);
 
       &::before {

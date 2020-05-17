@@ -75,6 +75,7 @@ export default class Home extends Vue {
       display: none;
       position: absolute;
       width: 100%;
+			max-height: 90%;
       object-fit: contain;
       z-index: 0;
       bottom: 0;
