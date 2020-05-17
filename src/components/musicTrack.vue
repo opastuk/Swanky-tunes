@@ -94,9 +94,7 @@ export default class musicTrack extends Vue {
     	return `http://swanky-admin.tmweb.ru${this.song.track_cover[0].url}`;
     }
 
-    get audio() {
-    	return `http://swanky-admin.tmweb.ru${this.song.audio[0].url}`;
-    }
+    audio = `http://swanky-admin.tmweb.ru${this.song.audio[0].url}`;
 
     get buySong() {
     	return this.song.buy_link;
@@ -121,7 +119,7 @@ export default class musicTrack extends Vue {
     	if (!this.player.paused) {
     		this.player.pause();
     	} else if (this.player.paused && this.player.readyState && this.player.play() !== undefined) {
-    		this.player.play();
+    		this.player.play().catch((e) => console.log(e.message));
     	}
     	this.player.onplaying = () => {
     		this.isPausedNow = false;
