@@ -119,7 +119,7 @@ export default class musicTrack extends Vue {
     	if (!this.player.paused) {
     		this.player.pause();
     	} else if (this.player.paused && this.player.readyState && this.player.play() !== undefined) {
-    		this.player.play().catch((e) => console.log(e.message));
+    		this.player.play()
     	}
     	this.player.onplaying = () => {
     		this.isPausedNow = false;
