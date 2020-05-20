@@ -16,12 +16,7 @@
 				ref="audioPlayer"
 				muted
 				class="track__audio"
-			>
-				<source
-					:src="audio"
-					type="audio/mpeg"
-				/>
-			</audio>
+			/>
 			<div
 				class="track-control__button"
 				type="button"
@@ -117,6 +112,11 @@ export default class musicTrack extends Vue {
     }
 
     play() {
+    	const audio = this.$refs.audioPlayer;
+    	const source = document.createElement('source');
+
+    	source.setAttribute('src', this.audio);
+    	audio.appendChild(source);
     	if (!this.player.paused) {
     		this.player.pause();
     	} else if (this.player.paused && this.player.readyState) {

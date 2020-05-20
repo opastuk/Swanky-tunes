@@ -13,7 +13,7 @@
 				<music-track
 					:song="song"
 					@playing="preventOthers"
-					@ended="nextTrack"
+					@ended="nextTrack(...index)"
 					@loaded="ready"
 				/>
 			</div>
@@ -51,11 +51,12 @@ export default class MusicCards extends Vue {
   	this.loaded = true;
   }
 
-  nextTrack(songId) {
+  nextTrack(songId, index) {
   	const justEnded = this.songCard.find(el => el.id === songId);
   	const indexOfEnded = this.songCard.indexOf(justEnded);
 
   	this.songs[indexOfEnded + 1].play();
+  	console.log(index);
   }
 
   preventOthers(songId) {
