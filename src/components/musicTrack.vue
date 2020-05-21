@@ -213,6 +213,7 @@ export default class musicTrack extends Vue {
     &__button {
       position: absolute;
       border: none;
+      cursor: pointer;
       border-radius: 50%;
       height: 72px;
       width: 72px;
@@ -220,17 +221,6 @@ export default class musicTrack extends Vue {
       left: 50%;
 			-webkit-mask-image: -webkit-radial-gradient(white, black);
       transform: translate(-50%, -50%);
-
-      &::before {
-        content: '';
-        position: absolute;
-        border-radius: 50%;
-        top: 5px;
-        left: 5px;
-        background-color: #ffffff;
-        width: 62px;
-        height: 62px;
-      }
     }
 
     &__icon {
@@ -276,17 +266,6 @@ export default class musicTrack extends Vue {
         left: 50%;
 				-webkit-mask-image: -webkit-radial-gradient(white, black);
         transform: translate(-50%, -50%);
-
-        &::before {
-          content: '';
-          position: absolute;
-          border-radius: 50%;
-          top: 5px;
-          left: 5px;
-          background-color: #ffffff;
-          width: 62px;
-          height: 62px;
-        }
       }
 
       &__icon {
