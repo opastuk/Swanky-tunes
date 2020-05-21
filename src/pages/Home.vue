@@ -62,10 +62,13 @@ export default class Home extends Vue {
 
     &__main-photo {
       position: absolute;
-      height: 100%;
-      width: 100%;
+      height: 90%;
+      width: 90%;
       object-fit: contain;
       z-index: 0;
+			left: 50%;
+			margin-top: 5%;
+			margin-left: -45%;
       @media (min-width: 768px) {
         display: none;
       }
