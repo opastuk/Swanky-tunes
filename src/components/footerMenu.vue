@@ -263,7 +263,7 @@ export default class footerMenu extends Vue {
       &--mobile {
         .reset-list();
         width: 90%;
-        padding: 10px 0 25px;
+        padding: 10px 0 7px;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
@@ -275,10 +275,11 @@ export default class footerMenu extends Vue {
       .flex-container();
       &__list {
         .reset-list();
-        width: 100%;
+        max-width: 910px;
         padding: 15px 0;
         display: flex;
         flex-wrap: wrap;
+				margin: 0 auto;
         justify-content: space-between;
         &--mobile {
           display: none;

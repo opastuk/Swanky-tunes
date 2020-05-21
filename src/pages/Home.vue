@@ -23,7 +23,7 @@
 				src="../assets/img/pic.png"
 				alt="Swanky Tunes"
 			/>
-			<footerMenuHome class="footer-menu" />
+			<footer-menu class="footer-menu" />
 		</div>
 	</div>
 </template>
@@ -31,11 +31,11 @@
 <script>
 import { Component, Vue } from 'vue-property-decorator';
 import navMenu from '@/components/navMenu.vue';
-import footerMenuHome from '@/components/footerMenuHome.vue';
 import Loader from '@/components/Loader.vue';
+import FooterMenu from '@/components/footerMenu.vue';
 
 @Component({
-	components: { navMenu, footerMenuHome, Loader },
+	components: { navMenu, FooterMenu, Loader },
 })
 export default class Home extends Vue {
 	loaded = false;
