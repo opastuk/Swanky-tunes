@@ -21,18 +21,20 @@
 				class="track-control__button"
 				type="button"
 			>
-				<play
+				<img
 					v-if="isPausedNow"
 					class="track-control__icon"
 					width="72"
 					height="72"
+					src="../assets/img/play.png"
 					@click="play"
 				/>
-				<pause
+				<img
 					v-if="!isPausedNow"
 					class="track-control__icon"
 					width="72"
 					height="72"
+					src="../assets/img/pause.png"
 					@click="pause"
 				/>
 			</div>
@@ -63,15 +65,11 @@
 
 <script>
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import play from '@/assets/img/svg/play.svg';
-import pause from '@/assets/img/svg/pause.svg';
 import buy from '@/assets/img/svg/buy.svg';
 import { Howl, Howler } from 'howler';
 
   @Component({
   	components: {
-  		play,
-  		pause,
   		buy,
   	},
   })
@@ -109,17 +107,18 @@ export default class musicTrack extends Vue {
     	if (!this.isTrackPlayed) {
     		this.player = new Howl({
     			src: [this.audio],
+    			onplay: () => this.isPausedNow = false,
+    			onpause: () => this.isPausedNow = true,
+    			onstop: () => this.isPausedNow = true,
     		});
     		this.isTrackPlayed = true;
     	}
     	this.player.play();
     	this.$emit('playing', this.player);
-    	this.isPausedNow = false;
     }
 
     pause(){
     	this.player.pause();
-    	this.isPausedNow = true;
     }
   }
 </script>
