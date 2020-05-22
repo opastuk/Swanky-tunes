@@ -20,19 +20,20 @@
 			<div
 				class="track-control__button"
 				type="button"
-				@click="play"
 			>
 				<play
 					v-if="isPausedNow"
 					class="track-control__icon"
 					width="72"
 					height="72"
+					@click="play"
 				/>
 				<pause
 					v-if="!isPausedNow"
 					class="track-control__icon"
 					width="72"
 					height="72"
+					@click="pause"
 				/>
 			</div>
 		</div>
@@ -65,6 +66,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import play from '@/assets/img/svg/play.svg';
 import pause from '@/assets/img/svg/pause.svg';
 import buy from '@/assets/img/svg/buy.svg';
+import { Howl, Howler } from 'howler';
 
   @Component({
   	components: {
@@ -77,6 +79,7 @@ export default class musicTrack extends Vue {
     @Prop(Object) song;
 
     isPausedNow = true;
+    isTrackPlayed = false;
 
     player = {};
 
@@ -102,37 +105,21 @@ export default class musicTrack extends Vue {
     	});
     }
 
-    mounted() {
-    	this.player = this.$refs.audioPlayer;
-    	this.player.preload = 'auto';
-    	this.player.onplaying = () => {
-    		this.isPausedNow = false;
-    		this.$emit('playing', this.song.id);
-    	};
+    play() {
+    	if (!this.isTrackPlayed) {
+    		this.player = new Howl({
+    			src: [this.audio],
+    		});
+    		this.isTrackPlayed = true;
+    	}
+    	this.player.play();
+    	this.$emit('playing', this.player);
+    	this.isPausedNow = false;
     }
 
-    play() {
-    	const audio = this.$refs.audioPlayer;
-    	const source = document.createElement('source');
-
-    	source.setAttribute('src', this.audio);
-    	audio.appendChild(source);
-    	if (!this.player.paused) {
-    		this.player.pause();
-    	} else if (this.player.paused && this.player.readyState) {
-    		this.player.play();
-    	}
-    	this.player.onplaying = () => {
-    		this.isPausedNow = false;
-    		this.$emit('playing', this.song.id);
-    	};
-    	this.player.onended = () => {
-    		this.isPausedNow = true;
-    		this.$emit('ended', this.song.id);
-    	};
-    	this.player.onpause = () => {
-    		this.isPausedNow = true;
-    	};
+    pause(){
+    	this.player.pause();
+    	this.isPausedNow = true;
     }
   }
 </script>

@@ -51,25 +51,11 @@ export default class MusicCards extends Vue {
   	this.loaded = true;
   }
 
-  nextTrack(songId, index) {
-  	const justEnded = this.songCard.find(el => el.id === songId);
-  	const indexOfEnded = this.songCard.indexOf(justEnded);
+  preventOthers(song) {
+  	if (!this.songs.includes(song)) {
+  		this.songs.push(song);
+  	}
 
-  	this.songs[indexOfEnded + 1].play();
-  	console.log(index);
-  }
-
-  preventOthers(songId) {
-  	this.songs = document.getElementsByTagName('audio');
-  	this.nowPlaying = this.songCard.find(el => el.id === songId);
-  	this.indexOfPlaying = this.songCard.indexOf(this.nowPlaying);
-
-  	this.songs.forEach((el, index) => {
-  		if (index !== this.indexOfPlaying) {
-  			el.pause();
-  			el.currentTime = 0;
-  		}
-  	});
   }
 }
 </script>
