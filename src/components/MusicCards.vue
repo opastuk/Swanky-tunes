@@ -13,7 +13,6 @@
 				<music-track
 					:song="song"
 					@playing="preventOthers"
-					@ended="nextTrack(...index)"
 					@loaded="ready"
 				/>
 			</div>
@@ -55,6 +54,12 @@ export default class MusicCards extends Vue {
   	if (!this.songs.includes(song)) {
   		this.songs.push(song);
   	}
+  	this.songs.forEach((el) => {
+  		if (el !== song) {
+  			el.stop();
+  			el.onstop;
+  		}
+  	});
 
   }
 }
