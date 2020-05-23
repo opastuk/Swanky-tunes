@@ -19,7 +19,6 @@
 			/>
 			<div
 				class="track-control__button"
-				type="button"
 			>
 				<img
 					v-if="isPausedNow"
@@ -56,7 +55,10 @@
 				</a>
 			</div>
 			<div class="track__additional">
-				<span class="track__producer">{{ song.producer }}</span>
+				<span
+					class="track__producer"
+					v-html="producerName()"
+				/>
 				<span class="track__year">{{ song.year }}</span>
 			</div>
 		</div>
@@ -95,6 +97,21 @@ export default class musicTrack extends Vue {
 
     get buySong() {
     	return this.song.buy_link;
+    }
+
+    producerName() {
+    	let producer = this.song.producer;
+    	let mainProducer = '';
+    	let featedProducer = '';
+
+    	if (~producer.search('&')) {
+    		mainProducer = producer.slice(0, producer.indexOf('&') + 1);
+    		featedProducer = producer.slice(producer.indexOf('&') + 1);
+
+    		return `<p style="margin: 0"> ${mainProducer} </p> <p style="margin: 0"> ${featedProducer}</p>`;
+    	}
+
+    	return producer;
     }
 
     loadEnds() {
@@ -272,4 +289,5 @@ export default class musicTrack extends Vue {
       flex-basis: 25%;
     }
   }
+
 </style>
