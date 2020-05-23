@@ -50,7 +50,7 @@ export default class contactsMain extends Vue {
   .flex-container();
   &__headline {
     .reset-text();
-    font-size: 18px;
+    font-size: 16px;
     line-height: 26px;
     font-weight: normal;
   }
@@ -59,7 +59,7 @@ export default class contactsMain extends Vue {
   }
   &__value {
     .reset-text();
-    font-size: 18px;
+    font-size: 16px;
     line-height: 26px;
     margin-bottom: 25px;
     text-decoration: underline;
@@ -71,6 +71,13 @@ export default class contactsMain extends Vue {
     width: 350px;
     height: auto;
     text-align: center;
+
+		&__headline {
+			font-size: 16px;
+		}
+		&__value {
+			font-size: 16px;
+		}
     &__br {
       display: none;
     }
