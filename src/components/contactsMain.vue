@@ -1,46 +1,56 @@
 <template>
 	<div>
-		<div class="contacts">
-			<h2 class="contacts__headline contacts__headline--bold">
-				General Manager
-			</h2>
-			<p class="contacts__value">
-				mgmt@swankytunes.com
-			</p>
-			<h2 class="contacts__headline contacts__headline--bold">
-				Press Inquiries
-			</h2>
-			<p class="contacts__value">
-				mgmt@swankytunes.com
-			</p>
-			<h2 class="contacts__headline contacts__headline--bold">
-				Booking Agents
-			</h2>
-			<p class="contacts__value">
-				ASIA (excl. INDIA): <br />
-				robb@supermodifiedagency.com
-			</p>
-			<h2 class="contacts__headline">
-				N&S AMERICA/EU/UK/<br class="contacts__br" />ME/INDIA/AUS/NZ:
-			</h2>
-			<p class="contacts__value">
-				jochen@ourmusicgroup.nl
-			</p>
-			<h2 class="contacts__headline">
-				RUS/CIS:
-			</h2>
-			<p class="contacts__value">
-				booking@effective-records.ru
-			</p>
+		<div
+			v-if="!error"
+			class="contacts"
+		>
+			<div
+				v-for="(contact, index) in contactsList"
+				:key="index"
+			>
+				<h2 class="contacts__headline contacts__headline--bold">
+					{{ contact.location ? '' : contact.name }}
+				</h2>
+				<p
+					class="contacts__value"
+					v-html="formatContactsWithLocation(contact)"
+				/>
+			</div>
+		</div>
+		<div
+			v-else
+			class="contacts"
+		>
+			Возникли технические неполадки - зайдите позже!
 		</div>
 	</div>
 </template>
 
 <script>
 import { Component, Vue } from 'vue-property-decorator';
+import contacts from '../api/contacts';
 
 @Component
 export default class contactsMain extends Vue {
+	contactsList = [];
+	error = false;
+
+	created() {
+		contacts.getContacts().then((response) =>{
+			this.contactsList = response.data;
+			const indexOfFirstBooking = this.contactsList.findIndex((el) => el.name === 'Booking Agents');
+
+			this.contactsList.splice(indexOfFirstBooking, 0, {name: 'Booking Agents'});
+		}).catch((e) => this.error = true);
+	}
+
+	formatContactsWithLocation(contact) {
+		if (contact.location) {
+			return `${contact.location}: <br> ${contact.mail}`;
+		} else {
+			return contact.mail;
+		}
+	}
 }
 </script>
 

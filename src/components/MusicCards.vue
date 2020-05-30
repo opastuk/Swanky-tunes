@@ -2,6 +2,7 @@
 	<div class="music-cards__wrapper">
 		<loader v-show="!loaded" />
 		<div
+			v-if="!error"
 			v-show="loaded"
 			class="music-cards__container"
 		>
@@ -16,6 +17,12 @@
 					@loaded="ready"
 				/>
 			</div>
+		</div>
+		<div
+			v-else
+			class="music_cards__container"
+		>
+			Возникли технические неполадки - зайдите позже!
 		</div>
 	</div>
 </template>
@@ -32,6 +39,7 @@ import Loader from '@/components/Loader.vue';
 export default class MusicCards extends Vue {
   songCard = [];
 	loaded = false;
+	error = false;
 
   nowPlaying = {};
 
@@ -43,6 +51,9 @@ export default class MusicCards extends Vue {
   	music.getTracks()
   		.then((response) => {
   			this.songCard = response.data;
+  		}).catch((e) => {
+  			this.error = true;
+  			this.loaded = true;
   		});
   }
 
