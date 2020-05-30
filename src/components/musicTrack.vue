@@ -4,7 +4,9 @@
 		:style="trackCoverStyle"
 		:class="{'play': !isPausedNow}"
 	>
-		<div class="track-cover__wrapper">
+		<div
+			class="track-cover__wrapper"
+		>
 			<img
 				class="track__cover"
 				:class="{'play': !isPausedNow}"
@@ -19,6 +21,9 @@
 			/>
 			<div
 				class="track-control__button"
+				:class="{
+					'loading': loading
+				}"
 			>
 				<img
 					v-if="isPausedNow"
@@ -80,6 +85,7 @@ export default class musicTrack extends Vue {
 
     isPausedNow = true;
     isTrackPlayed = false;
+    loading = false;
 
     player = {};
 
@@ -124,13 +130,21 @@ export default class musicTrack extends Vue {
     	if (!this.isTrackPlayed) {
     		this.player = new Howl({
     			src: [this.audio],
-    			onplay: () => this.isPausedNow = false,
+    			onplay: () => {
+    				this.isPausedNow = false;
+    				this.loading = false;
+    			},
     			onpause: () => this.isPausedNow = true,
     			onstop: () => this.isPausedNow = true,
+    			onload: () => this.loading = false,
     		});
     		this.isTrackPlayed = true;
     	}
-    	this.player.play();
+    	this.loading = true;
+    	new Promise((resolve) => {
+    		this.player.play();
+    		resolve();
+    	}).then((_) => this.player.onload);
     	this.$emit('playing', this.player);
     }
 
@@ -289,5 +303,16 @@ export default class musicTrack extends Vue {
       flex-basis: 25%;
     }
   }
+
+	.loading {
+		&::before {
+			content: '';
+			background-color: rgba(0, 0, 0, 0.5);
+			position: absolute;
+			width: 72px;
+			height: 72px;
+			z-index: 10000;
+		}
+	}
 
 </style>
