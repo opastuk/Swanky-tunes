@@ -51,6 +51,12 @@ export default class MusicCards extends Vue {
   	music.getTracks()
   		.then((response) => {
   			this.songCard = response.data;
+  			this.songCard.sort(function(prevSong, nextSong) {
+  				const prevRealise = new Date(prevSong.date);
+  				const nextRealise = new Date(nextSong.date);
+
+  				return prevRealise - nextRealise;
+  			}).reverse();
   		}).catch((e) => {
   			this.error = true;
   			this.loaded = true;
