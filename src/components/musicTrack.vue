@@ -52,6 +52,7 @@
 					:href="buySong"
 					target="_blank"
 					rel="noopener"
+					class="track__buy-button"
 				>
 					<buy
 						width="35"
@@ -182,6 +183,10 @@ export default class musicTrack extends Vue {
       border-bottom: 1px solid #ffffff;
     }
 
+		&__buy-button {
+			cursor: pointer;
+		}
+
 		&__main-descr {
 			display: flex;
 			flex-direction: row;
@@ -237,6 +242,7 @@ export default class musicTrack extends Vue {
       left: 50%;
 			-webkit-mask-image: -webkit-radial-gradient(white, black);
       transform: translate(-50%, -50%);
+      cursor: pointer;
     }
 
     &__icon {
@@ -305,14 +311,7 @@ export default class musicTrack extends Vue {
   }
 
 	.loading {
-		&::before {
-			content: '';
-			background-color: rgba(0, 0, 0, 0.5);
-			position: absolute;
-			width: 72px;
-			height: 72px;
-			z-index: 10000;
-		}
+		opacity: .6;
 	}
 
 </style>
