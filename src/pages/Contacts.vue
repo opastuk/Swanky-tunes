@@ -30,6 +30,7 @@ export default class Contacts extends Vue {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
+		background-color: #e9eef1;
   }
   .contacts__list {
     display: flex;

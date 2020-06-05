@@ -21,11 +21,11 @@ export default class TourDates extends Vue {
 </script>
 <style scoped lang="less">
   .dates {
-		.main-background();
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+		background-color: #e9eef1;
   }
 
 	@media (min-width: 768px) {

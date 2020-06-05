@@ -48,7 +48,7 @@ export default class Home extends Vue {
 <style scoped lang="less">
   .home {
     .fullscreen();
-    background-color: #e1e6ea;
+    background-color: #e9eef1;
     @media (min-width: 768px) {
       .main-background();
     }
