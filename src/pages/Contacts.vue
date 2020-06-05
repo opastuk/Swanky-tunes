@@ -42,6 +42,7 @@ export default class Contacts extends Vue {
 
   @media (min-width: 768px) {
     .contacts {
+			.main-background();
       height: 100%;
       display: flex;
       flex-flow: column nowrap;

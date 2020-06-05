@@ -26,6 +26,7 @@ export default class DemoDrop extends Vue {
 
 <style scoped lang="less">
   .demo-drop {
+		.main-background();
     height: 100%;
     display: flex;
     flex-flow: column nowrap;
@@ -33,6 +34,7 @@ export default class DemoDrop extends Vue {
   }
   @media (min-width: 768px) {
     .demo-drop {
+			.main-background();
       min-height: 620px;
     }
   }

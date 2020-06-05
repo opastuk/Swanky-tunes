@@ -24,4 +24,10 @@ export default class Music extends Vue {
     justify-content: space-between;
     height: 100%;
   }
+
+	@media (min-width: 768px) {
+		.music {
+			.main-background();
+		}
+	}
 </style>
