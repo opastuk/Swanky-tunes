@@ -62,6 +62,7 @@
 					Submit
 				</button>
 			</form>
+			<p>{{error}}</p>
 		</div>
 	</div>
 </template>
@@ -84,14 +85,17 @@ export default class demoForm extends Vue {
 		url: null,
 	}
 
+	error = '';
+
 	 sendForm(e) {
+	 	this.error = '';
 		if (this.formData.name && this.formData.mail && this.formData.url) {
 		 	sendMail.postMail(this.formData).then(() => {
 		 		this.formData.name = null;
 		 		this.formData.mail = null;
 		 		this.formData.url = null;
 		 		this.formData.comment = null;
-		 	}).catch((e) => this.formData.errors.push('Возникли технические неполадки, попробуйте позже'));
+		 	}).catch((e) => this.error = 'Возникли технические неполадки, попробуйте позже');
 		} else {
 			if (!this.formData.name) {
 				this.errors.name = 'Укажите Имя';
