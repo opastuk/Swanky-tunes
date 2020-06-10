@@ -99,6 +99,21 @@
 						Contacts
 					</router-link>
 				</li>
+				<li class="main-navigation__item">
+					<a
+						class="main-navigation__link"
+						style="cursor: pointer"
+					>
+						RU
+					</a>
+					|
+					<a
+						class="main-navigation__link"
+						style="cursor: pointer"
+					>
+						EN
+					</a>
+				</li>
 			</ul>
 		</nav>
 	</div>
