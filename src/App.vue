@@ -13,6 +13,12 @@
   src: url(./assets/fonts/Gotham_Pro.ttf) format("ttf");
 }
 
+* {
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
 body, html{
   overflow: hidden;
   width: 100%;

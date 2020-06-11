@@ -105,9 +105,6 @@ export default class MusicCards extends Vue {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
-		&::-webkit-scrollbar {
-			background-color: rgba(0, 0, 0, 0);
-		}
   }
 
   &__item {
