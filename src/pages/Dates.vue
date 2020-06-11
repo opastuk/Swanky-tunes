@@ -1,8 +1,10 @@
 <template>
 	<div class="dates">
-		<navMenu />
-		<tour-dates />
-		<footerMenu />
+		<div class="dates__container">
+			<navMenu />
+			<tour-dates />
+			<footerMenu />
+		</div>
 	</div>
 </template>
 <script>
@@ -21,16 +23,29 @@ export default class TourDates extends Vue {
 </script>
 <style scoped lang="less">
   .dates {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     height: 100%;
 		background-color: #e9eef1;
+		&__container {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			height: 100%;
+		}
   }
 
 	@media (min-width: 768px) {
 		.dates {
 			.main-background();
+			&__container {
+				width: 100%;
+			}
+		}
+	}
+
+	@media (min-width: 900px) {
+		.dates__container	{
+			width: 910px;
+			margin: 0 auto;
 		}
 	}
 </style>

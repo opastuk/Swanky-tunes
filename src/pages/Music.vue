@@ -1,8 +1,10 @@
 <template>
 	<div class="music">
-		<navMenu />
-		<music-cards />
-		<footerMenu />
+		<div class="music__container">
+			<navMenu />
+			<music-cards />
+			<footerMenu />
+		</div>
 	</div>
 </template>
 <script>
@@ -19,16 +21,29 @@ export default class Music extends Vue {
 </script>
 <style scoped lang="less">
   .music {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     height: 100%;
 		background-color: #e9eef1;
+		&__container {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			height: 100%;
+		}
   }
 
 	@media (min-width: 768px) {
 		.music {
 			.main-background();
+      &__container {
+				width: 100%;
+			}
+		}
+	}
+
+	@media (min-width: 900px) {
+		.music__container {
+			width: 910px;
+			margin: 0 auto;
 		}
 	}
 </style>

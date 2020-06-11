@@ -3,6 +3,11 @@
 		<div class="not-found__text">
 			404 Not Found
 		</div>
+		<button>
+			<router-link to="/" class="back">
+				На главную
+			</router-link>
+		</button>
 	</div>
 </template>
 
@@ -22,8 +27,15 @@ export default class NotFound extends Vue {
   display: flex;
   justify-content: center;
   align-items: center;
+	flex-direction: column;
   &__text {
     font-size: 50px;
+		margin-bottom: 25px;
   }
 }
+
+	.back {
+		text-decoration: none;
+		color: #333333;
+	}
 </style>

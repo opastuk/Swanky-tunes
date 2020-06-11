@@ -1,12 +1,14 @@
 <template>
 	<div class="contacts">
-		<h1 class="visually-hidden">
-			Contacts
-		</h1>
-		<navMenu />
-		<contactsMain class="contacts__list" />
-		<div class="footer-menu__wrapper">
-			<footerMenu />
+		<div class="contacts__container">
+			<h1 class="visually-hidden">
+				Contacts
+			</h1>
+			<navMenu />
+			<contactsMain class="contacts__list" />
+			<div class="footer-menu__wrapper">
+				<footerMenu />
+			</div>
 		</div>
 	</div>
 </template>
@@ -27,10 +29,13 @@ export default class Contacts extends Vue {
 <style scoped lang="less">
   .contacts {
     height: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
 		background-color: #e9eef1;
+		&__container {
+			display: flex;
+			flex-flow: column nowrap;
+			justify-content: space-between;
+			height: 100%;
+		}
   }
   .contacts__list {
     display: flex;
@@ -48,6 +53,9 @@ export default class Contacts extends Vue {
       display: flex;
       flex-flow: column nowrap;
       justify-content: space-between;
+			&__container {
+				width: 100%;
+			}
     }
     .contacts__list {
       display: flex;
@@ -58,4 +66,11 @@ export default class Contacts extends Vue {
       overflow-x: auto;
     }
   }
+
+	@media (min-width: 900px) {
+		.contacts__container {
+			width: 910px;
+      margin: 0 auto;
+		}
+	}
 </style>
