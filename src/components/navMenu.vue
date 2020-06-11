@@ -26,7 +26,7 @@
 						class="main-navigation__link"
 						to="/music"
 					>
-						Music
+						{{ descr.menu.music }}
 					</router-link>
 				</li>
 				<li class="main-navigation__item">
@@ -35,21 +35,21 @@
 						href="https://www.youtube.com/playlist?list=PL9W0uKtpnSDAb9NvRcxbosp5DzKWT2wGo"
 						target="_blank"
 						rel="noopener"
-					>Videos</a>
+					>{{ descr.menu.videos }}</a>
 				</li>
 				<li class="main-navigation__item">
 					<router-link
 						class="main-navigation__link"
 						to="/dates"
 					>
-						Tour dates
+						{{ descr.menu.dates }}
 					</router-link>
 				</li>
 				<li class="main-navigation__item main-navigation__item--dropdown">
 					<a
 						class="main-navigation__link--dropdown"
 						href="#"
-					>Radio show</a>
+					>{{ descr.menu.radio }}</a>
 					<ul class="sub-navigation__list">
 						<li class="sub-navigation__item">
 							<a
@@ -88,7 +88,7 @@
 						class="main-navigation__link"
 						to="/demo-drop"
 					>
-						Demo drop
+						{{ descr.menu.demo }}
 					</router-link>
 				</li>
 				<li class="main-navigation__item">
@@ -96,13 +96,14 @@
 						class="main-navigation__link"
 						to="/contacts"
 					>
-						Contacts
+						{{ descr.menu.contacts }}
 					</router-link>
 				</li>
 				<li class="main-navigation__item">
 					<a
 						class="main-navigation__link"
 						style="cursor: pointer"
+						@click="setRus"
 					>
 						RU
 					</a>
@@ -110,6 +111,7 @@
 					<a
 						class="main-navigation__link"
 						style="cursor: pointer"
+						@click="setEn"
 					>
 						EN
 					</a>
@@ -125,11 +127,15 @@ import sidebarMenu from '@/components/sidebarMenu.vue';
 import sidemenu from '@/assets/img/svg/menu.svg';
 import mixcloud from '@/assets/img/svg/mixcloud.svg';
 import applpdcst from '@/assets/img/svg/apple_podcast.svg';
+import { mapState } from 'vuex';
 
 @Component({
 	components: {
 		sidebarMenu, sidemenu, mixcloud, applpdcst,
 	},
+	computed:	mapState({
+		descr: state => state.descr,
+	})
 })
 export default class NavMenu extends Vue {
   sideBar = false;
@@ -143,6 +149,14 @@ export default class NavMenu extends Vue {
   	} else {
   		this.fillColor = '#000';
   	}
+  }
+
+  setEn() {
+  	this.$store.commit('setTranslation', 'en');
+  }
+
+  setRus() {
+  	this.$store.commit('setTranslation', 'ru');
   }
 }
 </script>

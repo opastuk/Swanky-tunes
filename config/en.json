@@ -1,0 +1,23 @@
+{
+  "menu": {
+    "music": "Music",
+    "videos": "Video",
+    "dates": "Tour Dates",
+    "radio": "Radio show",
+    "demo": "Demo drop",
+    "contacts": "Contacts"
+  },
+  "demoForm": {
+    "name": "Name:",
+    "email": "Email:",
+    "url": "Music URL:",
+    "comment": "Comment:",
+    "send": "Submit",
+    "errors" : {
+      "name": "Enter your name",
+      "mail": "Enter your email",
+      "url": "Enter your Music url"
+    }
+  },
+  "error": "Having technical problems, check back later!"
+}

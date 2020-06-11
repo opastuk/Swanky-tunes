@@ -22,7 +22,7 @@
 			v-else
 			class="music_cards__container"
 		>
-			Возникли технические неполадки - зайдите позже!
+			{{ descr.error }}
 		</div>
 	</div>
 </template>
@@ -32,20 +32,20 @@ import { Component, Vue } from 'vue-property-decorator';
 import musicTrack from '@/components/musicTrack.vue';
 import music from '../api/music.js';
 import Loader from '@/components/Loader.vue';
+import { mapState } from 'vuex';
 
 @Component({
 	components: { musicTrack, Loader },
+	computed:	mapState({
+		descr: state => state.descr,
+	})
+
 })
 export default class MusicCards extends Vue {
   songCard = [];
 	loaded = false;
 	error = false;
-
-  nowPlaying = {};
-
   songs = [];
-
-  indexOfPlaying = null;
 
   mounted() {
   	music.getTracks()
@@ -105,6 +105,9 @@ export default class MusicCards extends Vue {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
+		&::-webkit-scrollbar {
+			background-color: rgba(0, 0, 0, 0);
+		}
   }
 
   &__item {

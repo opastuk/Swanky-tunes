@@ -8,61 +8,61 @@
 				<label
 					class="form__label visually-hidden"
 					for="name"
-				>Name</label>
+				>{{ descr.demoForm.name }}</label>
 				<input
 					id="name"
 					v-model="formData.name"
 					class="demo__input"
 					type="text"
 					name="name"
-					:placeholder="errors.name || 'Name:'"
+					:placeholder="errors.name || descr.demoForm.name"
 				/>
 				<label
 					class="form__label visually-hidden"
 					for="email"
-				>Email</label>
+				>{{ descr.demoForm.email }}</label>
 				<input
 					id="email"
 					v-model="formData.mail"
 					class="demo__input"
 					name="email"
-					:placeholder="errors.mail || 'Email:'"
+					:placeholder="errors.mail || descr.demoForm.email"
 					type="text"
 					autocomplete="off"
 				/>
 				<label
 					class="form__label visually-hidden"
 					for="url"
-				>Music URL</label>
+				>{{ descr.demoForm.url }}</label>
 				<input
 					id="url"
 					v-model="formData.url"
 					class="demo__input"
 					name="url"
-					:placeholder="errors.url || 'Music URL:'"
+					:placeholder="errors.url || descr.demoForm.url"
 					type="text"
 					autocomplete="off"
 				/>
 				<label
 					class="form__label visually-hidden"
 					for="comment"
-				>Comment</label>
+				>{{ descr.demoForm.comment }}</label>
 				<input
 					id="comment"
 					v-model="formData.comment"
 					class="demo__input"
 					name="comment"
-					placeholder="Comment:"
+					:placeholder="descr.demoForm.comment"
 					type="text"
 				/>
 				<button
 					class="form__button"
 					type="submit"
 				>
-					Submit
+					{{ descr.demoForm.send }}
 				</button>
 			</form>
-			<p>{{error}}</p>
+			<p>{{ error }}</p>
 		</div>
 	</div>
 </template>
@@ -70,8 +70,13 @@
 <script>
 import { Component, Vue } from 'vue-property-decorator';
 import sendMail from '../api/email.js';
+import { mapState } from 'vuex';
 
-@Component
+@Component({
+	computed:	mapState({
+		descr: state => state.descr,
+	})
+})
 export default class demoForm extends Vue {
 	formData = {
 		name: null,
@@ -98,14 +103,22 @@ export default class demoForm extends Vue {
 		 	}).catch((e) => this.error = 'Возникли технические неполадки, попробуйте позже');
 		} else {
 			if (!this.formData.name) {
-				this.errors.name = 'Укажите Имя';
+				this.errors.name = this.validateErrors.name;
 			} else if (!this.formData.mail) {
-				this.errors.mail = 'Укажите почту для обратной связи';
+				this.errors.mail = this.validateErrors.mail;
 			} else if (!this.formData.url) {
-				this.errors.url = 'Укажите ссылку';
+				this.errors.url = this.validateErrors.url;
 			}
 		}
 		e.preventDefault();
+	}
+
+	get validateErrors() {
+	 	return {
+	 		name: this.descr.demoForm.errors.name,
+			mail: this.descr.demoForm.errors.mail,
+			url: this.descr.demoForm.errors.url,
+		};
 	}
 }
 </script>
@@ -139,7 +152,6 @@ export default class demoForm extends Vue {
   flex-direction: column;
   align-items: center;
   &__button {
-    width: 65px;
     padding: 0;
     background-color: transparent;
     border: none;

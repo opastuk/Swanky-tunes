@@ -6,7 +6,7 @@
 					class="sidebar__link"
 					to="/music"
 				>
-					Music
+					{{ descr.menu.music }}
 				</router-link>
 			</li>
 			<li class="sidebar__item">
@@ -15,14 +15,14 @@
 					href="https://www.youtube.com/playlist?list=PL9W0uKtpnSDAb9NvRcxbosp5DzKWT2wGo"
 					target="_blank"
 					rel="noopener"
-				>Videos</a>
+				>{{ descr.menu.video }}</a>
 			</li>
 			<li class="sidebar__item">
 				<router-link
 					class="sidebar__link"
 					to="/dates"
 				>
-					Tour dates
+					{{ descr.menu.dates }}
 				</router-link>
 			</li>
 			<li class="sidebar__item main-navigation__item--dropdown">
@@ -30,7 +30,7 @@
 					class="sidebar__link sidebar__link--dropdown"
 					href="#"
 					@click="social = !social"
-				>Radio show</a>
+				>{{ descr.menu.radio }}</a>
 				<ul
 					v-if="social"
 					class="sidebar__list social"
@@ -72,7 +72,7 @@
 					class="sidebar__link"
 					to="/demo-drop"
 				>
-					Demo drop
+					{{ descr.menu.demo }}
 				</router-link>
 			</li>
 			<li class="sidebar__item">
@@ -80,8 +80,25 @@
 					class="sidebar__link"
 					to="/contacts"
 				>
-					Contacts
+					{{ descr.menu.contacts }}
 				</router-link>
+			</li>
+			<li class="sidebar__item">
+				<a
+					class="sidebar__link"
+					style="cursor: pointer"
+					@click="setRus"
+				>
+					RU
+				</a>
+				|
+				<a
+					class="sidebar__link"
+					style="cursor: pointer"
+					@click="setEn"
+				>
+					EN
+				</a>
 			</li>
 		</ul>
 	</div>
@@ -92,14 +109,26 @@ import { Component, Vue } from 'vue-property-decorator';
 
 import mixcloud from '@/assets/img/svg/mixcloud-white.svg';
 import applpdcst from '@/assets/img/svg/apple_podcast-white.svg';
+import { mapState } from 'vuex';
 
 @Component({
 	components: {
 		mixcloud, applpdcst,
 	},
+	computed:	mapState({
+		descr: state => state.descr,
+	})
 })
 export default class SidebarMenu extends Vue {
   social = false;
+
+  setEn() {
+  	this.$store.commit('setTranslation', 'en');
+  }
+
+  setRus() {
+  	this.$store.commit('setTranslation', 'ru');
+  }
 }
 </script>
 
@@ -128,6 +157,7 @@ export default class SidebarMenu extends Vue {
         }
       }
       &__item {
+        color: #ffffff;
         padding-bottom: 15px;
       }
       &__link {
