@@ -9,12 +9,23 @@
 				:key="index"
 			>
 				<h2 class="contacts__headline contacts__headline--bold">
-					{{ contact.location ? '' : contact.name }}
+					{{ contact[`${lang}_name`] }}
 				</h2>
-				<p
-					class="contacts__value"
-					v-html="formatContactsWithLocation(contact)"
-				/>
+				<div
+					v-for="(subcontact, subindex) in contact.contact_section"
+					:key="subindex"
+				>
+					<p
+						v-if="subcontact[`${lang}_name`]"
+						class="contacts__value"
+						style="margin: 0"
+					>
+						{{ subcontact[`${lang}_name`] }}:
+					</p>
+					<p class="contacts__value">
+						{{ subcontact.mail }}
+					</p>
+				</div>
 			</div>
 		</div>
 		<div
@@ -29,27 +40,21 @@
 <script>
 import { Component, Vue } from 'vue-property-decorator';
 import contacts from '../api/contacts';
+import { mapState } from 'vuex';
 
-@Component
+@Component({
+	computed:	mapState({
+		lang: state => state.lang,
+	})
+})
 export default class contactsMain extends Vue {
 	contactsList = [];
 	error = false;
 
 	created() {
-		contacts.getContacts().then((response) =>{
+		contacts.getContacts().then((response) => {
 			this.contactsList = response.data;
-			const indexOfFirstBooking = this.contactsList.findIndex((el) => el.name === 'Booking Agents');
-
-			this.contactsList.splice(indexOfFirstBooking, 0, {name: 'Booking Agents'});
 		}).catch((e) => this.error = true);
-	}
-
-	formatContactsWithLocation(contact) {
-		if (contact.location) {
-			return `${contact.location}: <br> ${contact.mail}`;
-		} else {
-			return contact.mail;
-		}
 	}
 }
 </script>

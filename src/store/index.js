@@ -7,12 +7,14 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
+		lang: 'en',
 		descr: en,
 	},
 	getters: {
 	},
 	mutations: {
 		setTranslation: (state, payload) => {
+			state.lang = payload;
 			if (payload === 'ru') {
 				state.descr = ru;
 			} else {

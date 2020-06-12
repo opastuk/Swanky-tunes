@@ -1,14 +1,14 @@
 <template>
 	<div class="sidebar">
 		<ul class="sidebar__list">
-			<li class="sidebar__item">
+			<!--	<li class="sidebar__item">
 				<router-link
 					class="sidebar__link"
 					to="/music"
 				>
 					{{ descr.menu.music }}
 				</router-link>
-			</li>
+			</li>-->
 			<li class="sidebar__item">
 				<a
 					class="sidebar__link"

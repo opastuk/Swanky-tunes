@@ -4,7 +4,10 @@
 			404 Not Found
 		</div>
 		<button>
-			<router-link to="/" class="back">
+			<router-link
+				to="/"
+				class="back"
+			>
 				На главную
 			</router-link>
 		</button>
