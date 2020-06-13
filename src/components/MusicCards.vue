@@ -109,7 +109,7 @@ export default class MusicCards extends Vue {
 
   &__item {
     height: fit-content;
-    flex-basis: 20%;
+    flex-basis: 33%;
     -ms-flex: auto;
     width: 250px;
     position: relative;

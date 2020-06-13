@@ -270,7 +270,7 @@ export default class footerMenuHome extends Vue {
       }
     }
   }
-  @media (min-width: 768px) {
+  @media (min-width: 770px) {
     .footer-navigation {
       .flex-container();
       &__list {

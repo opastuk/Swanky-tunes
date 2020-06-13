@@ -133,7 +133,7 @@ export default class SidebarMenu extends Vue {
 </script>
 
 <style scoped lang="less">
-  @media (max-width: 768px) {
+  @media (max-width: 770px) {
     .sidebar {
       width: 40%;
       height: 100%;
@@ -166,7 +166,7 @@ export default class SidebarMenu extends Vue {
       }
     }
   }
-  @media (min-width: 768px) {
+  @media (min-width: 770px) {
     .sidebar {
       display: none;
     }

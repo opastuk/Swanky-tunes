@@ -19,7 +19,7 @@ export default class mainLogo extends Vue {
       display: none;
     }
   }
-  @media (min-width: 768px) {
+  @media (min-width: 770px) {
     .main-logo {
       width: 100%;
       &__img {

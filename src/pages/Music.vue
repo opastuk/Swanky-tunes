@@ -31,7 +31,7 @@ export default class Music extends Vue {
 		}
   }
 
-	@media (min-width: 768px) {
+	@media (min-width: 770px) {
 		.music {
 			.main-background();
       &__container {
@@ -42,7 +42,7 @@ export default class Music extends Vue {
 
 	@media (min-width: 900px) {
 		.music__container {
-			width: 910px;
+			width: 950px;
 			margin: 0 auto;
 		}
 	}

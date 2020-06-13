@@ -49,7 +49,7 @@ export default class Home extends Vue {
   .home {
     .fullscreen();
     background-color: #e9eef1;
-    @media (min-width: 768px) {
+    @media (min-width: 770px) {
       .main-background();
     }
     height: 100%;
@@ -69,7 +69,7 @@ export default class Home extends Vue {
 			left: 50%;
 			margin-top: 5%;
 			margin-left: -45%;
-      @media (min-width: 768px) {
+      @media (min-width: 770px) {
         display: none;
       }
     }
@@ -83,7 +83,7 @@ export default class Home extends Vue {
       z-index: 0;
       bottom: 0;
 
-      @media (min-width:768px) {
+      @media (min-width:770px) {
         display: inline-block;
       }
       @media (min-width: 1200px) {
@@ -93,13 +93,13 @@ export default class Home extends Vue {
   }
   .container {
     position: relative;
-    @media (min-width: 768px) {
+    @media (min-width: 770px) {
       width: 100%;
       margin: 0 auto;
       height: 100%;
     }
     @media (min-width: 900px) {
-      width: 910px;
+      width: 950px
     }
   }
   .footer-menu {

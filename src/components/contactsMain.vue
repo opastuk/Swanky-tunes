@@ -81,7 +81,7 @@ export default class contactsMain extends Vue {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 770px) {
   .contacts {
     width: 350px;
     height: auto;

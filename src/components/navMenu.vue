@@ -21,14 +21,14 @@
 				<sidebarMenu v-if="sideBar" />
 			</transition>
 			<ul class="main-navigation__list">
-				<!--<li class="main-navigation__item">
+				<li class="main-navigation__item">
 					<router-link
 						class="main-navigation__link"
 						to="/music"
 					>
 						{{ descr.menu.music }}
 					</router-link>
-				</li>-->
+				</li>
 				<li class="main-navigation__item">
 					<a
 						class="main-navigation__link"
@@ -99,24 +99,24 @@
 						{{ descr.menu.contacts }}
 					</router-link>
 				</li>
-				<li class="main-navigation__item">
-					<a
-						class="main-navigation__link"
-						style="cursor: pointer"
-						@click="setRus"
-					>
-						RU
-					</a>
-					|
-					<a
-						class="main-navigation__link"
-						style="cursor: pointer"
-						@click="setEn"
-					>
-						EN
-					</a>
-				</li>
 			</ul>
+			<span class="lang">
+				<a
+					class="main-navigation__link"
+					style="cursor: pointer"
+					@click="setRus"
+				>
+					RU
+				</a>
+				|
+				<a
+					class="main-navigation__link"
+					style="cursor: pointer"
+					@click="setEn"
+				>
+					EN
+				</a>
+			</span>
 		</nav>
 	</div>
 </template>
@@ -165,6 +165,9 @@ export default class NavMenu extends Vue {
   .nav-menu {
     height: 76px;
   }
+	.lang {
+		display: none;
+	}
   .main-navigation {
     .flex-container();
     padding: 25px 0;
@@ -195,15 +198,17 @@ export default class NavMenu extends Vue {
       background-color: transparent;
     }
   }
-  @media (min-width: 768px) {
+  @media (min-width: 770px) {
     .nav-menu {
       height: auto;
       width: 100%;
     }
+		.lang {
+			display: inline-block;
+		}
     .main-navigation {
       padding: 30px 0 26px;
       &__logo {
-        margin-right: 15px;
         white-space: nowrap;
         position: relative;
         &:hover,
@@ -231,9 +236,9 @@ export default class NavMenu extends Vue {
       }
       &__list {
         .reset-list();
-        width: 650px;
+        width: 70%;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
       }
       &__link {
         position: relative;
@@ -322,4 +327,5 @@ export default class NavMenu extends Vue {
       transform: translateX(100%);
     }
   }
+
 </style>

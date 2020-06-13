@@ -63,8 +63,14 @@
 			<div class="track__additional">
 				<span
 					class="track__producer"
-					v-html="producerName()"
-				/>
+				>
+					<p
+						v-for="(producer, index) in producerName"
+						:key="index"
+						:style="fs"
+						class="producer__name"
+					>{{ producer }} {{ index === producerName.length - 1 ? '' : '&' }}</p>
+				</span>
 				<span class="track__year">{{ song.year }}</span>
 			</div>
 		</div>
@@ -75,11 +81,15 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import buy from '@/assets/img/svg/buy.svg';
 import { Howl, Howler } from 'howler';
+import {mapState} from 'vuex';
 
   @Component({
   	components: {
   		buy,
   	},
+  	computed:	mapState({
+  		lang: state => state.lang,
+  	})
   })
 export default class musicTrack extends Vue {
     @Prop(Object) song;
@@ -89,6 +99,7 @@ export default class musicTrack extends Vue {
     loading = false;
 
     player = {};
+    fs = {};
 
     get trackCoverStyle() {
     	return { '--hover': this.song.hover };
@@ -106,19 +117,14 @@ export default class musicTrack extends Vue {
     	return this.song.buy_link;
     }
 
-    producerName() {
-    	let producer = this.song.producer;
-    	let mainProducer = '';
-    	let featedProducer = '';
+    get producerName() {
+    	let producer = this.song.producer.split('&');
 
-    	if (~producer.search('&')) {
-    		mainProducer = producer.slice(0, producer.indexOf('&') + 1);
-    		featedProducer = producer.slice(producer.indexOf('&') + 1);
-
-    		return `<p style="margin: 0"> ${mainProducer} </p> <p style="margin: 0"> ${featedProducer}</p>`;
+    	if (producer.length >= 3){
+    		this.fs = {fontSize: `${((200/producer.length)).toFixed()}%`};
     	}
 
-    	return producer;
+    	return producer	;
     }
 
     loadEnds() {
@@ -194,10 +200,8 @@ export default class musicTrack extends Vue {
 		}
 
     &__producer {
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
+			display: flex;
+			flex-direction: column;
     }
 
     &__year {
@@ -260,7 +264,7 @@ export default class musicTrack extends Vue {
     width: 100%;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 770px) {
 
     .track {
       margin-bottom: 15px;
@@ -312,6 +316,11 @@ export default class musicTrack extends Vue {
 
 	.loading {
 		opacity: .6;
+	}
+
+	.producer__name {
+		margin: 0;
+    line-height: 1;
 	}
 
 </style>
