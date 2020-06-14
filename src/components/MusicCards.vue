@@ -7,7 +7,7 @@
 			class="music-cards__container"
 		>
 			<div
-				v-for="(song, index) in songCard"
+				v-for="(song, index) in songCard.slice(0, amount)"
 				:key="index"
 				class="music-cards__item"
 			>
@@ -24,6 +24,11 @@
 		>
 			{{ descr.error }}
 		</div>
+		<div
+			v-infinite-scroll="loadMore"
+			infinite-scroll-disabled="busy"
+			infinite-scroll-distance="10"
+		/>
 	</div>
 </template>
 
@@ -46,8 +51,21 @@ export default class MusicCards extends Vue {
 	loaded = false;
 	error = false;
   songs = [];
+	amount = 6;
 
-  mounted() {
+	mounted() {
+		this.loadTracks();
+	}
+
+	ready(){
+  	this.loaded = true;
+	}
+
+	loadMore() {
+  	this.amount += 6;
+	}
+
+	loadTracks() {
   	music.getTracks()
   		.then((response) => {
   			this.songCard = response.data;
@@ -61,13 +79,9 @@ export default class MusicCards extends Vue {
   			this.error = true;
   			this.loaded = true;
   		});
-  }
+	}
 
-  ready(){
-  	this.loaded = true;
-  }
-
-  preventOthers(song) {
+	preventOthers(song) {
   	if (!this.songs.includes(song)) {
   		this.songs.push(song);
   	}
@@ -78,7 +92,7 @@ export default class MusicCards extends Vue {
   		}
   	});
 
-  }
+	}
 }
 </script>
 
