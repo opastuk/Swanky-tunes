@@ -96,7 +96,7 @@ export default class MusicCards extends Vue {
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
-    max-width: 90%;
+    width: 100%;
     margin: 0 auto;
   }
 
