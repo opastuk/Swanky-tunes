@@ -82,6 +82,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import buy from '@/assets/img/svg/buy.svg';
 import { Howl, Howler } from 'howler';
 import {mapState} from 'vuex';
+import api from '../../config/api.json';
 
   @Component({
   	components: {
@@ -106,11 +107,11 @@ export default class musicTrack extends Vue {
     }
 
     get trackCover() {
-    	return `http://swanky-admin.tmweb.ru${this.song.track_cover[0].url}`;
+    	return `${api.host}${this.song.track_cover[0].url}`;
     }
 
     get audio() {
-    	return `http://swanky-admin.tmweb.ru${this.song.audio[0].url}`;
+    	return `${api.host}${this.song.audio[0].url}`;
     }
 
     get buySong() {
