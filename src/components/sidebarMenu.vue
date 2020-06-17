@@ -12,7 +12,7 @@
 			<li class="sidebar__item">
 				<a
 					class="sidebar__link"
-					href="https://www.youtube.com/playlist?list=PL9W0uKtpnSDAb9NvRcxbosp5DzKWT2wGo"
+					href="https://www.youtube.com/swankytuneslive"
 					target="_blank"
 					rel="noopener"
 				>{{ descr.menu.video }}</a>

@@ -32,7 +32,7 @@
 				<li class="main-navigation__item">
 					<a
 						class="main-navigation__link"
-						href="https://www.youtube.com/playlist?list=PL9W0uKtpnSDAb9NvRcxbosp5DzKWT2wGo"
+						href="https://www.youtube.com/swankytuneslive"
 						target="_blank"
 						rel="noopener"
 					>{{ descr.menu.videos }}</a>

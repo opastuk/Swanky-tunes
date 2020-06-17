@@ -22,8 +22,13 @@
 					>
 						{{ subcontact[`${lang}_name`] }}:
 					</p>
-					<p class="contacts__value">
+					<p
+						class="contacts__value"
+					>
 						{{ subcontact.mail }}
+					</p>
+					<p v-if="subcontact.phone" class="contacts__value_phone">
+						tel | WhatsApp: {{ subcontact.phone }}
 					</p>
 				</div>
 			</div>
@@ -77,7 +82,10 @@ export default class contactsMain extends Vue {
     font-size: 16px;
     line-height: 26px;
     margin-bottom: 25px;
-    text-decoration: underline;
+    &_phone {
+			margin-top: -25px;
+			font-size: 16px;
+		}
   }
 }
 

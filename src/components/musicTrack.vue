@@ -48,17 +48,40 @@
 				<p class="track__name">
 					{{ song.name }}
 				</p>
-				<a
-					:href="buySong"
-					target="_blank"
-					rel="noopener"
-					class="track__buy-button"
-				>
-					<buy
-						width="35"
-						height="35"
-					/>
-				</a>
+				<div class="buy-links__container">
+					<a
+						v-if="buySong"
+						:href="buySong"
+						target="_blank"
+						rel="noopener"
+						class="track__buy-button"
+					>
+						<buy
+							width="35"
+							height="35"
+						/>
+					</a>
+					<a
+						v-if="soundCloudLink"
+						:href="soundCloudLink"
+						class="track__buy-button"
+					>
+						<apple
+							width="35"
+							height="35"
+						/>
+					</a>
+					<a
+						v-if="spotifyLink"
+						:href="spotifyLink"
+						class="track__buy-button"
+					>
+						<spotify
+							width="35"
+							height="35"
+						/>
+					</a>
+				</div>
 			</div>
 			<div class="track__additional">
 				<span
@@ -80,6 +103,8 @@
 <script>
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import buy from '@/assets/img/svg/buy.svg';
+import apple from '@/assets/img/svg/apple.svg';
+import spotify from '@/assets/img/svg/spotify.svg';
 import { Howl, Howler } from 'howler';
 import {mapState} from 'vuex';
 import api from '../../config/api.json';
@@ -87,6 +112,8 @@ import api from '../../config/api.json';
   @Component({
   	components: {
   		buy,
+  		apple,
+  		spotify,
   	},
   	computed:	mapState({
   		lang: state => state.lang,
@@ -116,6 +143,14 @@ export default class musicTrack extends Vue {
 
     get buySong() {
     	return this.song.buy_link;
+    }
+
+    get soundCloudLink() {
+    	return this.song.sound_cloud;
+    }
+
+    get spotifyLink() {
+    	return this.song.spotify;
     }
 
     get producerName() {
@@ -322,6 +357,13 @@ export default class musicTrack extends Vue {
 	.producer__name {
 		margin: 0;
     line-height: 1;
+	}
+
+	.buy-links__container {
+		display: flex;
+		flex-direction: column;
+    justify-content: space-evenly;
+		height: fit-content;
 	}
 
 </style>
