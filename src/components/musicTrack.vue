@@ -46,7 +46,7 @@
 		<div class="track__info">
 			<div class="track__main-descr">
 				<p class="track__name">
-					{{ song.name }}
+					{{ song.producer }}
 				</p>
 				<div class="buy-links__container">
 					<a
@@ -88,11 +88,8 @@
 					class="track__producer"
 				>
 					<p
-						v-for="(producer, index) in producerName"
-						:key="index"
-						:style="fs"
 						class="producer__name"
-					>{{ producer }} {{ index === producerName.length - 1 ? '' : '&' }}</p>
+					>{{ song.name }}</p>
 				</span>
 				<span class="track__year">{{ song.year }}</span>
 			</div>
@@ -127,7 +124,6 @@ export default class musicTrack extends Vue {
     loading = false;
 
     player = {};
-    fs = {};
 
     get trackCoverStyle() {
     	return { '--hover': this.song.hover };
@@ -151,16 +147,6 @@ export default class musicTrack extends Vue {
 
     get spotifyLink() {
     	return this.song.spotify;
-    }
-
-    get producerName() {
-    	let producer = this.song.producer.split('&');
-
-    	if (producer.length >= 3){
-    		this.fs = {fontSize: `${((200/producer.length)).toFixed()}%`};
-    	}
-
-    	return producer	;
     }
 
     loadEnds() {
