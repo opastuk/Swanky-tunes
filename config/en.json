@@ -17,6 +17,10 @@
       "name": "Enter your name",
       "mail": "Enter your email",
       "url": "Enter your Music url"
+    },
+    "modal": {
+      "error": "Ошибка отправки, попробуйте позже.",
+      "success": "Демо отправлено"
     }
   },
   "error": "Having technical problems, check back later!"

@@ -27,7 +27,10 @@
 					>
 						{{ subcontact.mail }}
 					</p>
-					<p v-if="subcontact.phone" class="contacts__value_phone">
+					<p
+						v-if="subcontact.phone"
+						class="contacts__value_phone"
+					>
 						tel | WhatsApp: {{ subcontact.phone }}
 					</p>
 				</div>
@@ -37,7 +40,7 @@
 			v-else
 			class="contacts"
 		>
-			Возникли технические неполадки - зайдите позже!
+			{{ descr.error }}
 		</div>
 	</div>
 </template>
@@ -50,6 +53,7 @@ import { mapState } from 'vuex';
 @Component({
 	computed:	mapState({
 		lang: state => state.lang,
+		descr: state => state.descr,
 	})
 })
 export default class contactsMain extends Vue {

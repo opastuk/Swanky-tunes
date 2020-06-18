@@ -1,6 +1,11 @@
 <template>
 	<div>
 		<div class="demo">
+			<modal
+				v-if="showModal"
+				:error="error"
+				@close="showModal = false"
+			/>
 			<form
 				class="form"
 				@submit="sendForm"
@@ -62,7 +67,6 @@
 					{{ descr.demoForm.send }}
 				</button>
 			</form>
-			<p>{{ error }}</p>
 		</div>
 	</div>
 </template>
@@ -70,9 +74,13 @@
 <script>
 import { Component, Vue } from 'vue-property-decorator';
 import sendMail from '../api/email.js';
+import Modal from './Modal.vue';
 import { mapState } from 'vuex';
 
 @Component({
+	components: {
+		Modal,
+	},
 	computed:	mapState({
 		descr: state => state.descr,
 	})
@@ -90,17 +98,23 @@ export default class demoForm extends Vue {
 		url: null,
 	}
 
-	error = '';
+	error = false;
+
+	showModal = false;
 
 	 sendForm(e) {
-	 	this.error = '';
+	 	this.error = false;
 		if (this.formData.name && this.formData.mail && this.formData.url) {
 		 	sendMail.postMail(this.formData).then(() => {
 		 		this.formData.name = null;
 		 		this.formData.mail = null;
 		 		this.formData.url = null;
 		 		this.formData.comment = null;
-		 	}).catch((e) => this.error = 'Возникли технические неполадки, попробуйте позже');
+		 		this.showModal = true;
+		 	}).catch((e) => {
+		 		this.error = true;
+		 		this.showModal = true;
+		 	});
 		} else {
 			if (!this.formData.name) {
 				this.errors.name = this.validateErrors.name;
