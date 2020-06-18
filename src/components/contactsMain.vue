@@ -31,7 +31,7 @@
 						v-if="subcontact.phone"
 						class="contacts__value_phone"
 					>
-						tel | WhatsApp: {{ subcontact.phone }}
+						Tel | WhatsApp: {{ subcontact.phone }}
 					</p>
 				</div>
 			</div>
