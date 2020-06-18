@@ -57,8 +57,8 @@
 						class="track__buy-button"
 					>
 						<buy
-							width="35"
-							height="35"
+							width="30"
+							height="30"
 						/>
 					</a>
 					<a
@@ -67,8 +67,8 @@
 						class="track__buy-button"
 					>
 						<apple
-							width="35"
-							height="35"
+							width="30"
+							height="30"
 						/>
 					</a>
 					<a
@@ -77,8 +77,8 @@
 						class="track__buy-button"
 					>
 						<spotify
-							width="35"
-							height="35"
+							width="30"
+							height="30"
 						/>
 					</a>
 				</div>
@@ -350,6 +350,7 @@ export default class musicTrack extends Vue {
 		flex-direction: column;
     justify-content: space-evenly;
 		height: fit-content;
+		margin-bottom: 5px;
 	}
 
 </style>
