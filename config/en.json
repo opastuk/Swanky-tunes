@@ -19,8 +19,8 @@
       "url": "Enter your Music url"
     },
     "modal": {
-      "error": "Ошибка отправки, попробуйте позже.",
-      "success": "Демо отправлено"
+      "error": "Error, try again later.",
+      "success": "Sent successfully."
     }
   },
   "error": "Having technical problems, check back later!"
