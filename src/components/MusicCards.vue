@@ -119,6 +119,7 @@ export default class MusicCards extends Vue {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
+		margin: 0 auto;
   }
 
   &__item {
@@ -130,6 +131,18 @@ export default class MusicCards extends Vue {
     padding: 10px;
     box-sizing: border-box;
   }
+}
+
+@media (min-width: 770px) {
+	.music-cards__container {
+		width: 100%;
+	}
+}
+
+@media (min-width: 900px) {
+	.music-cards__container {
+		width: 950px;
+	}
 }
 
 @media (max-width: 1333px) {
