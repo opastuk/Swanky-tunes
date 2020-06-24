@@ -15,7 +15,7 @@
 					href="https://www.youtube.com/swankytuneslive"
 					target="_blank"
 					rel="noopener"
-				>{{ descr.menu.video }}</a>
+				>{{ descr.menu.videos }}</a>
 			</li>
 			<li class="sidebar__item">
 				<router-link
