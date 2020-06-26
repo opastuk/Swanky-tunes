@@ -21,14 +21,14 @@
 				<sidebarMenu v-if="sideBar" />
 			</transition>
 			<ul class="main-navigation__list">
-				<!--				<li class="main-navigation__item">-->
-				<!--					<router-link-->
-				<!--						class="main-navigation__link"-->
-				<!--						to="/music"-->
-				<!--					>-->
-				<!--						{{ descr.menu.music }}-->
-				<!--					</router-link>-->
-				<!--				</li>-->
+				<li class="main-navigation__item">
+					<router-link
+						class="main-navigation__link"
+						to="/music"
+					>
+						{{ descr.menu.music }}
+					</router-link>
+				</li>
 				<li class="main-navigation__item">
 					<a
 						class="main-navigation__link"
