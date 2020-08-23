@@ -33,7 +33,7 @@ export default class TourDates extends Vue {
 		}
   }
 
-	@media (min-width: 770px) {
+	@media (min-width: 920px) {
 		.dates {
 			.main-background();
 			&__container {

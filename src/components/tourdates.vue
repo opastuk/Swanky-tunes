@@ -56,7 +56,7 @@ export default class TourDates extends Vue {
   .bit-widget-container {
     width: 102%;
   }
-  @media (min-width: 770px) {
+  @media (min-width: 920px) {
     .dates__main {
       padding: 0 25px;
       margin-top: 20px;

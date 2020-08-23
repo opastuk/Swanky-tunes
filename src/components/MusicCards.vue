@@ -133,7 +133,7 @@ export default class MusicCards extends Vue {
   }
 }
 
-@media (min-width: 770px) {
+@media (min-width: 920px) {
 	.music-cards__container {
 		width: 100%;
 	}
@@ -141,7 +141,7 @@ export default class MusicCards extends Vue {
 
 @media (min-width: 900px) {
 	.music-cards__container {
-		width: 950px;
+		width: 900px;
 	}
 }
 

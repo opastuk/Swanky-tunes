@@ -46,7 +46,7 @@ export default class Contacts extends Vue {
     overflow-x: hidden;
   }
 
-  @media (min-width: 770px) {
+  @media (min-width: 920px) {
     .contacts {
 			.main-background();
       height: 100%;

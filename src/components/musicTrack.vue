@@ -286,7 +286,7 @@ export default class musicTrack extends Vue {
     width: 100%;
   }
 
-  @media (min-width: 770px) {
+  @media (min-width: 920px) {
 
     .track {
       margin-bottom: 15px;

@@ -198,7 +198,7 @@ export default class NavMenu extends Vue {
       background-color: transparent;
     }
   }
-  @media (min-width: 770px) {
+  @media (min-width: 920px) {
     .nav-menu {
       height: auto;
       width: 100%;

@@ -37,7 +37,7 @@ export default class DemoDrop extends Vue {
 			height: 100%;
 		}
   }
-  @media (min-width: 770px) {
+  @media (min-width: 920px) {
     .demo-drop {
 			.main-background();
       min-height: 620px;

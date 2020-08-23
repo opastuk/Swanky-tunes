@@ -192,7 +192,7 @@ export default class demoForm extends Vue {
   }
 }
 
-@media (min-width: 770px) {
+@media (min-width: 920px) {
   .demo {
     width: 580px;
     &__input {
