@@ -24,6 +24,12 @@
 					</p>
 					<p
 						class="contacts__value"
+						style="margin-bottom: 0"
+					>
+						{{ subcontact[`employee_name_${lang}`] }}
+					</p>
+					<p
+						class="contacts__value"
 					>
 						{{ subcontact.mail }}
 					</p>
